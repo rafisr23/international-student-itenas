@@ -591,12 +591,12 @@
         </div>
       </div>
     </section>
-    <!-- -------- END PRE-FOOTER 1 w/ SUBSCRIBE BUTTON AND IMAGE ------- -->
+    <!-- -------- END PRE-FOOTER 1 ------- -->
   </div>
-  <footer class="footer pt-5 mt-5">
+  <footer class="footer pt-3 mt-1">
     <div class="container">
       <div class=" row">
-        <div class="col-md-3 mb-4 ms-auto">
+        {{-- <div class="col-md-3 mb-4 ms-auto">
           <div>
             <a href="https://www.creative-tim.com/product/material-kit">
               <img src="/assets/img/logo-ct-dark.png" class="mb-3 footer-logo" alt="main_logo">
@@ -733,7 +733,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> --}}
         <div class="col-12">
           <div class="text-center">
             <p class="text-dark my-4 text-sm font-weight-normal">
