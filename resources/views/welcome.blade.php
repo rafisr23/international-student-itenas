@@ -334,7 +334,7 @@
             <h1 class="text-white">International Student</h1>
             <p class="lead mb-4 text-white opacity-8">We’re constantly trying to express ourselves and actualize our
               dreams. If you have the opportunity to play this game</p>
-            <button type="submit" class="btn bg-white text-dark">Register Here!</button>
+            <a type="submit" class="btn bg-white text-dark" href="/register">Register Here!</a>
             <h6 class="text-white mb-2 mt-5">Find us on</h6>
             <div class="d-flex justify-content-center">
               <a href="https://www.instagram.com/itenas.official/" target="_blank"><i
