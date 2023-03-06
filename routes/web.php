@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,21 +15,14 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/home', function () {
-//     return view('home');
-// });
-Auth::routes();
-
-Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
-Route::get('/biodata', function () {
-    return view('dashboard.biodata', [
-        'title' => 'Biodata',
-        'user' => Auth::user()
-    ]);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/biodata', [StudentController::class, 'biodata'])->name('biodata');
 });
 
 Route::get('/school', function () {
