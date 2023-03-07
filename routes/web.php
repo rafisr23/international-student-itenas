@@ -21,8 +21,9 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    // Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/biodata', [StudentController::class, 'biodata'])->name('biodata');
+    Route::post('/biodata/store', [StudentController::class, 'store'])->name('biodata.store');
 });
 
 Route::get('/school', function () {

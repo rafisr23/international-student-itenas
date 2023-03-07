@@ -28,7 +28,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="card">
-              <form action="">
+              <form action="/biodata/store" method="POST">
                 @csrf
                 <div class="card-body">
                   <p class="text-uppercase text-md text-bold">User Information</p>
@@ -40,7 +40,8 @@
                           class="form-control @error('first_name')
                           is-invalid
                         @enderror"
-                          type="text" value="Abdur Rafi" name="first_name" id="first_name" required>
+                          type="text" value="{{ old('first_name', $biodata->first_name) }}" name="first_name"
+                          id="first_name" required>
                         @error('first_name')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -53,7 +54,8 @@
                           class="form-control @error('last_name')
                           is-invalid
                         @enderror"
-                          type="text" value="Syach Ridwan" name="last_name" id="last_name" required>
+                          type="text" value="{{ old('last_name', $biodata->last_name) }}" name="last_name"
+                          id="last_name" required>
                         @error('last_name')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -66,7 +68,8 @@
                           class="form-control @error('phone_number')
                           is-invalid
                         @enderror"
-                          type="phone_number" value="08123456789" name="phone_number" id="phone_number" required>
+                          type="phone_number" value="{{ old('phone_number', $biodata->phone_number) }}"
+                          name="phone_number" id="phone_number" required>
                         @error('phone_number')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -96,8 +99,8 @@
                           class="form-control @error('address')
                           is-invalid
                         @enderror"
-                          type="text" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" name="address"
-                          id="address" required>
+                          type="text" value="{{ old('address', $biodata->address) }}" name="address" id="address"
+                          required>
                         @error('address')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -110,7 +113,8 @@
                           class="form-control @error('city')
                           is-invalid
                         @enderror"
-                          type="text" value="New York" name="city" id="city" required>
+                          type="text" value="{{ old('city', $biodata->city) }}" name="city" id="city"
+                          required>
                         @error('city')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -123,7 +127,8 @@
                           class="form-control @error('country')
                           is-invalid
                         @enderror"
-                          type="text" value="United States" name="country" id="country" required>
+                          type="text" value="{{ old('country', $biodata->country) }}" name="country" id="country"
+                          required>
                         @error('country')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -136,7 +141,8 @@
                           class="form-control @error('postal_code')
                           is-invalid
                         @enderror"
-                          type="text" value="437300" name="postal_code" id="postal_code" required>
+                          type="text" value="{{ old('postal_code', $biodata->postal_code) }}" name="postal_code"
+                          id="postal_code" required>
                         @error('postal_code')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -153,7 +159,7 @@
                           class="form-control @error('about_me')
                           is-invalid
                         @enderror"
-                          type="text" name="about_me" id="about_me" required>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, perferendis.</textarea>
+                          type="text" name="about_me" id="about_me" required>{{ old('about_me', $biodata->about_me) }}</textarea>
                         @error('about_me')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -169,4 +175,45 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('script')
+  <script>
+    const saveBio = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success ml-2',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+
+    function savebiodata() {
+      saveBio.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, save it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          saveBio.fire(
+            'Saved!',
+            'Your file has been saved.',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          saveBio.fire(
+            'Cancelled',
+            'Your imaginary file is safe :)',
+            'error'
+          )
+        }
+      })
+    }
+  </script>
 @endsection

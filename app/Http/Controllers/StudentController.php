@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,7 +11,37 @@ class StudentController extends Controller
     public function biodata() {
         return view('dashboard.biodata', [
             'title' => 'Biodata',
-            'user' => Auth::user()
+            'user' => Auth::user(),
+            'biodata' => Student::where('user_id', Auth::user()->id)->first()
         ]);
+    }
+
+    public function store(Request $request) {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone_number' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'postal_code' => 'required',
+            'about_me' => 'required'
+        ]);
+
+        Student::updateOrCreate(
+            ['user_id' => Auth::user()->id],
+            [
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'phone_number' => $request->phone_number,
+                'address' => $request->address,
+                'city' => $request->city,
+                'country' => $request->country,
+                'postal_code' => $request->postal_code,
+                'about_me' => $request->about_me
+            ]
+        );
+
+        return redirect()->route('biodata')->with('success', 'Biodata saved successfully!');
     }
 }

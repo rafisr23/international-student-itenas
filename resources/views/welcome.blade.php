@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="{{ url('assets/img/apple-icon.png') }}">
   <link rel="icon" type="image/png" href="{{ url('assets/img/logo-itenas.jpg') }}">
   <title>
-    International Student ITENAS
+    International Student Itenas
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css"
@@ -309,7 +309,7 @@
           <li class="nav-item my-auto ms-3 ms-lg-0">
             @if (Route::has('login'))
               @auth
-                <a href="{{ url('/home') }}" class="btn btn-sm bg-white mb-0 me-1 mt-2 mt-md-0"><i
+                <a href="{{ url('/biodata') }}" class="btn btn-sm bg-white mb-0 me-1 mt-2 mt-md-0"><i
                     class="material-icons opacity-6 me-2 text-md justify-align-center">home</i>Home</a>
               @else
                 @if (Route::has('register'))
@@ -353,45 +353,83 @@
   <!-- -------- END HEADER 7 w/ text and video ------- -->
   <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
     <!-- Section with four info areas left & one card right with image and waves -->
-    <section class="py-7">
+    <section class="py-5">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="row justify-content-start">
-              <div class="col-md-6">
-                <div class="info">
-                  <i class="material-icons text-3xl text-gradient text-info mb-3">public</i>
-                  <h5>Fully integrated</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info">
-                  <i class="material-icons text-3xl text-gradient text-info mb-3">payments</i>
-                  <h5>Payments functionality</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
-                </div>
-              </div>
+        {{-- <div class="row justify-content-center">
+          <div class="col-md-4">
+            <div class=" shadow-warning border-radius-lg">
+              <figure class="text-center mb-0 px-3 py-2 text-white text-bold">
+                <blockquote>
+                  <h3 class="font-weight-bold text-warning">Registration Information</h3>
+                </blockquote>
+                <figcaption class="blockquote-footer text-white">
+                  Someone famous in <cite title="Source Title">Source Title</cite>
+                </figcaption>
+              </figure>
             </div>
-            <div class="row justify-content-start mt-4">
-              <div class="col-md-6">
-                <div class="info">
-                  <i class="material-icons text-3xl text-gradient text-info mb-3">apps</i>
-                  <h5>Prebuilt components</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info">
-                  <i class="material-icons text-3xl text-gradient text-info mb-3">3p</i>
-                  <h5>Improved platform</h5>
-                  <p>We get insulted by others, lose trust for those We get back freezes</p>
-                </div>
-              </div>
+          </div>
+        </div> --}}
+        {{-- <hr class="horizontal dark"> --}}
+        <div class="row align-items-center">
+          {{-- <h4 class="text-center mb-0 text-warning">Registration Information</h4> --}}
+          <div class="col-lg-6">
+            <div class="row justify-content-center">
+              <img src="/assets/img/schedule-removebg.png" alt="" class="border-radius-lg">
             </div>
           </div>
           <div class="col-lg-4 ms-auto mt-lg-0 mt-4">
-            <div class="card">
+            <div class="row justify-content-center mb-5">
+              <div class="col-md-12 col-sm-6">
+                <a href="">
+                  <div class="card px-3 py-2">
+                    <div class="row align-items-center">
+                      <div class="col-md-8 col-sm-6">
+                        <i class="material-icons text-3xl text-gradient text-warning mb-3">app_registration</i>
+                        <h5>Registration Guides</h5>
+                      </div>
+                      <div class="col-md-4 col-sm-2">
+                        <i class="material-icons text-3xl text-gradient text-dark ms-5">chevron_right</i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="row justify-content-center mb-5">
+              <div class="col-md-12 col-sm-6">
+                <a href="">
+                  <div class="card px-3 py-2">
+                    <div class="row align-items-center">
+                      <div class="col-md-8 col-sm-6">
+                        <i class="material-icons text-3xl text-gradient text-warning mb-3">payments</i>
+                        <h5>Educational Cost</h5>
+                      </div>
+                      <div class="col-md-4 col-sm-2">
+                        <i class="material-icons text-3xl text-gradient text-dark ms-5">chevron_right</i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="row justify-content-center mb-5">
+              <div class="col-md-12 col-sm-6">
+                <a href="">
+                  <div class="card px-3 py-2">
+                    <div class="row align-items-center">
+                      <div class="col-md-8 col-sm-6">
+                        <i class="material-icons text-3xl text-gradient text-warning mb-3">route</i>
+                        <h5>Qualification Track</h5>
+                      </div>
+                      <div class="col-md-4 col-sm-2">
+                        <i class="material-icons text-3xl text-gradient text-dark ms-5">chevron_right</i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            {{-- <div class="card">
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <a class="d-block blur-shadow-image">
                   <img
@@ -409,7 +447,7 @@
                 </p>
                 <button type="button" class="btn bg-gradient-info btn-sm mb-0 mt-3">Find out more</button>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>
