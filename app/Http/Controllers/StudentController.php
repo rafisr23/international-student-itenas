@@ -9,10 +9,16 @@ use Illuminate\Support\Facades\Auth;
 class StudentController extends Controller
 {
     public function biodata() {
+        if(Student::where('user_id', Auth::user()->id)->first() == null) {
+            $biodata = null;
+        } else {
+            $biodata = Student::where('user_id', Auth::user()->id)->first();
+        }
+
         return view('dashboard.biodata', [
             'title' => 'Biodata',
             'user' => Auth::user(),
-            'biodata' => Student::where('user_id', Auth::user()->id)->first()
+            'biodata' => $biodata
         ]);
     }
 
@@ -42,6 +48,6 @@ class StudentController extends Controller
             ]
         );
 
-        return redirect()->route('biodata')->with('success', 'Biodata saved successfully!');
+        return redirect('/biodata')->with('success', 'Biodata saved successfully!');
     }
 }

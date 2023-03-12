@@ -310,7 +310,7 @@
             @if (Route::has('login'))
               @auth
                 <a href="{{ url('/biodata') }}" class="btn btn-sm bg-white mb-0 me-1 mt-2 mt-md-0"><i
-                    class="material-icons opacity-6 me-2 text-md justify-align-center">home</i>Home</a>
+                    class="material-icons opacity-6 me-2 text-md justify-align-center">home</i>Dashboard</a>
               @else
                 @if (Route::has('register'))
                   <a href="{{ route('register') }}" class="btn btn-sm btn-warning mb-0 me-1 mt-2 mt-md-0">Register</a>
@@ -450,6 +450,23 @@
             </div> --}}
           </div>
         </div>
+        <div class="row justify-content-center text-center" id="count-stats">
+          <div class="col-md-3">
+            <h1 class="text-gradient text-info"><span id="state1" countTo="4000">0</span>+</h1>
+            <h5>Students</h5>
+            <p>That meets quality standards required by industry</p>
+          </div>
+          <div class="col-md-3">
+            <h1 class="text-gradient text-info"><span id="state2" countTo="100">0</span>+</h1>
+            <h5>Lecturer</h5>
+            <p>That meets quality standards required by our users</p>
+          </div>
+          <div class="col-md-3">
+            <h1 class="text-gradient text-info"><span id="state3" countTo="24">0</span>/7</h1>
+            <h5>Support</h5>
+            <p>Actively engage team members that finishes on time</p>
+          </div>
+        </div>
       </div>
     </section>
     <!-- END Section with four info areas left & one card right with image and waves -->
@@ -556,7 +573,7 @@
       </div>
     </section>
     <!-- -------- END Features w/ pattern background & stats & rocket -------- -->
-    <section class="pt-4 pb-6" id="count-stats">
+    <section class="pt-4 pb-6">
       <div class="container">
         <div class="row mb-7">
           <div class="col-lg-2 col-md-4 col-6 mb-4">
@@ -576,23 +593,6 @@
           </div>
           <div class="col-lg-2 col-md-4 col-6 mb-4">
             <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-vodafone.svg" alt="logo">
-          </div>
-        </div>
-        <div class="row justify-content-center text-center">
-          <div class="col-md-3">
-            <h1 class="text-gradient text-info"><span id="state1" countTo="4000">0</span>+</h1>
-            <h5>Students</h5>
-            <p>That meets quality standards required by industry</p>
-          </div>
-          <div class="col-md-3">
-            <h1 class="text-gradient text-info"><span id="state2" countTo="100">0</span>+</h1>
-            <h5>Lecturer</h5>
-            <p>That meets quality standards required by our users</p>
-          </div>
-          <div class="col-md-3">
-            <h1 class="text-gradient text-info"><span id="state3" countTo="24">0</span>/7</h1>
-            <h5>Support</h5>
-            <p>Actively engage team members that finishes on time</p>
           </div>
         </div>
       </div>
