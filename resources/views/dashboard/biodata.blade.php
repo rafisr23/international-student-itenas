@@ -17,9 +17,9 @@
                 <h5 class="mb-1">
                   {{ $user->name }}
                 </h5>
-                <p class="mb-0 font-weight-bold text-sm">
+                {{-- <p class="mb-0 font-weight-bold text-sm">
                   Informatics Engineering
-                </p>
+                </p> --}}
               </div>
             </div>
           </div>
@@ -38,14 +38,12 @@
                       <div class="form-group">
                         <label for="first_name" class="form-control-label">First name</label>
                         <input
-                          class="form-control @error('first_name')
+                          class="form-control @error('firs_name')
                           is-invalid
                         @enderror"
-                          type="text"
-                          value="@if ($biodata) {{ old('first_name', $biodata->first_name) }}
-                          @else
-                            {{ old('first_name') }} @endif "
-                          name="first_name" id="first_name" required>
+                          placeholder="First Name" type="text"
+                          value="{{ $biodata == null ? old('first_name') : old('first_name', $biodata->first_name) }}"
+                          name="firs_name" id="firs_name" required>
                         @error('first_name')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -59,10 +57,8 @@
                           is-invalid
                         @enderror"
                           type="text"
-                          value="@if ($biodata) {{ old('last_name', $biodata->last_name) }}
-                          @else
-                            {{ old('last_name') }} @endif"
-                          name="last_name" id="last_name" required>
+                          value="{{ $biodata == null ? old('last_name') : old('last_name', $biodata->last_name) }}"
+                          name="last_name" id="last_name" placeholder="Last Name" required>
                         @error('last_name')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -75,11 +71,9 @@
                           class="form-control @error('phone_number')
                           is-invalid
                         @enderror"
-                          type="phone_number"
-                          value="@if ($biodata) {{ old('phone_number', $biodata->phone_number) }}
-                          @else
-                            {{ old('phone_number') }} @endif"
-                          name="phone_number" id="phone_number" required>
+                          type="text"
+                          value="{{ $biodata == null ? old('phone_number') : old('phone_number', $biodata->phone_number) }}"
+                          name="phone_number" id="phone_number" placeholder="Phone Number" required>
                         @error('phone_number')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -92,11 +86,9 @@
                           class="form-control @error('email')
                           is-invalid
                         @enderror"
-                          type="email"
-                          value="@if ($biodata) {{ old('email', $user->email) }}
-                          @else
-                            {{ old('email') }} @endif"
-                          name="email" id="email" required>
+                          placeholder="Email" type="email"
+                          value="{{ $biodata == null ? old('email') : old('email', $biodata->email) }}" name="email"
+                          id="email" required>
                         @error('email')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -114,10 +106,8 @@
                           is-invalid
                         @enderror"
                           type="text"
-                          value="@if ($biodata) {{ old('address', $biodata->address) }}
-                          @else
-                            {{ old('address') }} @endif"
-                          name="address" id="address" required>
+                          value="{{ $biodata == null ? old('address') : old('address', $biodata->address) }}"
+                          name="address" id="address" placeholder="Address" required>
                         @error('address')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -130,11 +120,8 @@
                           class="form-control @error('city')
                           is-invalid
                         @enderror"
-                          type="text"
-                          value="@if ($biodata) {{ old('city', $biodata->city) }}
-                          @else
-                            {{ old('city') }} @endif"
-                          name="city" id="city" required>
+                          type="text" value="{{ $biodata == null ? old('city') : old('city', $biodata->city) }}"
+                          name="city" id="city" placeholder="City" required>
                         @error('city')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -148,10 +135,8 @@
                           is-invalid
                         @enderror"
                           type="text"
-                          value="@if ($biodata) {{ old('country', $biodata->country) }}
-                          @else
-                            {{ old('country') }} @endif"
-                          name="country" id="country" required>
+                          value="{{ $biodata == null ? old('country') : old('country', $biodata->country) }}"
+                          name="country" id="country" placeholder="Country" required>
                         @error('country')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -165,10 +150,8 @@
                           is-invalid
                         @enderror"
                           type="text"
-                          value="@if ($biodata) {{ old('country', $biodata->country) }}
-                          @else
-                            {{ old('country') }} @endif"
-                          name="postal_code" id="postal_code" required>
+                          value="{{ $biodata == null ? old('postal_code') : old('postal_code', $biodata->postal_code) }}"
+                          name="postal_code" id="postal_code" placeholder="Postal Code" required>
                         @error('postal_code')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -186,12 +169,12 @@
                             class="form-control @error('about_me')
                           is-invalid
                         @enderror"
-                            type="text" name="about_me" id="about_me" required>{{ old('about_me', $biodata->about_me) }}</textarea>
+                            type="text" name="about_me" id="about_me" placeholder="About Me" required>{{ old('about_me', $biodata->about_me) }}</textarea>
                         @else
                           <textarea class="form-control @error('about_me')
                         is-invalid
                       @enderror"
-                            type="text" name="about_me" id="about_me" required>{{ old('about_me') }}</textarea>
+                            type="text" name="about_me" id="about_me" placeholder="About Me" required>{{ old('about_me') }}</textarea>
                         @endif
                         @error('about_me')
                           <div class="alert alert-danger">{{ $message }}</div>
