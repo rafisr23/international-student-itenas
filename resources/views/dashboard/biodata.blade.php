@@ -41,8 +41,7 @@
                           class="form-control @error('firs_name')
                           is-invalid
                         @enderror"
-                          placeholder="First Name" type="text"
-                          value="{{ $biodata == null ? old('first_name') : old('first_name', $biodata->first_name) }}"
+                          placeholder="First Name" type="text" value="{{ explode(' ', Auth::user()->name, 2)[0] }}"
                           name="firs_name" id="firs_name" required>
                         @error('first_name')
                           <div class="alert alert-danger">{{ $message }}</div>
@@ -56,9 +55,8 @@
                           class="form-control @error('last_name')
                           is-invalid
                         @enderror"
-                          type="text"
-                          value="{{ $biodata == null ? old('last_name') : old('last_name', $biodata->last_name) }}"
-                          name="last_name" id="last_name" placeholder="Last Name" required>
+                          type="text" value="{{ explode(' ', Auth::user()->name, 2)[1] }}" name="last_name"
+                          id="last_name" placeholder="Last Name" required>
                         @error('last_name')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
