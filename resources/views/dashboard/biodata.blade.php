@@ -38,13 +38,14 @@
                       <div class="form-group">
                         <label for="first_name" class="form-control-label">First name</label>
                         <input
-                          class="form-control @error('firs_name')
+                          class="form-control @error('first_name')
                           is-invalid
                         @enderror"
-                          placeholder="First Name" type="text" value="{{ explode(' ', Auth::user()->name, 2)[0] }}"
-                          name="firs_name" id="firs_name" required>
+                          placeholder="First Name" type="text"
+                          value="{{ $biodata == null ? old('first_name', explode(' ', Auth::user()->name, 2)[0]) : old('first_name', $biodata->first_name) }}"
+                          name="first_name" id="first_name">
                         @error('first_name')
-                          <div class="alert alert-danger">{{ $message }}</div>
+                          <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                       </div>
                     </div>
@@ -55,10 +56,11 @@
                           class="form-control @error('last_name')
                           is-invalid
                         @enderror"
-                          type="text" value="{{ explode(' ', Auth::user()->name, 2)[1] }}" name="last_name"
-                          id="last_name" placeholder="Last Name" required>
+                          type="text"
+                          value="{{ $biodata == null ? old('last_name', explode(' ', Auth::user()->name, 2)[0]) : old('last_name', $biodata->last_name) }}"
+                          name="last_name" id="last_name" placeholder="Last Name" required>
                         @error('last_name')
-                          <div class="alert alert-danger">{{ $message }}</div>
+                          <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                       </div>
                     </div>
@@ -73,7 +75,7 @@
                           value="{{ $biodata == null ? old('phone_number') : old('phone_number', $biodata->phone_number) }}"
                           name="phone_number" id="phone_number" placeholder="Phone Number" required>
                         @error('phone_number')
-                          <div class="alert alert-danger">{{ $message }}</div>
+                          <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                       </div>
                     </div>
@@ -84,11 +86,10 @@
                           class="form-control @error('email')
                           is-invalid
                         @enderror"
-                          placeholder="Email" type="email"
-                          value="{{ $biodata == null ? old('email') : old('email', $biodata->email) }}" name="email"
+                          placeholder="Email" type="email" value="{{ Auth::user()->email }}" name="email"
                           id="email" required>
                         @error('email')
-                          <div class="alert alert-danger">{{ $message }}</div>
+                          <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                       </div>
                     </div>
@@ -107,7 +108,7 @@
                           value="{{ $biodata == null ? old('address') : old('address', $biodata->address) }}"
                           name="address" id="address" placeholder="Address" required>
                         @error('address')
-                          <div class="alert alert-danger">{{ $message }}</div>
+                          <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                       </div>
                     </div>
@@ -121,7 +122,7 @@
                           type="text" value="{{ $biodata == null ? old('city') : old('city', $biodata->city) }}"
                           name="city" id="city" placeholder="City" required>
                         @error('city')
-                          <div class="alert alert-danger">{{ $message }}</div>
+                          <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                       </div>
                     </div>
@@ -136,7 +137,7 @@
                           value="{{ $biodata == null ? old('country') : old('country', $biodata->country) }}"
                           name="country" id="country" placeholder="Country" required>
                         @error('country')
-                          <div class="alert alert-danger">{{ $message }}</div>
+                          <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                       </div>
                     </div>
@@ -151,7 +152,7 @@
                           value="{{ $biodata == null ? old('postal_code') : old('postal_code', $biodata->postal_code) }}"
                           name="postal_code" id="postal_code" placeholder="Postal Code" required>
                         @error('postal_code')
-                          <div class="alert alert-danger">{{ $message }}</div>
+                          <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                       </div>
                     </div>
@@ -175,7 +176,7 @@
                             type="text" name="about_me" id="about_me" placeholder="About Me" required>{{ old('about_me') }}</textarea>
                         @endif
                         @error('about_me')
-                          <div class="alert alert-danger">{{ $message }}</div>
+                          <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                       </div>
                     </div>
