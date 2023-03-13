@@ -53,9 +53,9 @@
 
                     <span>Sign Out</span>
                   </button>
-                  <form action="/logout" method="POST">
+                  {{-- <form action="/logout" method="POST">
                     @csrf
-                  </form>
+                  </form> --}}
                 </div>
               </a>
             </li>
@@ -70,19 +70,19 @@
             </div>
           </a>
         </li>
-        <li class="nav-item px-3 d-flex align-items-center">
+        {{-- <li class="nav-item px-3 d-flex align-items-center">
           <a href="javascript:;" class="nav-link text-white p-0">
             <div class="form-check form-switch ps-0 ms-auto my-auto">
               <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
             </div>
           </a>
-        </li>
+        </li> --}}
         {{-- <li class="nav-item px-3 d-flex align-items-center">
           <a href="javascript:;" class="nav-link text-white p-0">
             <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
           </a>
         </li> --}}
-        <li class="nav-item dropdown pe-2 d-flex align-items-center">
+        {{-- <li class="nav-item dropdown pe-2 d-flex align-items-center">
           <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
             aria-expanded="false">
             <i class="fa fa-bell cursor-pointer"></i>
@@ -161,7 +161,7 @@
               </a>
             </li>
           </ul>
-        </li>
+        </li> --}}
       </ul>
     </div>
   </div>
