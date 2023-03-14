@@ -27,11 +27,10 @@
       <div class="col-12">
         <!-- Navbar -->
         <nav
-          class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
+          class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-3 start-0 end-0 mx-4">
           <div class="">
-            <img src="/assets/img/logo-itenas.jpg" alt="" width="35" class="me-1">
             <a class="navbar-brand font-weight-bolder ms-lg-0 ms-5 text-warning fs-4 align-items-center" href="/">
-              Institut Teknologi Nasional
+              <img src="/assets/img/itenas-logo-full.png" alt="" width="160" class="me-1">
             </a>
           </div>
       </div>
