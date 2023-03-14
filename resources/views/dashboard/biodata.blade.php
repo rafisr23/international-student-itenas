@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-  {{-- @dd(session()->all()) --}}
   <div class="row">
     <div class="col">
       <div class="card">
@@ -192,43 +191,26 @@
   </div>
 @endsection
 
-{{-- @section('script')
-  <script>
-    const saveBio = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success ml-2',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false
-    })
-
-    function savebiodata() {
-      saveBio.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes, save it!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
-      }).then((result) => {
-        if (result.isConfirmed) {
-          saveBio.fire(
-            'Saved!',
-            'Your file has been saved.',
-            'success'
-          )
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          saveBio.fire(
-            'Cancelled',
-            'Your imaginary file is safe :)',
-            'error'
-          )
-        }
+@section('script')
+  @if (session('success'))
+    <script>
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: '{{ session('success') }}',
+        showConfirmButton: false,
+        timer: 2000
       })
-    }
-  </script>
-@endsection --}}
+    </script>
+  @elseif (session('error'))
+    <script>
+      Swal.fire({
+        icon: 'warning',
+        // title: 'Peringatan',
+        title: "{{ session('error') }}",
+        showConfirmButton: false,
+        timer: 2000
+      })
+    </script>
+  @endif
+@endsection

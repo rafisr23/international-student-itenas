@@ -254,27 +254,7 @@
       })
     }
   </script>
-  @if (session('success'))
-    <script>
-      Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: {{ session('success') }},
-        showConfirmButton: false,
-        timer: 1500
-      })
-    </script>
-  @elseif (session('error'))
-    <script>
-      Swal.fire({
-        icon: 'warning',
-        // title: 'Peringatan',
-        title: "{{ session('error') }}",
-        showConfirmButton: false,
-        timer: 1500
-      })
-    </script>
-  @endif
+
 </body>
 
 </html>
