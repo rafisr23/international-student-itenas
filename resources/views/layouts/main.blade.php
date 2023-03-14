@@ -231,7 +231,8 @@
 
     function signout() {
       swalSignOut.fire({
-        title: 'Are you sure?',
+        title: 'Sign out',
+        text: "Are you sure you want to sign out?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Yes, sign out!',
@@ -247,7 +248,6 @@
             },
             success: function(data) {
               window.location.href = "/login";
-              // location.reload();
             }
           });
         }

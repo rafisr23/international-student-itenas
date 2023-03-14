@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body ">
           <div class="row gx-4">
             <div class="col-auto">
               <div class="avatar avatar-xl position-relative">

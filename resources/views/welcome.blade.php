@@ -28,11 +28,12 @@
 
 <body class="about-us bg-gray-200">
   <!-- Navbar Transparent -->
-  <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
+  <nav
+    class="navbar navbar-expand-lg position-fixed top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent bg-secondary mt-0">
     <div class="container">
       <a class="navbar-brand  text-white  " href="https://demos.creative-tim.com/material-kit/presentation"
         rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-        International Student ITENAS
+        <img src="/assets/img/itenas-logo-full.png" alt="" width="150">
       </a>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
         data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -325,7 +326,7 @@
   </nav>
   <!-- End Navbar -->
   <!-- -------- START HEADER 7 w/ text and video ------- -->
-  <header class="bg-gradient-dark">
+  <header class="bg-gradient-dark mt-6">
     <div class="page-header min-vh-75" style="background-image: url('/assets/img/itenas-depan.png');">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
