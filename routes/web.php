@@ -26,7 +26,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/biodata/store', [StudentController::class, 'store'])->name('biodata.store');
 });
 
-Route::get('/school', function () {
+Route::get('/applicant-form', function () {
     return view('dashboard.school', [
         'title' => 'School Information',
         'user' => Auth::user()
