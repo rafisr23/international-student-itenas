@@ -28,7 +28,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/applicant-form', function () {
     return view('dashboard.school', [
-        'title' => 'School Information',
+        'title' => 'Applicant Form',
         'user' => Auth::user()
     ]);
 });
