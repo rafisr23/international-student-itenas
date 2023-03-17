@@ -23,6 +23,8 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ url('assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
   <link rel="stylesheet" href="{{ url('assets/css/dropify.css') }}">
+  {{-- CSS lib --}}
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -117,9 +119,10 @@
     </div>
   </div> --}}
   <!--   Core JS Files   -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="{{ url('assets/js/dropify.js') }}"></script>
   <script src="{{ url('assets/js/core/popper.min.js') }}"></script>
   <script src="{{ url('assets/js/core/bootstrap.min.js') }}"></script>
