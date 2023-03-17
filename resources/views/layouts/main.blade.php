@@ -22,6 +22,7 @@
   <link href="{{ url('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ url('assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url('assets/css/dropify.css') }}">
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -119,6 +120,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script src="{{ url('assets/js/dropify.js') }}"></script>
   <script src="{{ url('assets/js/core/popper.min.js') }}"></script>
   <script src="{{ url('assets/js/core/bootstrap.min.js') }}"></script>
   <script src="{{ url('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
@@ -218,8 +220,8 @@
     }
   </script>
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{ url('assets/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
+  {{-- sweet alert --}}
   <script>
     const swalSignOut = Swal.mixin({
       customClass: {
@@ -253,6 +255,10 @@
         }
       })
     }
+  </script>
+  // dropify
+  <script>
+    $('.dropify').dropify();
   </script>
 
 </body>
