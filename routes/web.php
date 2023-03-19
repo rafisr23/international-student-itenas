@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 
@@ -24,11 +25,6 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/biodata', [StudentController::class, 'biodata'])->name('biodata');
     Route::post('/biodata/store', [StudentController::class, 'store'])->name('biodata.store');
-});
-
-Route::get('/applicant-form', function () {
-    return view('dashboard.school', [
-        'title' => 'Applicant Form',
-        'user' => Auth::user()
-    ]);
+    Route::get('/applicant-form', [FormController::class, 'index'])->name('applicant-form');
+    Route::post('/applicant-form/store', [FormController::class, 'store'])->name('applicant-form.store');
 });

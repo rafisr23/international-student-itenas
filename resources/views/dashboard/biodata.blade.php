@@ -56,7 +56,7 @@
                           is-invalid
                         @enderror"
                           type="text"
-                          value="{{ $biodata == null ? old('last_name', explode(' ', Auth::user()->name, 2)[0]) : old('last_name', $biodata->last_name) }}"
+                          value="{{ $biodata == null ? old('last_name', explode(' ', Auth::user()->name, 2)[1]) : old('last_name', $biodata->last_name) }}"
                           name="last_name" id="last_name" placeholder="Last Name" required>
                         @error('last_name')
                           <div class="invalid-feedback">{{ $message }}</div>

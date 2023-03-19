@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="card">
-    <form action="">
+    <form action="/applicant-form/store" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="card-body">
         <p class="text-uppercase text-md text-bold">Education</p>
@@ -13,7 +13,8 @@
               <input class="form-control @error('high_school')
                 is-invalid
               @enderror"
-                placeholder="High School" type="text" name="high_school" id="high_school">
+                placeholder="High School" type="text" name="high_school" id="high_school"
+                value="{{ $form == null ? old('high_school') : old('high_school', $form->high_school) }}" required>
               @error('high_school')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
@@ -25,7 +26,8 @@
               <input class="form-control @error('grad_date')
                 is-invalid
               @enderror"
-                type="date" name="grad_date" id="grad_date" placeholder="Last Name" required>
+                type="date" name="grad_date" id="grad_date" placeholder="Last Name"
+                value="{{ $form == null ? old('grad_date') : old('grad_date', $form->grad_date) }}" required>
               @error('grad_date')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
@@ -37,7 +39,9 @@
               <input class="form-control @error('school_address')
                   is-invalid
                 @enderror"
-                type="text" name="school_address" id="school_address" placeholder="School Address" required>
+                type="text" name="school_address" id="school_address" placeholder="School Address"
+                value="{{ $form == null ? old('school_address') : old('school_address', $form->school_address) }}"
+                required>
               @error('school_address')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
@@ -49,7 +53,8 @@
               <input class="form-control @error('school_city')
                   is-invalid
                 @enderror"
-                type="text" name="school_city" id="school_city" placeholder="School City" required>
+                type="text" name="school_city" id="school_city" placeholder="School City"
+                value="{{ $form == null ? old('school_city') : old('school_city', $form->school_city) }}" required>
               @error('school_city')
                 <div class="invalid-feedback">{{ $message }}</div>
               @enderror
@@ -61,7 +66,9 @@
               <input class="form-control @error('school_country')
                   is-invalid
                 @enderror"
-                type="text" name="school_country" id="school_country" placeholder="School Country" required>
+                type="text" name="school_country" id="school_country" placeholder="School Country"
+                value="{{ $form == null ? old('school_country') : old('school_country', $form->school_country) }}"
+                required>
               {{-- <select class="form-control school_country" name="school_country" style="width: 100%; height: 100%">
                 <option></option>
                 <option value="">ANJAY</option>
@@ -79,6 +86,7 @@
                   is-invalid
                 @enderror"
                 type="text" name="school_postal_code" id="school_postal_code" placeholder="School Postal Code"
+                value="{{ $form == null ? old('school_postal_code') : old('school_postal_code', $form->school_postal_code) }}"
                 required>
               @error('school_postal_code')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -92,23 +100,27 @@
           <div class="col-md-4">
             <div class="form-group">
               <label for="" class="form-control-label">High School Certificate</label>
-              <input type="file" class="dropify form-control" data-height="90" name="high_school_certif" />
+              <input type="file" class="dropify form-control" data-height="90" name="high_school_certif"
+                data-default-file="{{ $form_certif == null ? old('high_school_certif') : old('high_school_certif', asset('storage/' . $form->high_school_certif)) }}" />
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label for="" class="form-control-label">High School Transcript</label>
-              <input type="file" class="dropify form-control" data-height="90" name="high_school_transcript" />
+              <input type="file" class="dropify form-control" data-height="90" name="high_school_transcript"
+                data-default-file="{{ $form_transcript == null ? old('high_school_transcript') : old('high_school_transcript', asset('storage/' . $form->high_school_transcript)) }}" />
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label for="" class="form-control-label">Copy of Passport</label>
-              <input type="file" class="dropify form-control" data-height="90" name="passport" />
+              <input type="file" class="dropify form-control" data-height="90" name="passport"
+                data-default-file="{{ $form_passport == null ? old('passport') : old('passport', asset('storage/' . $form->passport)) }}" />
             </div>
           </div>
         </div>
       </div>
+      <button type="submit" value="submit" class="btn btn-success px-5 btn-md me-auto ms-3">Submit</button>
     </form>
   </div>
 @endsection
@@ -122,4 +134,26 @@
       });
     })
   </script>
+
+  @if (session('success'))
+    <script>
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: '{{ session('success') }}',
+        showConfirmButton: false,
+        timer: 2000
+      })
+    </script>
+  @elseif (session('error'))
+    <script>
+      Swal.fire({
+        icon: 'warning',
+        // title: 'Peringatan',
+        title: "{{ session('error') }}",
+        showConfirmButton: false,
+        timer: 2000
+      })
+    </script>
+  @endif
 @endsection
