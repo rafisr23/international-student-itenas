@@ -259,7 +259,6 @@
       })
     }
   </script>
-  // dropify
   <script>
     $('.dropify').dropify();
   </script>
