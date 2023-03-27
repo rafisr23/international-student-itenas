@@ -28,8 +28,7 @@
 
 <body class="about-us bg-gray-200">
   <!-- Navbar Transparent -->
-  <nav
-    class="navbar navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-3 shadow position-fixed my-2 start-0 end-0 mx-4">
+  <nav class="navbar navbar-expand-lg blur top-0 z-index-3 shadow position-fixed start-0 end-0">
     <div class="container">
       <a class="navbar-brand  text-white  " href="https://demos.creative-tim.com/material-kit/presentation"
         rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
@@ -46,12 +45,11 @@
       <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
         <ul class="navbar-nav navbar-nav-hover ms-auto">
           <li class="nav-item dropdown dropdown-hover ms-lg-6">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
               id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="material-icons opacity-6 me-2 text-md">apartment</i>
               Faculty
-              <img src="/assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
+              <img src="/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
             </a>
             <ul
               class="dropdown-menu dropdown-menu-animation dropdown-menu-end dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3"
@@ -248,12 +246,11 @@
 
           </li>
           <li class="nav-item dropdown dropdown-hover mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
               id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="material-icons opacity-6 me-2 text-md">info</i>
               Information
-              <img src="/assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
+              <img src="/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
             </a>
             <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3"
               aria-labelledby="dropdownMenuPages8">
@@ -299,14 +296,14 @@
               </div>
             </div>
           </li>
-          <li class="nav-item ms-lg-auto">
+          {{-- <li class="nav-item ms-lg-auto">
             <a class="nav-link nav-link-icon me-2" href="https://github.com/creativetimofficial/soft-ui-design-system"
               target="_blank">
               <i class="fa fa-github me-1"></i>
               <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
                 data-bs-placement="bottom" title="Star us on Github">Github</p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item my-auto ms-3 ms-lg-0">
             @if (Route::has('login'))
               @auth
@@ -331,12 +328,12 @@
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-8 text-center mx-auto my-auto">
+          <div class="col-lg-8 text-center mx-auto mt-4">
             <h1 class="text-white">International Student</h1>
             <p class="lead mb-4 text-white opacity-8">We’re constantly trying to express ourselves and actualize our
               dreams. If you have the opportunity to play this game</p>
             <a type="submit" class="btn bg-white text-dark" href="/register">Register Here!</a>
-            <h6 class="text-white mb-2 mt-5">Find us on</h6>
+            <h6 class="text-white mb-2 mt-3">Find us on</h6>
             <div class="d-flex justify-content-center">
               <a href="https://www.instagram.com/itenas.official/" target="_blank"><i
                   class="fab fa-instagram text-lg text-white me-4"></i></a>
@@ -388,9 +385,9 @@
                         <i class="material-icons text-3xl text-gradient text-warning mb-3">app_registration</i>
                         <h5>Registration Guides</h5>
                       </div>
-                      <div class="col-md-4 col-sm-2">
+                      {{-- <div class="col-md-4 col-sm-2">
                         <i class="material-icons text-3xl text-gradient text-dark ms-5">chevron_right</i>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </a>
@@ -405,9 +402,9 @@
                         <i class="material-icons text-3xl text-gradient text-warning mb-3">payments</i>
                         <h5>Educational Cost</h5>
                       </div>
-                      <div class="col-md-4 col-sm-2">
+                      {{-- <div class="col-md-4 col-sm-2">
                         <i class="material-icons text-3xl text-gradient text-dark ms-5">chevron_right</i>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </a>
@@ -422,9 +419,9 @@
                         <i class="material-icons text-3xl text-gradient text-warning mb-3">route</i>
                         <h5>Qualification Track</h5>
                       </div>
-                      <div class="col-md-4 col-sm-2">
+                      {{-- <div class="col-md-4 col-sm-2">
                         <i class="material-icons text-3xl text-gradient text-dark ms-5">chevron_right</i>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </a>
@@ -453,6 +450,11 @@
         </div>
         <div class="row justify-content-center text-center" id="count-stats">
           <div class="col-md-3">
+            <h1 class="text-gradient text-info"><span id="state3" countTo="14"></h1>
+            <h5>Major</h5>
+            <p>Actively engage team members that finishes on time</p>
+          </div>
+          <div class="col-md-3">
             <h1 class="text-gradient text-info"><span id="state1" countTo="4000">0</span>+</h1>
             <h5>Students</h5>
             <p>That meets quality standards required by industry</p>
@@ -461,11 +463,6 @@
             <h1 class="text-gradient text-info"><span id="state2" countTo="100">0</span>+</h1>
             <h5>Lecturer</h5>
             <p>That meets quality standards required by our users</p>
-          </div>
-          <div class="col-md-3">
-            <h1 class="text-gradient text-info"><span id="state3" countTo="24">0</span>/7</h1>
-            <h5>Support</h5>
-            <p>Actively engage team members that finishes on time</p>
           </div>
         </div>
       </div>
@@ -476,7 +473,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 text-start mb-5 mt-5">
-            <h3 class="text-white z-index-1 position-relative">The Executive Team</h3>
+            <h3 class="text-white z-index-1 position-relative">Testimonial</h3>
             <p class="text-white opacity-8 mb-0">There’s nothing I really wanted to do in life that I wasn’t able to
               get good at. That’s my skill.</p>
           </div>
@@ -495,7 +492,7 @@
                 <div class="col-lg-8 col-md-6 col-12 my-auto">
                   <div class="card-body ps-lg-0">
                     <h5 class="mb-0">Emma Roberts</h5>
-                    <h6 class="text-info">UI Designer</h6>
+                    <h6 class="text-info">Informatics - 2020</h6>
                     <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an
                       art.</p>
                   </div>
@@ -516,7 +513,7 @@
                 <div class="col-lg-8 col-md-6 col-12 my-auto">
                   <div class="card-body ps-lg-0">
                     <h5 class="mb-0">William Pearce</h5>
-                    <h6 class="text-info">Boss</h6>
+                    <h6 class="text-info">Civil Engineering - 2019</h6>
                     <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an
                       art.</p>
                   </div>
@@ -540,7 +537,7 @@
                 <div class="col-lg-8 col-md-6 col-12 my-auto">
                   <div class="card-body ps-lg-0">
                     <h5 class="mb-0">Ivana Flow</h5>
-                    <h6 class="text-info">Athlete</h6>
+                    <h6 class="text-info">Architecture - 2020</h6>
                     <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an
                       art.</p>
                   </div>
@@ -562,7 +559,7 @@
                 <div class="col-lg-8 col-md-6 col-12 my-auto">
                   <div class="card-body ps-lg-0">
                     <h5 class="mb-0">Marquez Garcia</h5>
-                    <h6 class="text-info">JS Developer</h6>
+                    <h6 class="text-info">Information System - 2019</h6>
                     <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an
                       art.</p>
                   </div>
@@ -574,7 +571,7 @@
       </div>
     </section>
     <!-- -------- END Features w/ pattern background & stats & rocket -------- -->
-    <section class="pt-4 pb-6">
+    {{-- <section class="pt-4 pb-6">
       <div class="container">
         <div class="row mb-7">
           <div class="col-lg-2 col-md-4 col-6 mb-4">
@@ -597,7 +594,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- -------- START PRE-FOOTER 1 w/ SUBSCRIBE BUTTON AND IMAGE ------- -->
     <section class="my-5 pt-5">
       <div class="container">
