@@ -16,12 +16,14 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Auth::routes();
+Auth::routes([
+    'verify' => true,
+]);
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/biodata', [StudentController::class, 'biodata'])->name('biodata');
     Route::post('/biodata/store', [StudentController::class, 'store'])->name('biodata.store');
