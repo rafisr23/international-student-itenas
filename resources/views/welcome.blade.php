@@ -67,12 +67,23 @@
                     </div>
                   </a>
                   <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                    <a class="dropdown-item ps-3 border-radius-md mb-1"
-                      href="../sections/page-sections/hero-sections.html">
-                      Page Headers
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Electrical Engineering
                     </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/page-sections/features.html">
-                      Features
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Mechanical Engineering
+                    </a>
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Industrial Engineering
+                    </a>
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Chemical Engineering
+                    </a>
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Informatics
+                    </a>
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Information System
                     </a>
                   </div>
                 </li>
@@ -88,14 +99,17 @@
                     </div>
                   </a>
                   <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/navigation/navbars.html">
-                      Navbars
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Civil Engineering
                     </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/navigation/nav-tabs.html">
-                      Nav Tabs
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Geodetic Engineering
                     </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/navigation/pagination.html">
-                      Pagination
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Urban and Regional Planning
+                    </a>
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Environmental Engineering
                     </a>
                   </div>
                 </li>
@@ -111,11 +125,17 @@
                     </div>
                   </a>
                   <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/input-areas/inputs.html">
-                      Inputs
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Architecture
                     </a>
-                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="../sections/input-areas/forms.html">
-                      Forms
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Interior Design
+                    </a>
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Product Design
+                    </a>
+                    <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                      Visual Communication Design
                     </a>
                   </div>
                 </li>
@@ -296,14 +316,6 @@
               </div>
             </div>
           </li>
-          {{-- <li class="nav-item ms-lg-auto">
-            <a class="nav-link nav-link-icon me-2" href="https://github.com/creativetimofficial/soft-ui-design-system"
-              target="_blank">
-              <i class="fa fa-github me-1"></i>
-              <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
-                data-bs-placement="bottom" title="Star us on Github">Github</p>
-            </a>
-          </li> --}}
           <li class="nav-item my-auto ms-3 ms-lg-0">
             @if (Route::has('login'))
               @auth
@@ -353,21 +365,6 @@
     <!-- Section with four info areas left & one card right with image and waves -->
     <section class="py-5">
       <div class="container">
-        {{-- <div class="row justify-content-center">
-          <div class="col-md-4">
-            <div class=" shadow-warning border-radius-lg">
-              <figure class="text-center mb-0 px-3 py-2 text-white text-bold">
-                <blockquote>
-                  <h3 class="font-weight-bold text-warning">Registration Information</h3>
-                </blockquote>
-                <figcaption class="blockquote-footer text-white">
-                  Someone famous in <cite title="Source Title">Source Title</cite>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-        </div> --}}
-        {{-- <hr class="horizontal dark"> --}}
         <div class="row align-items-center">
           {{-- <h4 class="text-center mb-0 text-warning">Registration Information</h4> --}}
           <div class="col-lg-6">
@@ -402,9 +399,6 @@
                         <i class="material-icons text-3xl text-gradient text-warning mb-3">payments</i>
                         <h5>Educational Cost</h5>
                       </div>
-                      {{-- <div class="col-md-4 col-sm-2">
-                        <i class="material-icons text-3xl text-gradient text-dark ms-5">chevron_right</i>
-                      </div> --}}
                     </div>
                   </div>
                 </a>
@@ -419,9 +413,6 @@
                         <i class="material-icons text-3xl text-gradient text-warning mb-3">route</i>
                         <h5>Qualification Track</h5>
                       </div>
-                      {{-- <div class="col-md-4 col-sm-2">
-                        <i class="material-icons text-3xl text-gradient text-dark ms-5">chevron_right</i>
-                      </div> --}}
                     </div>
                   </div>
                 </a>
@@ -448,7 +439,7 @@
             </div> --}}
           </div>
         </div>
-        <div class="row justify-content-center text-center" id="count-stats">
+        {{-- <div class="row justify-content-center text-center" id="count-stats">
           <div class="col-md-3">
             <h1 class="text-gradient text-info"><span id="state3" countTo="14"></h1>
             <h5>Major</h5>
@@ -464,7 +455,7 @@
             <h5>Lecturer</h5>
             <p>That meets quality standards required by our users</p>
           </div>
-        </div>
+        </div> --}}
       </div>
     </section>
     <!-- END Section with four info areas left & one card right with image and waves -->
