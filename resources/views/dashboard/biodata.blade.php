@@ -8,12 +8,12 @@
           <div class="row gx-4">
             <div class="col-auto">
               <div class="avatar avatar-xl position-relative">
-                <img src="/assets/img/ivancik.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                <img src="/assets/img/user.png" alt="profile_image" class="w-100">
               </div>
             </div>
             <div class="col-auto my-auto">
               <div class="h-100">
-                <h5 class="mb-1">
+                <h5 class="">
                   {{ $user->name }}
                 </h5>
                 {{-- <p class="mb-0 font-weight-bold text-sm">
@@ -34,7 +34,7 @@
                   <p class="text-uppercase text-md text-bold">User Information</p>
                   <div class="row">
                     <div class="col-md-6">
-                      <div class="form-group">
+                      <div class="form-group form1">
                         <label for="first_name" class="form-control-label">First name</label>
                         <input
                           class="form-control @error('first_name')
@@ -94,7 +94,7 @@
                     </div>
                   </div>
                   <hr class="horizontal dark">
-                  <p class="text-uppercase text-md text-bold">Contact Information</p>
+                  <p class="text-uppercase text-md text-bold">Address Information</p>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
@@ -161,7 +161,7 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="about_me" class="form-control-label">Postal Code</label>
+                        <label for="about_me" class="form-control-label">Essay</label>
                         @if ($biodata)
                           <textarea
                             class="form-control @error('about_me')
@@ -213,4 +213,8 @@
       })
     </script>
   @endif
+
+  {{-- <script>
+    $('.form1 input').attr('readonly', 'readonly');
+  </script> --}}
 @endsection

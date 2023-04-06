@@ -97,30 +97,37 @@
         <hr class="horizontal dark">
         <p class="text-uppercase text-md text-bold">DOCUMENT</p>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="" class="form-control-label">4 x 6 Color Photo</label>
+              <input type="file" class="dropify form-control" data-height="90" name="color_photo"
+                data-default-file="{{ $form_photo == null ? old('color_photo') : old('color_photo', asset('storage/' . $form->color_photo)) }}" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="" class="form-control-label">Birth Certificate or Passport</label>
+              <input type="file" class="dropify form-control" data-height="90" name="passport"
+                data-default-file="{{ $form_passport == null ? old('passport') : old('passport', asset('storage/' . $form->passport)) }}" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="" class="form-control-label">High School Transcript or Report Cards</label>
+              <input type="file" class="dropify form-control" data-height="90" name="high_school_transcript"
+                data-default-file="{{ $form_transcript == null ? old('high_school_transcript') : old('high_school_transcript', asset('storage/' . $form->high_school_transcript)) }}" />
+            </div>
+          </div>
+          <div class="col-md-3">
             <div class="form-group">
               <label for="" class="form-control-label">High School Certificate</label>
               <input type="file" class="dropify form-control" data-height="90" name="high_school_certif"
                 data-default-file="{{ $form_certif == null ? old('high_school_certif') : old('high_school_certif', asset('storage/' . $form->high_school_certif)) }}" />
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="" class="form-control-label">High School Transcript</label>
-              <input type="file" class="dropify form-control" data-height="90" name="high_school_transcript"
-                data-default-file="{{ $form_transcript == null ? old('high_school_transcript') : old('high_school_transcript', asset('storage/' . $form->high_school_transcript)) }}" />
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="" class="form-control-label">Copy of Passport</label>
-              <input type="file" class="dropify form-control" data-height="90" name="passport"
-                data-default-file="{{ $form_passport == null ? old('passport') : old('passport', asset('storage/' . $form->passport)) }}" />
-            </div>
-          </div>
         </div>
       </div>
-      <button type="submit" value="submit" class="btn btn-success px-5 btn-md me-auto ms-3">Submit</button>
+      <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Submit</button>
     </form>
   </div>
 @endsection

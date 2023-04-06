@@ -19,7 +19,15 @@ class FormController extends Controller
             $form_certif = $form->high_school_certif;
             $form_transcript = $form->high_school_transcript;
             $form_passport = $form->passport;
+            $form_photo = $form->color_photo;
         }
+
+        // $form_docs = [
+        //     'form_certif' => $form_certif,
+        //     'form_transcript' => $form_transcript,
+        //     'form_passport' => $form_passport,
+        //     'form_photo' => $form_photo,
+        // ];
 
         return view('dashboard.form', [
             'title' => 'Applicant Form',
@@ -27,7 +35,8 @@ class FormController extends Controller
             'form' => $form,
             'form_certif' => $form_certif,
             'form_transcript' => $form_transcript,
-            'form_passport' => $form_passport
+            'form_passport' => $form_passport,
+            'form_photo' => $form_photo,
         ]);
     }
 
@@ -52,6 +61,10 @@ class FormController extends Controller
 
         if ($request->File('passport')) {
             $validatedData['passport'] = 'required|file|mimes:pdf';
+        }
+
+        if ($request->file('color_photo')) {
+            $validatedData['color_photo'] = 'required|file|mimes:jpg,jpeg,png';
         }
 
         $request->validate($validatedData);
@@ -85,6 +98,13 @@ class FormController extends Controller
             $fileName = Auth::user()->name . '-' . $request->file('passport')->getClientOriginalName();
             Form::where('user_id', auth()->user()->id)->update([
                 'passport' => $request->file('passport')->storeAs('passport', $fileName),
+            ]);
+        }
+
+        if ($request->has('color_photo')) {
+            $fileName = Auth::user()->name . '-' . $request->file('color_photo')->getClientOriginalName();
+            Form::where('user_id', auth()->user()->id)->update([
+                'color_photo' => $request->file('color_photo')->storeAs('color_photo', $fileName),
             ]);
         }
 
