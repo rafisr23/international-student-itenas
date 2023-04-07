@@ -113,6 +113,8 @@ class FormController extends Controller
 
     public function preview() {
         $form = Form::where('user_id', Auth::user()->id)->first();
+        // return $form->color_photo;
+
         return view('dashboard.preview', [
             'title' => 'Preview Form',
             'user' => Auth::user(),
