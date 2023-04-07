@@ -7,7 +7,7 @@
           <script>
             document.write(new Date().getFullYear())
           </script>
-          <a href="https://www.itenas.ac.id" class="font-weight-bold text-warning" target="_blank">UPT-TIK ITENAS</a>, All
+          <a href="https://www.itenas.ac.id" class="font-weight-bold text-warning" target="_blank">ITENAS</a> | All
           rights
           reserved.
         </div>

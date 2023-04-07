@@ -41,7 +41,7 @@ class FormController extends Controller
     }
 
     public function store(Request $request) {
-        // return $request->all();
+      // return $request->all();
         $validatedData = [
             'high_school' => 'required',
             'grad_date' => 'required',
@@ -109,5 +109,14 @@ class FormController extends Controller
         }
 
         return redirect()->route('applicant-form')->with('success', 'Form submitted successfully');
+    }
+
+    public function preview() {
+        $form = Form::where('user_id', Auth::user()->id)->first();
+        return view('dashboard.preview', [
+            'title' => 'Preview Form',
+            'user' => Auth::user(),
+            'form' => $form,
+        ]);
     }
 }

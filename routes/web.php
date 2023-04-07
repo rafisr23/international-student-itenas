@@ -29,4 +29,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/biodata/store', [StudentController::class, 'store'])->name('biodata.store');
     Route::get('/applicant-form', [FormController::class, 'index'])->name('applicant-form');
     Route::post('/applicant-form/store', [FormController::class, 'store'])->name('applicant-form.store');
+    Route::get('/preview-data', [FormController::class, 'preview'])->name('preview-data');
 });

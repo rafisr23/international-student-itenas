@@ -21,7 +21,7 @@
         <a class="nav-link {{ request()->segment(1) == 'biodata' ? 'active' : '' }}" href="/biodata">
           <div
             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-badge text-primary text-sm opacity-10"></i>
+            <i class="ni ni-badge text-dark text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Biodata</span>
         </a>
@@ -30,29 +30,20 @@
         <a class="nav-link {{ request()->segment(1) == 'applicant-form' ? 'active' : '' }}" href="/applicant-form">
           <div
             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-paper-diploma text-success text-sm opacity-10"></i>
+            <i class="ni ni-paper-diploma text-dark text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Applicant Form</span>
         </a>
       </li>
-      {{-- <li class="nav-item">
-        <a class="nav-link " href="./pages/virtual-reality.html">
+      <li class="nav-item">
+        <a class="nav-link {{ request()->segment(1) == 'preview-data' ? 'active' : '' }}" href="/preview-data">
           <div
             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-app text-info text-sm opacity-10"></i>
+            <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Virtual Reality</span>
+          <span class="nav-link-text ms-1">Preview Data</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link " href="./pages/rtl.html">
-          <div
-            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
-          </div>
-          <span class="nav-link-text ms-1">RTL</span>
-        </a>
-      </li> --}}
       <li class="nav-item">
         {{-- <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6> --}}
         <hr class="horizontal dark">
