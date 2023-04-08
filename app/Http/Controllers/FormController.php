@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Form;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -113,12 +114,24 @@ class FormController extends Controller
 
     public function preview() {
         $form = Form::where('user_id', Auth::user()->id)->first();
-        // return $form->color_photo;
-
+        $biodata = Student::where('user_id', Auth::user()->id)->first();
+        // return $biodata;
         return view('dashboard.preview', [
             'title' => 'Preview Form',
             'user' => Auth::user(),
             'form' => $form,
+            'biodata' => $biodata,
         ]);
+    }
+
+    public function createPDF() {
+        // retreive all records from db
+        $form = Form::where('user_id', Auth::user()->id)->first();
+        $biodata = Student::where('user_id', Auth::user()->id)->first();
+        // share data to view
+        view()->share('employee', [$form, $biodata]);
+        $pdf = PDF::loadView('pdf_view', $data);
+        // download PDF file with download method
+        return $pdf->download('pdf_file.pdf');
     }
 }
