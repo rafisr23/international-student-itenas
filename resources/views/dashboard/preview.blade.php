@@ -26,73 +26,89 @@
           </span>
         </div>
         <div class="col-md-8">
-          <div class="ms-5">
-            <table class="table table-borderless text-dark">
-              <tbody>
-                <tr>
-                  <td colspan="3" class="text-center fw-bold fs-5">Biodata</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">Full Name</td>
-                  <td class="">:</td>
-                  <td class="">{{ $biodata->first_name . ' ' . $biodata->last_name }}</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">Email</td>
-                  <td class="">:</td>
-                  <td class="">{{ $form->email }}</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">Address</td>
-                  <td class="">:</td>
-                  <td class="">{{ $biodata->address }}</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">City</td>
-                  <td class="">:</td>
-                  <td class="">{{ $biodata->city }}</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">Province</td>
-                  <td class="">:</td>
-                  <td class="">{{ $biodata->postal_code }}</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">Country</td>
-                  <td class="">:</td>
-                  <td class="">{{ $biodata->country }}</td>
-                </tr>
-                <tr>
-                  <td colspan="3" class="text-center fw-bold fs-5">School Information</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">School Name</td>
-                  <td class="">:</td>
-                  <td class="">{{ $form->high_school }}</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">School Address</td>
-                  <td class="">:</td>
-                  <td class="">{{ $form->school_address }}</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">School City</td>
-                  <td class="">:</td>
-                  <td class="">{{ $form->school_city }}</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">School Country</td>
-                  <td class="">:</td>
-                  <td class="">{{ $form->school_country }}</td>
-                </tr>
-                <tr>
-                  <td class="fw-bold">School Postal Code</td>
-                  <td class="">:</td>
-                  <td class="">{{ $form->school_postal_code }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <table class="table table-borderless text-dark">
+            <tbody>
+              <tr>
+                <td colspan="3" class="fw-bold fs-5">Biodata</td>
+              </tr>
+              <tr>
+                <td>Full Name</td>
+                <td>:</td>
+                <td>{{ $form->student->first_name . ' ' . $biodata->last_name }}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td>{{ $biodata->user->email }}</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>:</td>
+                <td>{{ $form->student->phone_number }}</td>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>:</td>
+                <td>{{ $form->student->address }}</td>
+              </tr>
+              <tr>
+                <td>City</td>
+                <td>:</td>
+                <td>{{ $form->student->city }}</td>
+              </tr>
+              <tr>
+                <td>Province</td>
+                <td>:</td>
+                <td>{{ $form->student->postal_code }}</td>
+              </tr>
+              <tr>
+                <td>Country</td>
+                <td>:</td>
+                <td>{{ $form->student->country }}</td>
+              </tr>
+              <tr>
+                <td colspan="3" class="fw-bold fs-5">School Information</td>
+              </tr>
+              <tr>
+                <td>School Name</td>
+                <td>:</td>
+                <td>{{ $form->high_school }}</td>
+              </tr>
+              <tr>
+                <td>School Address</td>
+                <td>:</td>
+                <td>{{ $form->school_address }}</td>
+              </tr>
+              <tr>
+                <td>School City</td>
+                <td>:</td>
+                <td>{{ $form->school_city }}</td>
+              </tr>
+              <tr>
+                <td>School Country</td>
+                <td>:</td>
+                <td>{{ $form->school_country }}</td>
+              </tr>
+              <tr>
+                <td>School Postal Code</td>
+                <td>:</td>
+                <td>{{ $form->school_postal_code }}</td>
+              </tr>
+              <tr>
+                <td colspan="3" class="fw-bold fs-5">Major</td>
+              </tr>
+              <tr>
+                <td>Faculty</td>
+                <td>:</td>
+                <td>{{ $form->faculty }}</td>
+              </tr>
+              <tr>
+                <td>Program</td>
+                <td>:</td>
+                <td>{{ $form->program }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="row border-3 border-dark border-top">

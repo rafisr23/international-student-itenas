@@ -38,7 +38,7 @@ class FormController extends Controller
     }
 
     public function store(Request $request) {
-        return $request->all();
+        // return $request->all();
         $validatedData = [
             'high_school' => 'required',
             'grad_date' => 'required',
@@ -78,6 +78,8 @@ class FormController extends Controller
             'school_city' => $request->school_city,
             'school_country' => $request->school_country,
             'school_postal_code' => $request->school_postal_code,
+            'faculty' => $request->faculty,
+            'program' => $request->program,
             // 'student_id' => Student::where('user_id', Auth::user()->id)->first()->id,
         
         ]);
