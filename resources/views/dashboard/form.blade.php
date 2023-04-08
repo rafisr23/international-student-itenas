@@ -126,6 +126,26 @@
             </div>
           </div>
         </div>
+        <hr class="horizontal dark">
+        <p class="text-uppercase text-md text-bold">Program Study</p>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="faculty">Faculty</label>
+              <select class="form-control faculty" id="faculty" name="faculty">
+                <option>Select faculty</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="program">Programs</label>
+              <select class="form-control program" id="program" name="program">
+                <option value="" selected>Please faculty first</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
       <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Submit</button>
     </form>
@@ -163,4 +183,49 @@
       })
     </script>
   @endif
+
+  <script>
+    let facultyObject = {
+      'Faculty of Industrial Engineering': [
+        'Select Program',
+        'Electrical Engineering',
+        'Mechanical Engineering',
+        'Industrial Engineering',
+        'Chemical Engineering',
+        'Informatics',
+        'Information System'
+      ],
+      'Faculty of Civil Engineering and Planning': [
+        'Select Program',
+        'Civil Engineering',
+        'Geodetic Engineering',
+        'Urban and Regional Planning',
+        'Environmental Engineering'
+      ],
+      'Faculty of Architecture and Design': [
+        'Select Program',
+        'Interior Design',
+        'Product Design',
+        'Communication and Visual Design',
+        'Architecture'
+      ]
+    }
+
+    window.onload = function() {
+      let faculty = document.getElementById('faculty')
+      let program = document.getElementById('program')
+
+      for (let key in facultyObject) {
+        faculty.innerHTML += `<option value="${key}">${key}</option>`
+      }
+
+      faculty.addEventListener('change', function() {
+        program.innerHTML = ''
+        for (let i = 0; i < facultyObject[this.value].length; i++) {
+          program.innerHTML +=
+            `<option value="${facultyObject[this.value][i]}">${facultyObject[this.value][i]}</option>`
+        }
+      })
+    }
+  </script>
 @endsection
