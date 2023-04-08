@@ -10,10 +10,12 @@ use Illuminate\Support\Facades\Auth;
 class StudentController extends Controller
 {
     public function biodata() {
-        if(Student::where('user_id', Auth::user()->id)->first() == null) {
+        $student = Student::where('user_id', Auth::user()->id)->first();
+
+        if($student == null) {
             $biodata = null;
         } else {
-            $biodata = Student::where('user_id', Auth::user()->id)->first();
+            $biodata = $student;
         }
 
         return view('dashboard.biodata', [

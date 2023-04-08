@@ -11,15 +11,16 @@ class FormController extends Controller
 {
     public function index() {
         $student = Student::where('user_id', Auth::user()->id)->first()->id;
+        $form = Form::where('student_id', $student)->first();
         
-        if(Form::where('student_id', $student)->doesntExist()) {
+        if($form == null) {
             $form = null;
             $form_certif = null;
             $form_transcript = null;
             $form_passport = null;
             $form_photo = null;
         } else {
-            $form = Form::where('student_id', $student)->first();
+            $form = $form;
             $form_certif = $form->high_school_certif;
             $form_transcript = $form->high_school_transcript;
             $form_passport = $form->passport;
@@ -121,7 +122,6 @@ class FormController extends Controller
         // return $biodata;
         return view('dashboard.preview', [
             'title' => 'Preview Form',
-            'user' => Auth::user(),
             'form' => $form,
             'biodata' => $biodata,
         ]);

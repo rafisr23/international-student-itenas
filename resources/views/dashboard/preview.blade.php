@@ -34,7 +34,7 @@
               <tr>
                 <td>Full Name</td>
                 <td>:</td>
-                <td>{{ $form->student->first_name . ' ' . $biodata->last_name }}</td>
+                <td>{{ $form->student->first_name . ' ' . $form->student->last_name }}</td>
               </tr>
               <tr>
                 <td>Email</td>
