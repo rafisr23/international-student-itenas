@@ -141,7 +141,7 @@
             <div class="form-group">
               <label for="program">Programs</label>
               <select class="form-control program" id="program" name="program">
-                <option value="" selected>Please faculty first</option>
+                <option value="" selected>Please select faculty first</option>
               </select>
             </div>
           </div>

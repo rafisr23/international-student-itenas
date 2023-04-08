@@ -19,11 +19,10 @@ return new class extends Migration
             $table->string('school_city');
             $table->string('school_country');
             $table->string('school_postal_code');
-            // $table->string('school_phone_number');
             $table->string('high_school_certif')->nullable();
             $table->string('high_school_transcript')->nullable();
             $table->string('passport')->nullable();
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -10,25 +10,21 @@ use Illuminate\Support\Facades\Auth;
 class FormController extends Controller
 {
     public function index() {
-        if(Form::where('user_id', Auth::user()->id)->first() == null) {
+        $student = Student::where('user_id', Auth::user()->id)->first()->id;
+        
+        if(Form::where('student_id', $student)->doesntExist()) {
             $form = null;
             $form_certif = null;
             $form_transcript = null;
             $form_passport = null;
+            $form_photo = null;
         } else {
-            $form = Form::where('user_id', Auth::user()->id)->first();
+            $form = Form::where('student_id', $student)->first();
             $form_certif = $form->high_school_certif;
             $form_transcript = $form->high_school_transcript;
             $form_passport = $form->passport;
             $form_photo = $form->color_photo;
         }
-
-        // $form_docs = [
-        //     'form_certif' => $form_certif,
-        //     'form_transcript' => $form_transcript,
-        //     'form_passport' => $form_passport,
-        //     'form_photo' => $form_photo,
-        // ];
 
         return view('dashboard.form', [
             'title' => 'Applicant Form',
@@ -42,7 +38,7 @@ class FormController extends Controller
     }
 
     public function store(Request $request) {
-      // return $request->all();
+        return $request->all();
         $validatedData = [
             'high_school' => 'required',
             'grad_date' => 'required',
@@ -50,6 +46,8 @@ class FormController extends Controller
             'school_city' => 'required',
             'school_country' => 'required',
             'school_postal_code' => 'required',
+            'faculty' => 'required',
+            'program' => 'required',
         ];
 
         if ($request->File('high_school_certif')) {
@@ -70,8 +68,9 @@ class FormController extends Controller
 
         $request->validate($validatedData);
 
+        $student_id = Student::where('user_id', Auth::user()->id)->first()->id;
         Form::updateOrCreate([
-            'user_id' => Auth::user()->id
+            'student_id' => $student_id,
         ], [
             'high_school' => $request->high_school,
             'grad_date' => $request->grad_date,
@@ -79,32 +78,34 @@ class FormController extends Controller
             'school_city' => $request->school_city,
             'school_country' => $request->school_country,
             'school_postal_code' => $request->school_postal_code,
+            // 'student_id' => Student::where('user_id', Auth::user()->id)->first()->id,
+        
         ]);
 
         if ($request->has('high_school_certif')) {
             $fileName = Auth::user()->name . '-' . $request->file('high_school_certif')->getClientOriginalName();
-            Form::where('user_id', auth()->user()->id)->update([
+            Form::where('student_id', $student_id)->update([
                 'high_school_certif' => $request->file('high_school_certif')->storeAs('high_school_certif', $fileName),
             ]);
         }
 
         if ($request->has('high_school_transcript')) {
             $fileName = Auth::user()->name . '-' . $request->file('high_school_transcript')->getClientOriginalName();
-            Form::where('user_id', auth()->user()->id)->update([
+            Form::where('student_id', $student_id)->update([
                 'high_school_transcript' => $request->file('high_school_transcript')->storeAs('high_school_transcript', $fileName),
             ]);
         }
 
         if ($request->has('passport')) {
             $fileName = Auth::user()->name . '-' . $request->file('passport')->getClientOriginalName();
-            Form::where('user_id', auth()->user()->id)->update([
+            Form::where('student_id', $student_id)->update([
                 'passport' => $request->file('passport')->storeAs('passport', $fileName),
             ]);
         }
 
         if ($request->has('color_photo')) {
             $fileName = Auth::user()->name . '-' . $request->file('color_photo')->getClientOriginalName();
-            Form::where('user_id', auth()->user()->id)->update([
+            Form::where('student_id', $student_id)->update([
                 'color_photo' => $request->file('color_photo')->storeAs('color_photo', $fileName),
             ]);
         }
@@ -113,8 +114,8 @@ class FormController extends Controller
     }
 
     public function preview() {
-        $form = Form::where('user_id', Auth::user()->id)->first();
         $biodata = Student::where('user_id', Auth::user()->id)->first();
+        $form = Form::where('student_id', $biodata->id)->first();
         // return $biodata;
         return view('dashboard.preview', [
             'title' => 'Preview Form',

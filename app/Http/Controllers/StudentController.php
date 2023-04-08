@@ -18,7 +18,7 @@ class StudentController extends Controller
 
         return view('dashboard.biodata', [
             'title' => 'Biodata',
-            'user' => Auth::user(),
+            'user' => Auth::user()->name,
             'biodata' => $biodata
         ]);
     }
