@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Form;
 use App\Models\Student;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -73,6 +74,7 @@ class FormController extends Controller
         Form::updateOrCreate([
             'student_id' => $student_id,
         ], [
+            'reg_number' => Str::random(10),
             'high_school' => $request->high_school,
             'grad_date' => $request->grad_date,
             'school_address' => $request->school_address,
