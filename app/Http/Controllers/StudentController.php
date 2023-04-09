@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form;
 use App\Models\User;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -58,5 +59,16 @@ class StudentController extends Controller
         ]);
 
         return redirect('/biodata')->with('success', 'Biodata saved successfully!');
+    }
+
+    public function announcement() {
+        $student = Student::where('user_id', Auth::user()->id)->first()->id;
+        $form = Form::where('student_id', $student)->first();
+
+        return view('dashboard.announcement', [
+            'title' => 'Announcement',
+            'user' => Auth::user()->name,
+            'form' => $form
+        ]);
     }
 }
