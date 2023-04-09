@@ -127,13 +127,13 @@
           </div>
         </div>
         <hr class="horizontal dark">
-        <p class="text-uppercase text-md text-bold">Program Study</p>
+        <p class="text-uppercase text-md text-bold">Study Programs</p>
         <div class="row">
           <div class="col-md-3">
             <div class="form-group">
               <label for="faculty">Faculty</label>
               <select class="form-control faculty" id="faculty" name="faculty">
-                <option>Select faculty</option>
+                <option value="{{ $form->faculty ?? '' }}">{{ $form->faculty ?? 'Select Faculty' }}</option>
               </select>
             </div>
           </div>
@@ -141,14 +141,18 @@
             <div class="form-group">
               <label for="program">Programs</label>
               <select class="form-control program" id="program" name="program">
-                <option value="" selected>Please select faculty first</option>
+                <option value="{{ $form->program ?? '' }}" selected>
+                  {{ $form->program ?? 'Please Select Faculty First' }}</option>
               </select>
             </div>
           </div>
         </div>
       </div>
-      <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Submit</button>
+      <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Save Data</button>
     </form>
+    {{-- <form action="">
+      <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Submit</button>
+    </form> --}}
   </div>
 @endsection
 
