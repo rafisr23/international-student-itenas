@@ -29,6 +29,10 @@
           <table class="table table-borderless text-dark">
             <tbody>
               <tr>
+                <td colspan="2" class="fw-bold fs-5">Registration Number</td>
+                <td class="fs-5">{{ $form->reg_number }}</td>
+              </tr>
+              <tr>
                 <td colspan="3" class="fw-bold fs-5">Biodata</td>
               </tr>
               <tr>
@@ -112,21 +116,22 @@
         </div>
       </div>
       <div class="row border-3 border-dark border-top">
-        <div class="col">
+        <div class="col-md-3 col-sm-6 col-6 me-auto">
           <div class="copyright text-center text-sm text-muted text-lg-start">
-            Copyright ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script>
-            <a href="https://www.itenas.ac.id" class="font-weight-bold text-warning" target="_blank">ITENAS</a> | All
-            rights
-            reserved.
+            {{ $form->created_at->format('d F Y') }}
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-6">
+          <div class="copyright text-center text-sm text-muted text-lg-start">
+            <p class="text-end">
+              {{ $form->reg_number }}
+            </p>
           </div>
         </div>
       </div>
       <div class="row mt-5">
-        <div class="col-4">
-          <button type="button" class="btn btn-warning"><i class="fa-solid fa-print me-3"></i>Print Applicant
+        <div class="colmd-4">
+          <button type="button" class="btn btn-warning"><i class="fa-solid fa-print me-1"></i>Print Applicant
             Cards</button>
         </div>
       </div>

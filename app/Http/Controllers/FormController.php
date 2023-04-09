@@ -84,7 +84,6 @@ class FormController extends Controller
             'faculty' => $request->faculty,
             'program' => $request->program,
             // 'student_id' => Student::where('user_id', Auth::user()->id)->first()->id,
-        
         ]);
 
         if ($request->has('high_school_certif')) {
