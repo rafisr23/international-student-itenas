@@ -475,7 +475,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mt-n5">
                   <a href="javascript:;">
                     <div class="p-3 pe-md-0">
-                      <img class="w-100 border-radius-md shadow-lg" src="/assets/img/team-5.jpg" alt="image">
+                      <img class="w-100" src="/assets/img/sam.png" alt="image">
                     </div>
                   </a>
                 </div>
@@ -485,12 +485,8 @@
                     <h6 class="text-info">USA</h6>
                     <p class="mb-0">
                       {{ Str::limit(
-                          "Hello, my name is Sam. I Think Bandung is a very enjoyable city. The people are fun. The city
-                                                                                                              itself is interesting and beautiful. When I was (studying) at ITENAS, I found the students here
-                                                                                                              were cool. They liked to play, hang out ... Itenas'lectures, I was able to speak Indonesian
-                                                                                                              language fluently. I Believe when you come here And you are ready to learn, you can speak in
-                                                                                                              Bahasa Indonesia eventually.",
-                          250,
+                          "Hello, my name is Sam. I Think Bandung is a very enjoyable city. The people are fun. The city itself is interesting and beautiful. When I was (studying) at ITENAS, I found the students here were cool. They liked to play, hang out ... Itenas'lectures, I was able to speak Indonesian language fluently. I Believe when you come here And you are ready to learn, you can speak in Bahasa Indonesia eventually.",
+                          200,
                           '...',
                       ) }}
 
@@ -506,7 +502,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mt-n5">
                   <a href="javascript:;">
                     <div class="p-3 pe-md-0">
-                      <img class="w-100 border-radius-md shadow-lg" src="/assets/img/bruce-mars.jpg" alt="image">
+                      <img class="w-100 rounded-circle" src="/assets/img/nurai.png" alt="image">
                     </div>
                   </a>
                 </div>
@@ -516,12 +512,8 @@
                     <h6 class="text-info">Kazakhstan</h6>
                     <p class="mb-0">
                       {{ Str::limit(
-                          "My name is Nurai. I am from Kazakhstan. Now Iam studying at Itenas. I am learning
-                                                                  Indonesian
-                                                                  language. I love Indonesian language. I've visited Tangkuban Perahu Mountain, Farm House, Ciwalk,
-                                                                  Istana Plaza, Pasar Baru and also Kawah Putih. I've visited a lot of places. I chose Itenas
-                                                                  because I like studying here.",
-                          250,
+                          "My name is Nurai. I am from Kazakhstan. Now Iam studying at Itenas. I am learning Indonesian language. I love Indonesian language. I've visited Tangkuban Perahu Mountain, Farm House, Ciwalk, Istana Plaza, Pasar Baru and also Kawah Putih. I've visited a lot of places. I chose Itenas because I like studying here.",
+                          200,
                           '...',
                       ) }}
                     </p>
@@ -538,7 +530,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mt-n5">
                   <a href="javascript:;">
                     <div class="p-3 pe-md-0">
-                      <img class="w-100 border-radius-md shadow-lg" src="/assets/img/ivana-square.jpg"
+                      <img class="w-100 rounded-circle" src="/assets/img/nabilah.jpg"
                         alt="image">
                     </div>
                   </a>
@@ -549,9 +541,7 @@
                     <h6 class="text-info">Civil Engineering - 2020</h6>
                     <p class="mb-0">
                       {{ Str::limit(
-                          "Itenas was a place where I learned a lot of things, either academically or
-                                            non-academically. This
-                                            campus also opened my view about the role of students in creating future leaders characteristic.",
+                          "Itenas was a place where I learned a lot of things, either academically or non-academically. This campus also opened my view about the role of students in creating future leaders characteristic.",
                           250,
                           '...',
                       ) }}
@@ -567,7 +557,7 @@
                 <div class="col-lg-4 col-md-6 col-12 mt-n5">
                   <a href="javascript:;">
                     <div class="p-3 pe-md-0">
-                      <img class="w-100 border-radius-md shadow-lg" src="/assets/img/ivana-square.jpg"
+                      <img class="w-100 rounded-circle" src="/assets/img/annisa.jpg"
                         alt="image">
                     </div>
                   </a>
@@ -586,30 +576,6 @@
       </div>
     </section>
     <!-- -------- END Features w/ pattern background & stats & rocket -------- -->
-    {{-- <section class="pt-4 pb-6">
-      <div class="container">
-        <div class="row mb-7">
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-coinbase.svg" alt="logo">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-nasa.svg" alt="logo">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-netflix.svg" alt="logo">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-pinterest.svg" alt="logo">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-spotify.svg" alt="logo">
-          </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-4">
-            <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-vodafone.svg" alt="logo">
-          </div>
-        </div>
-      </div>
-    </section> --}}
     <!-- -------- START PRE-FOOTER 1 w/ SUBSCRIBE BUTTON AND IMAGE ------- -->
     <section class="my-5 pt-5">
       <div class="container">
