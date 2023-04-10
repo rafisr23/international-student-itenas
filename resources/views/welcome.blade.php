@@ -465,8 +465,7 @@
         <div class="row">
           <div class="col-md-8 text-start mb-5 mt-5">
             <h3 class="text-white z-index-1 position-relative">Testimonial</h3>
-            <p class="text-white opacity-8 mb-0">There’s nothing I really wanted to do in life that I wasn’t able to
-              get good at. That’s my skill.</p>
+            <p class="text-white opacity-8 mb-0">Student Alumni Itenas</p>
           </div>
         </div>
         <div class="row">
@@ -482,10 +481,20 @@
                 </div>
                 <div class="col-lg-8 col-md-6 col-12 my-auto">
                   <div class="card-body ps-lg-0">
-                    <h5 class="mb-0">Emma Roberts</h5>
-                    <h6 class="text-info">Informatics - 2020</h6>
-                    <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an
-                      art.</p>
+                    <h5 class="mb-0">Sam</h5>
+                    <h6 class="text-info">USA</h6>
+                    <p class="mb-0">
+                      {{ Str::limit(
+                          "Hello, my name is Sam. I Think Bandung is a very enjoyable city. The people are fun. The city
+                                                                                                              itself is interesting and beautiful. When I was (studying) at ITENAS, I found the students here
+                                                                                                              were cool. They liked to play, hang out ... Itenas'lectures, I was able to speak Indonesian
+                                                                                                              language fluently. I Believe when you come here And you are ready to learn, you can speak in
+                                                                                                              Bahasa Indonesia eventually.",
+                          250,
+                          '...',
+                      ) }}
+
+                    </p>
                   </div>
                 </div>
               </div>
@@ -503,10 +512,19 @@
                 </div>
                 <div class="col-lg-8 col-md-6 col-12 my-auto">
                   <div class="card-body ps-lg-0">
-                    <h5 class="mb-0">William Pearce</h5>
-                    <h6 class="text-info">Civil Engineering - 2019</h6>
-                    <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an
-                      art.</p>
+                    <h5 class="mb-0">Nurai</h5>
+                    <h6 class="text-info">Kazakhstan</h6>
+                    <p class="mb-0">
+                      {{ Str::limit(
+                          "My name is Nurai. I am from Kazakhstan. Now Iam studying at Itenas. I am learning
+                                                                  Indonesian
+                                                                  language. I love Indonesian language. I've visited Tangkuban Perahu Mountain, Farm House, Ciwalk,
+                                                                  Istana Plaza, Pasar Baru and also Kawah Putih. I've visited a lot of places. I chose Itenas
+                                                                  because I like studying here.",
+                          250,
+                          '...',
+                      ) }}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -527,10 +545,17 @@
                 </div>
                 <div class="col-lg-8 col-md-6 col-12 my-auto">
                   <div class="card-body ps-lg-0">
-                    <h5 class="mb-0">Ivana Flow</h5>
-                    <h6 class="text-info">Architecture - 2020</h6>
-                    <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an
-                      art.</p>
+                    <h5 class="mb-0">Nabila Nur'azizah</h5>
+                    <h6 class="text-info">Civil Engineering - 2020</h6>
+                    <p class="mb-0">
+                      {{ Str::limit(
+                          "Itenas was a place where I learned a lot of things, either academically or
+                                            non-academically. This
+                                            campus also opened my view about the role of students in creating future leaders characteristic.",
+                          250,
+                          '...',
+                      ) }}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -549,10 +574,9 @@
                 </div>
                 <div class="col-lg-8 col-md-6 col-12 my-auto">
                   <div class="card-body ps-lg-0">
-                    <h5 class="mb-0">Marquez Garcia</h5>
-                    <h6 class="text-info">Information System - 2019</h6>
-                    <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an
-                      art.</p>
+                    <h5 class="mb-0">Annisa Rahma</h5>
+                    <h6 class="text-info">Architecture - 2009</h6>
+                    <p class="mb-0">I'm proud to be able to study at Itenas, keep going, my Itenas!</p>
                   </div>
                 </div>
               </div>
