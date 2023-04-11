@@ -30,7 +30,7 @@ class StudentController extends Controller
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'required|unique:students',
             'address' => 'required',
             'city' => 'required',
             'country' => 'required',
@@ -62,8 +62,12 @@ class StudentController extends Controller
     }
 
     public function announcement() {
-        $student = Student::where('user_id', Auth::user()->id)->first()->id;
-        $form = Form::where('student_id', $student)->first();
+        if ($student = Student::where('user_id', Auth::user()->id)->first()) {
+            $form = Form::where('student_id', $student->id)->first();
+        } else {
+            $form = null;
+            $student = null;
+        }        
 
         return view('dashboard.announcement', [
             'title' => 'Announcement',

@@ -3,6 +3,16 @@
 @section('content')
   <div class="card">
     <div class="card-body m-5">
+      @if ($form == null)
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <img src="/assets/img/not-found.png" alt="form-review" height="400" class="m-auto d-block mb-3">
+          <div class="alert alert-warning text-center" role="alert">
+            Form preview is not available. Please fill the form
+          </div>
+        </div>
+      </div>
+      @else
       <div class="row align-items-center border-3 border-dark border-bottom pb-3">
         <div class="col-md-4 me-auto">
           <h5>International Student Itenas</h5>
@@ -22,7 +32,7 @@
       <div class="row mt-5">
         <div class="col-md-4">
           <span class="navbar-brand">
-            <img src="{{ asset('storage/' . $form->color_photo) }}" height="250">
+            <img src="{{ $form == null ? '' : asset('storage/' . $form->color_photo) }}" height="250">
           </span>
         </div>
         <div class="col-md-8">
@@ -134,7 +144,8 @@
           <button type="button" class="btn btn-warning"><i class="fa-solid fa-print me-1"></i>Print Applicant
             Cards</button>
         </div>
-      </div>
+      </div>    
+      @endif
     </div>
   </div>
 @endsection

@@ -11,9 +11,13 @@ use Illuminate\Support\Facades\Auth;
 class FormController extends Controller
 {
     public function index() {
-        $student = Student::where('user_id', Auth::user()->id)->first()->id;
-        $form = Form::where('student_id', $student)->first();
-        
+        if ($student = Student::where('user_id', Auth::user()->id)->first()) {
+            $form = Form::where('student_id', $student->id)->first();
+        } else {
+            $form = null;
+            $student = null;
+        }
+
         if($form == null) {
             $form = null;
             $form_certif = null;
@@ -32,6 +36,7 @@ class FormController extends Controller
             'title' => 'Applicant Form',
             'user' => Auth::user(),
             'form' => $form,
+            'student' => $student,
             'form_certif' => $form_certif,
             'form_transcript' => $form_transcript,
             'form_passport' => $form_passport,
@@ -119,8 +124,14 @@ class FormController extends Controller
 
     public function preview() {
         $biodata = Student::where('user_id', Auth::user()->id)->first();
-        $form = Form::where('student_id', $biodata->id)->first();
-        // return $biodata;
+
+        if ($biodata == null) {
+            $form = null;
+            $color_photo = null;
+        } else {
+            $form = Form::where('student_id', $biodata->id)->first();
+        }
+        
         return view('dashboard.preview', [
             'title' => 'Preview Form',
             'form' => $form,

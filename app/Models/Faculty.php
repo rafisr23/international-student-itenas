@@ -10,4 +10,9 @@ class Faculty extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function programs()
+    {
+        return $this->hasMany(StudyProgram::class);
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\TuitionFeeOdd;
+use App\Models\TuitionFeeEven;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
 
     /**
@@ -23,9 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard.home', [
-            'title' => 'Home',
-            // 'active' => 'home',
-        ]);
+        $tuitionFeeOdd = TuitionFeeOdd::all()->load(['studyProgram']);
+        $tuitionFeeEven = TuitionFeeEven::all()->load(['studyProgram']);
+
+        return view('welcome', compact('tuitionFeeOdd', 'tuitionFeeEven'));
     }
 }

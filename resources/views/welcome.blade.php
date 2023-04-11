@@ -625,32 +625,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="row">
-            <div class="col-md-12">
-              <table id="example" class="table table-striped table-responsive">
-                <thead>
-                  <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011-04-25</td>
-                      <td>$320,800</td>
-                  </tr>
-                </tbody>                
-              </table>
-            </div>
-          </div>
+          
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
@@ -661,18 +636,74 @@
 
   {{-- Modal Cost --}}
   <div class="modal fade" id="modalCost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Cost</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          <div class="row mb-5">
+            <div class="col-md-12 table-responsive p-3">
+              <h5>Tuition Fee Odd Semester</h5>
+              <table id="example" class="table table-striped">
+                <thead>
+                  <tr>
+                      <th>Study Program</th>
+                      <th>Fixed Course Fee</th>
+                      <th>Variable Course Fee</th>
+                      <th>Practical / Studio Fee</th>
+                      <th>Tuition Fee</th>
+                      <th>Educational Development Fee</th>
+                      <th>Total Fee</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($tuitionFeeOdd as $odd)
+                  <tr>
+                      <td>{{ $odd->studyProgram->name }}</td>
+                      <td>Rp{{number_format($odd->fixed_course_fee, 0, ".", ".") }}</td>
+                      <td>Rp{{number_format($odd->variable_course_fee, 0, ".", ".") }}</td>
+                      <td>Rp{{number_format($odd->practical_studio_fee, 0, ".", ".") }}</td>
+                      <td>Rp{{number_format($odd->tuition_fee, 0, ".", ".") }}</td>
+                      <td>Rp{{number_format($odd->educational_development_fee, 0, ".", ".") }}</td>
+                      <td>Rp{{number_format($odd->total_fee, 0, ".", ".") }}</td>
+                  </tr>
+                  @endforeach
+                </tbody>                
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 table-responsive p-3">
+              <h5>Tuition Fee Even Semester</h5>
+              <table id="example" class="table table-striped">
+                <thead>
+                  <tr>
+                      <th>Study Program</th>
+                      <th>Fixed Course Fee</th>
+                      <th>Variable Course Fee</th>
+                      <th>Practical / Studio Fee</th>
+                      <th>Tuition Fee</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($tuitionFeeEven as $even)
+                  <tr>
+                      <td>{{ $even->studyProgram->name }}</td>
+                      <td>Rp{{number_format($even->fixed_course_fee, 0, ".", ".") }}</td>
+                      <td>Rp{{number_format($even->variable_course_fee, 0, ".", ".") }}</td>
+                      <td>Rp{{number_format($even->practical_studio_fee, 0, ".", ".") }}</td>
+                      <td>Rp{{number_format($even->tuition_fee, 0, ".", ".") }}</td>
+                  </tr>
+                  @endforeach
+                </tbody>                
+              </table>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -708,6 +739,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/underground-works/clockwork-browser@1/dist/toolbar.js"></script>
   <script>
     // get the element to animate
     var element = document.getElementById('count-stats');
@@ -793,9 +825,9 @@
     }
   </script>
   <script>
-    $(document).ready(function () {
-      $('#example').DataTable();
-    });
+    // $(document).ready(function () {
+    //   $('#example').DataTable();
+    // });
   </script>
 </body>
 

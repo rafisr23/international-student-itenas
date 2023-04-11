@@ -10,4 +10,9 @@ class TuitionFeeOdd extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function studyProgram()
+    {
+        return $this->belongsTo(StudyProgram::class);
+    }
 }
