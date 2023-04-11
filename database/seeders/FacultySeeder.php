@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Faculty;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class FacultySeeder extends Seeder
 {
@@ -12,7 +13,8 @@ class FacultySeeder extends Seeder
      */
     public function run(): void
     {
-        Faculty::create([
+        $faculty = 
+        [
             [
                 'name' => 'Faculty of Industrial Engineering',
                 'slug' => 'fie',
@@ -22,9 +24,13 @@ class FacultySeeder extends Seeder
                 'slug' => 'fcep',
             ],
             [
-                'name' => 'Faculty of Architecture and Design',
+                'name' => 'Faculty Architecture and Design',
                 'slug' => 'fad',
             ]
-        ]);
+        ];
+        
+        foreach ($faculty as $key => $value) {
+            Faculty::create($value);
+        }
     }
 }

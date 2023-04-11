@@ -24,6 +24,8 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ url('assets/css/material-kit.css?v=3.0.4') }}" rel="stylesheet" />
   {{-- <link id="pagestyle" href="{{ url('assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" /> --}}
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body class="about-us bg-gray-200">
@@ -375,16 +377,13 @@
           <div class="col-lg-4 ms-auto mt-lg-0 mt-4">
             <div class="row justify-content-center mb-5">
               <div class="col-md-12 col-sm-6">
-                <a href="">
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalGuides">
                   <div class="card px-3 py-2">
                     <div class="row align-items-center">
                       <div class="col-md-8 col-sm-6">
                         <i class="material-icons text-3xl text-gradient text-warning mb-3">app_registration</i>
                         <h5>Registration Guides</h5>
                       </div>
-                      {{-- <div class="col-md-4 col-sm-2">
-                        <i class="material-icons text-3xl text-gradient text-dark ms-5">chevron_right</i>
-                      </div> --}}
                     </div>
                   </div>
                 </a>
@@ -392,7 +391,7 @@
             </div>
             <div class="row justify-content-center mb-5">
               <div class="col-md-12 col-sm-6">
-                <a href="">
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalCost">
                   <div class="card px-3 py-2">
                     <div class="row align-items-center">
                       <div class="col-md-8 col-sm-6">
@@ -406,7 +405,7 @@
             </div>
             <div class="row justify-content-center mb-5">
               <div class="col-md-12 col-sm-6">
-                <a href="">
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalTrack">
                   <div class="card px-3 py-2">
                     <div class="row align-items-center">
                       <div class="col-md-8 col-sm-6">
@@ -418,44 +417,8 @@
                 </a>
               </div>
             </div>
-            {{-- <div class="card">
-              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                <a class="d-block blur-shadow-image">
-                  <img
-                    src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                    alt="img-colored-shadow" class="img-fluid border-radius-lg">
-                </a>
-              </div>
-              <div class="card-body text-center">
-                <h5 class="font-weight-normal">
-                  <a href="javascript:;">Get insights on Search</a>
-                </h5>
-                <p class="mb-0">
-                  Website visitors today demand a frictionless user expericence — especially when using search. Because
-                  of the hight standards.
-                </p>
-                <button type="button" class="btn bg-gradient-info btn-sm mb-0 mt-3">Find out more</button>
-              </div>
-            </div> --}}
           </div>
         </div>
-        {{-- <div class="row justify-content-center text-center" id="count-stats">
-          <div class="col-md-3">
-            <h1 class="text-gradient text-info"><span id="state3" countTo="14"></h1>
-            <h5>Major</h5>
-            <p>Actively engage team members that finishes on time</p>
-          </div>
-          <div class="col-md-3">
-            <h1 class="text-gradient text-info"><span id="state1" countTo="4000">0</span>+</h1>
-            <h5>Students</h5>
-            <p>That meets quality standards required by industry</p>
-          </div>
-          <div class="col-md-3">
-            <h1 class="text-gradient text-info"><span id="state2" countTo="100">0</span>+</h1>
-            <h5>Lecturer</h5>
-            <p>That meets quality standards required by our users</p>
-          </div>
-        </div> --}}
       </div>
     </section>
     <!-- END Section with four info areas left & one card right with image and waves -->
@@ -613,44 +576,6 @@
   <footer class="footer pt-3 mt-5">
     <div class="container">
       <div class=" row">
-        {{-- <div class="col-md-3 mb-4">
-          <div>
-            <a href="https://www.creative-tim.com/product/material-kit">
-              <img src="/assets/img/logo-ct-dark.png" class="mb-3 footer-logo" alt="main_logo">
-            </a>
-            <h6 class="font-weight-bolder mb-4">Material Kit 2</h6>
-          </div>
-          <div>
-            <ul class="d-flex flex-row ms-n3 nav">
-              <li class="nav-item">
-                <a class="nav-link pe-1" href="https://www.facebook.com/CreativeTim" target="_blank">
-                  <i class="fab fa-facebook text-lg opacity-8"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link pe-1" href="https://twitter.com/creativetim" target="_blank">
-                  <i class="fab fa-twitter text-lg opacity-8"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link pe-1" href="https://dribbble.com/creativetim" target="_blank">
-                  <i class="fab fa-dribbble text-lg opacity-8"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link pe-1" href="https://github.com/creativetimofficial" target="_blank">
-                  <i class="fab fa-github text-lg opacity-8"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link pe-1" href="https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w"
-                  target="_blank">
-                  <i class="fab fa-youtube text-lg opacity-8"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div> --}}
         <div class="col-md-6 col-sm-6 col-6 mb-4">
           <div>
             <h6 class="text-sm">KAMPUS INSTITUT TEKNOLOGI NASIONAL</h6>
@@ -673,79 +598,6 @@
             </ul>
           </div>
         </div>
-        {{-- <div class="col-md-2 col-sm-6 col-6 mb-4">
-          <div>
-            <h6 class="text-sm">Resources</h6>
-            <ul class="flex-column ms-n3 nav">
-              <li class="nav-item">
-                <a class="nav-link" href="https://iradesign.io/" target="_blank">
-                  Illustrations
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/bits" target="_blank">
-                  Bits & Snippets
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/affiliates/new" target="_blank">
-                  Affiliate Program
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-6 col-6 mb-4">
-          <div>
-            <h6 class="text-sm">Help & Support</h6>
-            <ul class="flex-column ms-n3 nav">
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/contact-us" target="_blank">
-                  Contact Us
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/knowledge-center" target="_blank">
-                  Knowledge Center
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://services.creative-tim.com/?ref=ct-mk2-footer" target="_blank">
-                  Custom Development
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/sponsorships" target="_blank">
-                  Sponsorships
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-6 col-6 mb-4 me-auto">
-          <div>
-            <h6 class="text-sm">Legal</h6>
-            <ul class="flex-column ms-n3 nav">
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/knowledge-center/terms-of-service"
-                  target="_blank">
-                  Terms & Conditions
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/knowledge-center/privacy-policy"
-                  target="_blank">
-                  Privacy Policy
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.creative-tim.com/license" target="_blank">
-                  Licenses (EULA)
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div> --}}
         <div class="col-12">
           <div class="text-center">
             <p class="text-dark my-4 text-sm font-weight-normal">
@@ -753,8 +605,8 @@
               <script>
                 document.write(new Date().getFullYear())
               </script>
-              <a href="https://www.itenas.ac.id" class="font-weight-bold text-warning" target="_blank">UPT-TIK
-                ITENAS</a> All
+              <a href="https://www.itenas.ac.id" class="font-weight-bold text-warning" target="_blank">
+                ITENAS</a> | All
               rights
               reserved.
             </p>
@@ -763,15 +615,99 @@
       </div>
     </div>
   </footer>
+  {{-- Modals --}}
+  <!-- Modal Guides -->
+  <div class="modal fade" id="modalGuides" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Guides</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <table id="example" class="table table-striped table-responsive">
+                <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>Tiger Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011-04-25</td>
+                      <td>$320,800</td>
+                  </tr>
+                </tbody>                
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{-- Modal Cost --}}
+  <div class="modal fade" id="modalCost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Cost</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{-- Modal Track --}}
+  <div class="modal fade" id="modalTrack" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Track</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!--   Core JS Files   -->
   <script src="{{ url('assets/js/core/popper.min.js') }}"></script>
   <script src="{{ url('assets/js/core/bootstrap.min.js') }}"></script>
   <script src="{{ url('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
   <script src="{{ url('assets/js/plugins/countup.min.js') }}"></script>
   <script src="{{ url('assets/js/plugins/parallax.min.js') }}"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="{{ url('assets/js/material-kit.min.js?v=3.0.4') }}" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
   <script>
     // get the element to animate
     var element = document.getElementById('count-stats');
@@ -855,6 +791,11 @@
         bgParallax.style.transform = 'translate3d(0,' + oVal + 'px,0)';
       }, 6);
     }
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('#example').DataTable();
+    });
   </script>
 </body>
 

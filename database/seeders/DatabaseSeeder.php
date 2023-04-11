@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\TuitionFeeOddSeeder;
+use Database\Seeders\TuitionFeeEvenSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,7 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             // UserSeeder::class,
-            FacultySeeder::class,
+            // FacultySeeder::class,
+            // StudyProgramSeeder::class,
+            TuitionFeeOddSeeder::class,
+            TuitionFeeEvenSeeder::class,
         ]);
     }
 }
