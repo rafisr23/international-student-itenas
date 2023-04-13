@@ -42,7 +42,7 @@
                 </h4>
                 <div class="row mt-0">
                   <div class="col-12 text-center ms-auto">
-                    <p class="text-center text-dark">Before proceeding, please check your email for a verification
+                    <p class="text-center text-dark">Before proceeding, please check your <b>email (inbox or spam)</b> for a verification
                       link. If you did not receive the email</p>
                     <form method="POST" action="{{ route('verification.resend') }}">
                       @csrf
