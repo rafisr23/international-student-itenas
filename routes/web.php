@@ -19,7 +19,9 @@ use App\Http\Controllers\StudentController;
 Auth::routes([
     'verify' => true,
 ]);
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/tuition-fee', [HomeController::class, 'tuitionFee'])->name('tuition-fee');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/home', [HomeController::class, 'index'])->name('home');

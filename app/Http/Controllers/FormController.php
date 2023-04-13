@@ -123,13 +123,11 @@ class FormController extends Controller
     }
 
     public function preview() {
-        $biodata = Student::where('user_id', Auth::user()->id)->first();
-
-        if ($biodata == null) {
+        if ($biodata = Student::where('user_id', Auth::user()->id)->first()) {
+            $form = Form::where('student_id', $biodata->id)->first();
+        } else {
             $form = null;
             $color_photo = null;
-        } else {
-            $form = Form::where('student_id', $biodata->id)->first();
         }
         
         return view('dashboard.preview', [
