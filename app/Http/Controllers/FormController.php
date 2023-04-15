@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Form;
 use App\Models\Faculty;
 use App\Models\Student;
+use PDF;
 use App\Models\Scholarship;
 use Illuminate\Support\Str;
 use App\Models\StudyProgram;
@@ -180,14 +181,27 @@ class FormController extends Controller
         ]);
     }
 
-    public function createPDF() {
+    public function printCard() {
         // retreive all records from db
-        $form = Form::where('user_id', Auth::user()->id)->first();
         $biodata = Student::where('user_id', Auth::user()->id)->first();
-        // share data to view
-        view()->share('employee', [$form, $biodata]);
-        $pdf = PDF::loadView('pdf_view', $data);
+        $form = DB::table('forms')
+        ->join('students', 'forms.student_id', '=', 'students.id')
+        ->join('study_programs', 'forms.program_id', '=', 'study_programs.id')
+        ->join('faculties', 'study_programs.faculty_id', '=', 'faculties.id')
+        ->join('scholarships', 'forms.scholarship_id', '=', 'scholarships.id')
+        ->select('forms.*', 'study_programs.name as program_name', 'faculties.name as faculty_name', 'scholarships.name as scholarship_name')
+        ->where('forms.student_id', $biodata->id)
+        ->first();
+        
+        
+        $pdf = PDF::loadView('dashboard.preview-download', [
+            'form' => $form,
+            'biodata' => $biodata,
+        ]);
+        
+        PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif', 'defaul_paper_orientation' => 'landscape']);
+        
         // download PDF file with download method
-        return $pdf->download('pdf_file.pdf');
+        return $pdf->stream('Applicant Card - ' . $form->reg_number . '.pdf');
     }
 }

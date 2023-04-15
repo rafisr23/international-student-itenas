@@ -1,30 +1,36 @@
-@extends('layouts.main')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>
+    {{ $title ?? 'Dashboard' }}
+  </title>
+  <!--     Fonts and icons     -->
+  {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" /> --}}
+  <!-- Nucleo Icons -->
+  {{-- <link href="{{ url('assets/css/nucleo-icons.css') }}" rel="stylesheet" /> --}}
+  {{-- <link href="{{ url('assets/css/nucleo-svg.css') }}" rel="stylesheet" /> --}}
+  <link id="pagestyle" href="{{ url('assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
+</head>
+
+<body>
   <div class="card">
     <div class="card-body m-5">
-      @if ($form == null)
-      <div class="row justify-content-center">
-        <div class="col-md-10">
-          <img src="/assets/img/not-found.png" alt="form-review" height="400" class="m-auto d-block mb-3">
-          <div class="alert alert-warning text-center" role="alert">
-            Form preview is not available. Please fill the form
-          </div>
-        </div>
-      </div>
-      @else
       <div class="row align-items-center border-3 border-dark border-bottom pb-3">
         <div class="col-md-4 me-auto">
           <h5>International Student Itenas</h5>
           <h5>Applicant Cards</h5>
         </div>
         <div class="col-md-4 d-none d-md-block">
-          <div class="ms-5">
+          <div class="ms-9">
             <span class="navbar-brand">
-              <img src="/assets/img/itenas-logo-full.png" class="navbar-brand-img" alt="main_logo" width="160">
+              <img src="{{ asset('assets/img/itenas-logo-full.png') }}" class="navbar-brand-img" alt="main_logo" width="160">
             </span>
             <span class="navbar-brand ms-3 ">
-              <img src="/assets/img/good-start.png" class="navbar-brand-img" alt="main_logo" width="75">
+              <img src="{{ asset('assets/img/good-start.png') }}" class="navbar-brand-img" alt="main_logo" width="75">
             </span>
           </div>
         </div>
@@ -136,21 +142,12 @@
             {{ date('d F Y', strtotime($form->created_at)) }}
           </div>
         </div>
-        <div class="col-md-3 col-sm-6 col-6">
-          <div class="copyright text-center text-sm text-muted text-lg-start">
-            <p class="text-end">
-              {{ $form->reg_number }}
-            </p>
-          </div>
-        </div>
       </div>
-      <div class="row mt-5">
-        <div class="colmd-4">
-          <a href="/print-card" class="btn btn-warning" target="_blank"><i class="fa-solid fa-print me-1"></i>Print Applicant
-            Cards</a>
-        </div>
-      </div>    
-      @endif
     </div>
   </div>
-@endsection
+  <!--   Core JS Files   -->
+  <script src="{{ url('assets/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
+
+</body>
+
+</html>
