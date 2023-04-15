@@ -48,7 +48,7 @@
               <tr>
                 <td>Full Name</td>
                 <td>:</td>
-                <td>{{ $form->student->first_name . ' ' . $form->student->last_name }}</td>
+                <td>{{ $biodata->first_name . ' ' . $biodata->last_name }}</td>
               </tr>
               <tr>
                 <td>Email</td>
@@ -58,27 +58,27 @@
               <tr>
                 <td>Phone Number</td>
                 <td>:</td>
-                <td>{{ $form->student->phone_number }}</td>
+                <td>{{ $biodata->phone_number }}</td>
               </tr>
               <tr>
                 <td>Address</td>
                 <td>:</td>
-                <td>{{ $form->student->address }}</td>
+                <td>{{ $biodata->address }}</td>
               </tr>
               <tr>
                 <td>City</td>
                 <td>:</td>
-                <td>{{ $form->student->city }}</td>
+                <td>{{ $biodata->city }}</td>
               </tr>
               <tr>
                 <td>Province</td>
                 <td>:</td>
-                <td>{{ $form->student->postal_code }}</td>
+                <td>{{ $biodata->postal_code }}</td>
               </tr>
               <tr>
                 <td>Country</td>
                 <td>:</td>
-                <td>{{ $form->student->country }}</td>
+                <td>{{ $biodata->country }}</td>
               </tr>
               <tr>
                 <td colspan="3" class="fw-bold fs-5">School Information</td>
@@ -114,12 +114,17 @@
               <tr>
                 <td>Faculty</td>
                 <td>:</td>
-                <td>{{ $form->faculty }}</td>
+                <td>{{ $form->faculty_name }}</td>
               </tr>
               <tr>
                 <td>Program</td>
                 <td>:</td>
-                <td>{{ $form->program }}</td>
+                <td>{{ $form->program_name }}</td>
+              </tr>
+              <tr>
+                <td>Scholarship</td>
+                <td>:</td>
+                <td>{{ $form->scholarship_name }}</td>
               </tr>
             </tbody>
           </table>
@@ -128,7 +133,7 @@
       <div class="row border-3 border-dark border-top">
         <div class="col-md-3 col-sm-6 col-6 me-auto">
           <div class="copyright text-center text-sm text-muted text-lg-start">
-            {{ $form->created_at->format('d F Y') }}
+            {{ date('d F Y', strtotime($form->created_at)) }}
           </div>
         </div>
         <div class="col-md-3 col-sm-6 col-6">

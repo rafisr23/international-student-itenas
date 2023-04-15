@@ -158,12 +158,21 @@ class FormController extends Controller
 
     public function preview() {
         if ($biodata = Student::where('user_id', Auth::user()->id)->first()) {
-            $form = Form::where('student_id', $biodata->id)->first();
+            // $form = Form::where('student_id', $biodata->id)->first();
+
+            $form = DB::table('forms')
+            ->join('students', 'forms.student_id', '=', 'students.id')
+            ->join('study_programs', 'forms.program_id', '=', 'study_programs.id')
+            ->join('faculties', 'study_programs.faculty_id', '=', 'faculties.id')
+            ->join('scholarships', 'forms.scholarship_id', '=', 'scholarships.id')
+            ->select('forms.*', 'study_programs.name as program_name', 'faculties.name as faculty_name', 'scholarships.name as scholarship_name')
+            ->where('forms.student_id', $biodata->id)
+            ->first();
         } else {
             $form = null;
             $color_photo = null;
         }
-        
+
         return view('dashboard.preview', [
             'title' => 'Preview Form',
             'form' => $form,

@@ -16,7 +16,12 @@ class StudyProgram extends Model
     {
         return $this->belongsTo(Faculty::class);
     }
-
+    
+    public function form()
+    {
+        return $this->belongsTo(Form::class);
+    }
+    
     public function tuitionFeeOdds()
     {
         return $this->hasMany(TuitionFeeOdd::class);
@@ -27,8 +32,4 @@ class StudyProgram extends Model
         return $this->hasMany(TuitionFeeEven::class);
     }
 
-    public function form()
-    {
-        return $this->belongsToMany(Form::class);
-    }
 }

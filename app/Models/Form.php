@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Student;
+use App\Models\Scholarship;
+use App\Models\StudyProgram;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -22,7 +24,7 @@ class Form extends Model
     }
 
     public function scholarship() {
-        return $this->hasOne(Scholarship::class);
+        return $this->belongsTo(Scholarship::class);
     }
 
     public function studyProgram() {
