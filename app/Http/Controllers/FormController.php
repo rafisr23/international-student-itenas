@@ -73,11 +73,15 @@ class FormController extends Controller
             $validatedData['color_photo'] = 'required|file|mimes:jpg,jpeg,png';
         }
 
+        if ($request->has('financial_verify')) {
+            $validatedData['financial_verify'] = 'required|file|mimes:pdf';
+        }
+
         $request->validate($validatedData);
 
-        $student_id = Student::where('user_id', Auth::user()->id)->first()->id;
+        $student = Student::where('user_id', Auth::user()->id)->first();
         Form::updateOrCreate([
-            'student_id' => $student_id,
+            'student_id' => $student->id,
         ], [
             'reg_number' => Str::random(10),
             'high_school' => $request->high_school,
@@ -91,31 +95,52 @@ class FormController extends Controller
             // 'student_id' => Student::where('user_id', Auth::user()->id)->first()->id,
         ]);
 
+        $form = Form::where('student_id', $student->id)->first();
+
         if ($request->has('high_school_certif')) {
-            $fileName = Auth::user()->name . '-' . $request->file('high_school_certif')->getClientOriginalName();
-            Form::where('student_id', $student_id)->update([
+            $fileName = $form->reg_number . '-' . $request->file('high_school_certif')->getClientOriginalName();
+            if ($form->high_school_certif) {
+                Storage::delete($form->high_school_certif);
+            }
+            Form::where('student_id', $student->id)->update([
                 'high_school_certif' => $request->file('high_school_certif')->storeAs('high_school_certif', $fileName),
             ]);
         }
 
         if ($request->has('high_school_transcript')) {
-            $fileName = Auth::user()->name . '-' . $request->file('high_school_transcript')->getClientOriginalName();
-            Form::where('student_id', $student_id)->update([
+            $fileName = $form->reg_number . '-' . $request->file('high_school_transcript')->getClientOriginalName();
+            if ($form->high_school_transcript) {
+                Storage::delete($form->high_school_transcript);
+            }
+            Form::where('student_id', $student->id)->update([
                 'high_school_transcript' => $request->file('high_school_transcript')->storeAs('high_school_transcript', $fileName),
             ]);
         }
 
         if ($request->has('passport')) {
-            $fileName = Auth::user()->name . '-' . $request->file('passport')->getClientOriginalName();
-            Form::where('student_id', $student_id)->update([
+            $fileName = $form->reg_number . '-' . $request->file('passport')->getClientOriginalName();
+            if ($form->passport) {
+                Storage::delete($form->passport);
+            }
+            Form::where('student_id', $student->id)->update([
                 'passport' => $request->file('passport')->storeAs('passport', $fileName),
             ]);
         }
 
         if ($request->has('color_photo')) {
-            $fileName = Auth::user()->name . '-' . $request->file('color_photo')->getClientOriginalName();
-            Form::where('student_id', $student_id)->update([
+            $fileName = $form->reg_number . '-' . $request->file('color_photo')->getClientOriginalName();
+            Form::where('student_id', $student->id)->update([
                 'color_photo' => $request->file('color_photo')->storeAs('color_photo', $fileName),
+            ]);
+        }
+
+        if ($request->has('financial_verify')) {
+            $fileName = $form->reg_number . '-' . $request->file('financial_verify')->getClientOriginalName();
+            if ($form->financial_verify) {
+                Storage::delete($form->financial_verify);
+            }
+            Form::where('student_id', $student->id)->update([
+                'financial_verify' => $request->file('financial_verify')->storeAs('financial_verify', $fileName),
             ]);
         }
 
