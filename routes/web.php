@@ -21,6 +21,7 @@ Auth::routes([
 ]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/download/{file}', [HomeController::class, 'download'])->name('download');
 Route::get('/tuition-fee', [HomeController::class, 'tuitionFee'])->name('tuition-fee');
 
 Route::middleware(['auth', 'verified'])->group(function () {

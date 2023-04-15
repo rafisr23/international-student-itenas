@@ -139,7 +139,7 @@
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="" class="form-control-label">Financial Verification Documentation (<a href=""><i>Download here</a></i>)</label>
+                <label for="" class="form-control-label">Financial Verification Documentation (<a href="{{ route('download', 'Financial Verification Doc ITENAS.pdf') }}"><i>download here</a></i>)</label>
                 <input type="file" class="dropify form-control" data-height="90" name="financial_verify" data-default-file="{{ $form == null ? old('financial_verify') : old('financial_verify', asset('storage/' . $form->financial_verify)) }}" />
               </div>
             </div>
