@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Form;
 use App\Models\Student;
+use App\Models\Scholarship;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,29 +19,14 @@ class FormController extends Controller
             $student = null;
         }
 
-        if($form == null) {
-            $form = null;
-            $form_certif = null;
-            $form_transcript = null;
-            $form_passport = null;
-            $form_photo = null;
-        } else {
-            $form = $form;
-            $form_certif = $form->high_school_certif;
-            $form_transcript = $form->high_school_transcript;
-            $form_passport = $form->passport;
-            $form_photo = $form->color_photo;
-        }
+        $scholarships = Scholarship::all();
 
         return view('dashboard.form', [
             'title' => 'Applicant Form',
             'user' => Auth::user(),
             'form' => $form,
             'student' => $student,
-            'form_certif' => $form_certif,
-            'form_transcript' => $form_transcript,
-            'form_passport' => $form_passport,
-            'form_photo' => $form_photo,
+            'scholarships' => $scholarships,
         ]);
     }
 
@@ -55,6 +41,7 @@ class FormController extends Controller
             'school_postal_code' => 'required',
             'faculty' => 'required',
             'program' => 'required',
+            'scholarship' => 'required',
         ];
 
         if ($request->File('high_school_certif')) {
@@ -92,7 +79,7 @@ class FormController extends Controller
             'school_postal_code' => $request->school_postal_code,
             'faculty' => $request->faculty,
             'program' => $request->program,
-            // 'student_id' => Student::where('user_id', Auth::user()->id)->first()->id,
+            'scholarship_id' => $request->scholarship,
         ]);
 
         $form = Form::where('student_id', $student->id)->first();

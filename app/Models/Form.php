@@ -20,4 +20,8 @@ class Form extends Model
     public function student() {
         return $this->belongsTo(Student::class);
     }
+
+    public function scholarship() {
+        return $this->hasOne(Scholarship::class);
+    }
 }

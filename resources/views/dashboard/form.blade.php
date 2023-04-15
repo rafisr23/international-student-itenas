@@ -147,7 +147,7 @@
           <hr class="horizontal dark">
           <p class="text-uppercase text-md text-bold">Study Programs</p>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="faculty">Faculty</label>
                 <select class="form-control faculty" id="faculty" name="faculty">
@@ -155,7 +155,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="program">Programs</label>
                 <select class="form-control program" id="program" name="program">
@@ -165,6 +165,19 @@
               </div>
             </div>
           </div>
+          <hr class="horizontal dark">
+          <p class="text-uppercase text-md text-bold">SCHOLARSHIP</p>
+          <div class="row">
+            <div class="col-md-4">
+              @foreach ($scholarships as $scholarship)
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="radio" name="scholarship" id="{{ $scholarship->name }}" value="{{ $scholarship->id }}" {{ $form->scholarship_id == $scholarship->id ? 'checked' : '' }}>
+                  <label class="custom-control-label" for="{{ $scholarship->name }}">{{ $scholarship->name }}</label>
+                </div>
+              @endforeach
+            </div>
+          </div>
+          <hr class="horizontal dark">
         </div>
         <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Save Data</button>
       </form>
