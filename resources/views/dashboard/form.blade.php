@@ -151,7 +151,12 @@
               <div class="form-group">
                 <label for="faculty">Faculty<sup class="text-danger"> *</sup></label>
                 <select class="form-control faculty" id="faculty" name="faculty">
-                  <option value="{{ $form->faculty ?? '' }}">{{ $form->faculty ?? 'Select Faculty' }}</option>
+                  @if ($form == null)
+                    <option value="" selected>Please Select Faculty</option>
+                  @endif
+                  @foreach ($faculties as $faculty)
+                    <option value="{{ $faculty->id }}" {{ $form == null ? '' : ($form->faculty_id == $faculty->id ? 'selected' : '') }}>{{ $faculty->name }}</option>
+                  @endforeach
                 </select>
               </div>
             </div>
@@ -159,8 +164,9 @@
               <div class="form-group">
                 <label for="program">Programs<sup class="text-danger"> *</sup></label>
                 <select class="form-control program" id="program" name="program">
-                  <option value="{{ $form->program ?? '' }}" selected>
-                    {{ $form->program ?? 'Please Select Faculty First' }}</option>
+                  @if ($form == null)
+                    <option value="" selected>Please Select Faculty First</option>
+                  @endif
                 </select>
               </div>
             </div>
@@ -171,7 +177,7 @@
             <div class="col-md-4">
               @foreach ($scholarships as $scholarship)
                 <div class="form-check mb-3">
-                  <input class="form-check-input" type="radio" name="scholarship" id="{{ $scholarship->name }}" value="{{ $scholarship->id }}" {{ $form->scholarship_id == $scholarship->id ? 'checked' : '' }}>
+                  <input class="form-check-input" type="radio" name="scholarship" id="{{ $scholarship->name }}" value="{{ $scholarship->id }}" {{ ($form == null ? '' : $form->scholarship_id == $scholarship->id) ? 'checked' : '' }}>
                   <label class="custom-control-label" for="{{ $scholarship->name }}">{{ $scholarship->name }}</label>
                 </div>
               @endforeach
@@ -189,15 +195,6 @@
 @endsection
 
 @section('script')
-  <script>
-    $(document).ready(function() {
-      $(".school_country").select2({
-        placeholder: "Select a Country",
-        allowClear: true
-      });
-    })
-  </script>
-
   @if (session('success'))
     <script>
       Swal.fire({
@@ -221,47 +218,48 @@
   @endif
 
   <script>
-    let facultyObject = {
-      'Faculty of Industrial Engineering': [
-        'Select Program',
-        'Electrical Engineering',
-        'Mechanical Engineering',
-        'Industrial Engineering',
-        'Chemical Engineering',
-        'Informatics',
-        'Information System'
-      ],
-      'Faculty of Civil Engineering and Planning': [
-        'Select Program',
-        'Civil Engineering',
-        'Geodetic Engineering',
-        'Urban and Regional Planning',
-        'Environmental Engineering'
-      ],
-      'Faculty of Architecture and Design': [
-        'Select Program',
-        'Interior Design',
-        'Product Design',
-        'Communication and Visual Design',
-        'Architecture'
-      ]
-    }
-
     window.onload = function() {
-      let faculty = document.getElementById('faculty')
-      let program = document.getElementById('program')
-
-      for (let key in facultyObject) {
-        faculty.innerHTML += `<option value="${key}">${key}</option>`
-      }
-
-      faculty.addEventListener('change', function() {
-        program.innerHTML = ''
-        for (let i = 0; i < facultyObject[this.value].length; i++) {
-          program.innerHTML +=
-            `<option value="${facultyObject[this.value][i]}">${facultyObject[this.value][i]}</option>`
-        }
-      })
+      $('.faculty').trigger('change');
     }
+    
+    // if ({{ $form == null ? 0 : $form->faculty_id}}) {
+    //   $('.program').append('<option value="">Please Select Faculty First</option>');
+    // } 
+    
+    $('.faculty').on('change', function() {
+      let faculty = $(this).val();
+      if (faculty) {
+        $.ajax({
+          url: "/get/program/",
+          type: "GET",
+          dataType: "json",
+          data: {
+            faculty: faculty
+          },
+          success: function(data) {
+            $('.program').empty();
+            $('.program').append('<option value="">Select Program</option>');
+            $.each(data, function(key, value) {
+              if (value.id == {{ $form->program_id ?? 0 }}) {
+                $('.program').append('<option value="' + value.id + '" selected>' + value.name + '</option>');
+              } else {
+                $('.program').append('<option value="' + value.id + '">' + value.name + '</option>');
+              }
+            });
+          }
+        });
+      } else {
+        $('.program').empty();
+      }
+    });
+
+    $('.dropify').dropify({
+      messages: {
+        'default': 'Drag and drop a file here or click',
+        'replace': 'Drag and drop or click to replace',
+        'remove': 'Remove',
+        'error': 'Ooops, something wrong happended.'
+      }
+    });
   </script>
 @endsection

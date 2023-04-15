@@ -21,4 +21,14 @@ class StudyProgram extends Model
     {
         return $this->hasMany(TuitionFeeOdd::class);
     }
+
+    public function tuitionFeeEvens()
+    {
+        return $this->hasMany(TuitionFeeEven::class);
+    }
+
+    public function form()
+    {
+        return $this->belongsToMany(Form::class);
+    }
 }

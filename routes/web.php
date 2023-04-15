@@ -28,6 +28,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/biodata', [StudentController::class, 'biodata'])->name('biodata');
     Route::post('/biodata/store', [StudentController::class, 'store'])->name('biodata.store');
+    Route::get('/get/program', [FormController::class, 'getProgram'])->name('get-program');
     Route::get('/applicant-form', [FormController::class, 'index'])->name('applicant-form');
     Route::post('/applicant-form/store', [FormController::class, 'store'])->name('applicant-form.store');
     Route::get('/preview-data', [FormController::class, 'preview'])->name('preview-data');

@@ -24,4 +24,8 @@ class Form extends Model
     public function scholarship() {
         return $this->hasOne(Scholarship::class);
     }
+
+    public function studyProgram() {
+        return $this->belongsTo(StudyProgram::class);
+    }
 }

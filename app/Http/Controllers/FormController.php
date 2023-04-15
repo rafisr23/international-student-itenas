@@ -3,23 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Models\Form;
+use App\Models\Faculty;
 use App\Models\Student;
 use App\Models\Scholarship;
 use Illuminate\Support\Str;
+use App\Models\StudyProgram;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class FormController extends Controller
 {
     public function index() {
         if ($student = Student::where('user_id', Auth::user()->id)->first()) {
-            $form = Form::where('student_id', $student->id)->first();
+            // $form = Form::where('student_id', $student->id)->first();
+            $form = DB::table('forms')
+            ->join('students', 'forms.student_id', '=', 'students.id')
+            ->join('users', 'students.user_id', '=', 'users.id')
+            ->join('study_programs', 'forms.program_id', '=', 'study_programs.id')
+            ->join('faculties', 'study_programs.faculty_id', '=', 'faculties.id')
+            ->join('scholarships', 'forms.scholarship_id', '=', 'scholarships.id')
+            ->select('forms.*', 'users.name', 'study_programs.name as program', 'faculties.name as faculty', 'faculties.id as faculty_id', 'scholarships.name as scholarship')
+            ->where('forms.student_id', $student->id)
+            ->first();
         } else {
             $form = null;
             $student = null;
         }
 
+        // return $form->program_id;
+
         $scholarships = Scholarship::all();
+        $faculties = Faculty::all();
+        $studyPrograms = StudyProgram::all();
 
         return view('dashboard.form', [
             'title' => 'Applicant Form',
@@ -27,7 +43,15 @@ class FormController extends Controller
             'form' => $form,
             'student' => $student,
             'scholarships' => $scholarships,
+            'faculties' => $faculties,
+            'studyPrograms' => $studyPrograms,
         ]);
+    }
+
+    public function getProgram(Request $request) {
+        $studyPrograms = StudyProgram::where('faculty_id', $request->faculty)->get();
+
+        return response()->json($studyPrograms);
     }
 
     public function store(Request $request) {
@@ -39,7 +63,6 @@ class FormController extends Controller
             'school_city' => 'required',
             'school_country' => 'required',
             'school_postal_code' => 'required',
-            'faculty' => 'required',
             'program' => 'required',
             'scholarship' => 'required',
         ];
@@ -77,8 +100,7 @@ class FormController extends Controller
             'school_city' => $request->school_city,
             'school_country' => $request->school_country,
             'school_postal_code' => $request->school_postal_code,
-            'faculty' => $request->faculty,
-            'program' => $request->program,
+            'program_id' => $request->program,
             'scholarship_id' => $request->scholarship,
         ]);
 
