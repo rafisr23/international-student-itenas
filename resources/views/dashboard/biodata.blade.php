@@ -35,7 +35,7 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group form1">
-                        <label for="first_name" class="form-control-label">First name</label>
+                        <label for="first_name" class="form-control-label">First name<sup class="text-danger"> *</sup></label>
                         <input
                           class="form-control @error('first_name')
                           is-invalid
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="last_name" class="form-control-label">Last name</label>
+                        <label for="last_name" class="form-control-label">Last name<sup class="text-danger"> *</sup></label>
                         <input
                           class="form-control @error('last_name')
                           is-invalid
@@ -65,7 +65,7 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="phone_number" class="form-control-label">Phone Number</label>
+                        <label for="phone_number" class="form-control-label">Phone Number<sup class="text-danger"> *</sup></label>
                         <input
                           class="form-control @error('phone_number')
                           is-invalid
@@ -80,7 +80,7 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="email" class="form-control-label">Email address</label>
+                        <label for="email" class="form-control-label">Email address<sup class="text-danger"> *</sup></label>
                         <input
                           class="form-control @error('email')
                           is-invalid
@@ -98,7 +98,7 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="address" class="form-control-label">Address</label>
+                        <label for="address" class="form-control-label">Address<sup class="text-danger"> *</sup></label>
                         <input
                           class="form-control @error('address')
                           is-invalid
@@ -113,7 +113,7 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label for="city" class="form-control-label">City</label>
+                        <label for="city" class="form-control-label">City<sup class="text-danger"> *</sup></label>
                         <input
                           class="form-control @error('city')
                           is-invalid
@@ -127,7 +127,7 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label for="country" class="form-control-label">Country</label>
+                        <label for="country" class="form-control-label">Country<sup class="text-danger"> *</sup></label>
                         <input
                           class="form-control @error('country')
                           is-invalid
@@ -142,7 +142,7 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label for="postal_code" class="form-control-label">Postal Code</label>
+                        <label for="postal_code" class="form-control-label">Postal Code<sup class="text-danger"> *</sup></label>
                         <input
                           class="form-control @error('postal_code')
                           is-invalid

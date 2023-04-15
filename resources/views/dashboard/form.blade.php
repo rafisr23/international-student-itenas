@@ -21,7 +21,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="high_school" class="form-control-label">High School or Equivalent Name</label>
+                <label for="high_school" class="form-control-label">High School or Equivalent Name<sup class="text-danger"> *</sup></label>
                 <input class="form-control @error('high_school')
                   is-invalid
                 @enderror"
@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="grad_date" class="form-control-label">Graduation Date</label>
+                <label for="grad_date" class="form-control-label">Graduation Date<sup class="text-danger"> *</sup></label>
                 <input class="form-control @error('grad_date')
                   is-invalid
                 @enderror"
@@ -47,7 +47,7 @@
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <label for="school_address" class="form-control-label">Address</label>
+                <label for="school_address" class="form-control-label">Address<sup class="text-danger"> *</sup></label>
                 <input class="form-control @error('school_address')
                     is-invalid
                   @enderror"
@@ -61,7 +61,7 @@
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="school_city" class="form-control-label">City</label>
+                <label for="school_city" class="form-control-label">City<sup class="text-danger"> *</sup></label>
                 <input class="form-control @error('school_city')
                     is-invalid
                   @enderror"
@@ -74,7 +74,7 @@
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="school_country" class="form-control-label">Country</label>
+                <label for="school_country" class="form-control-label">Country<sup class="text-danger"> *</sup></label>
                 <input class="form-control @error('school_country')
                     is-invalid
                   @enderror"
@@ -92,7 +92,7 @@
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="school_postal_code" class="form-control-label">Postal Code</label>
+                <label for="school_postal_code" class="form-control-label">Postal Code<sup class="text-danger"> *</sup></label>
                 <input
                   class="form-control @error('school_postal_code')
                     is-invalid
@@ -111,35 +111,35 @@
           <div class="row justify-content-center">
             <div class="col-md-4">
               <div class="form-group">
-                <label for="" class="form-control-label">4 x 6 Color Photo</label>
+                <label for="" class="form-control-label">4 x 6 Color Photo<sup class="text-danger"> *</sup></label>
                 <input type="file" class="dropify form-control" data-height="90" name="color_photo"
                   data-default-file="{{ $form == null ? old('color_photo') : old('color_photo', asset('storage/' . $form->color_photo)) }}" />
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="" class="form-control-label">Birth Certificate or Passport</label>
+                <label for="" class="form-control-label">Birth Certificate or Passport<sup class="text-danger"> *</sup></label>
                 <input type="file" class="dropify form-control" data-height="90" name="passport"
                   data-default-file="{{ $form == null ? old('passport') : old('passport', asset('storage/' . $form->passport)) }}" />
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="" class="form-control-label">High School Transcript or Report Cards</label>
+                <label for="" class="form-control-label">High School Transcript or Report Cards<sup class="text-danger"> *</sup></label>
                 <input type="file" class="dropify form-control" data-height="90" name="high_school_transcript"
                   data-default-file="{{ $form == null ? old('high_school_transcript') : old('high_school_transcript', asset('storage/' . $form->high_school_transcript)) }}" />
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="" class="form-control-label">High School Certificate</label>
+                <label for="" class="form-control-label">High School Certificate<sup class="text-danger"> *</sup></label>
                 <input type="file" class="dropify form-control" data-height="90" name="high_school_certif"
                   data-default-file="{{ $form == null ? old('high_school_certif') : old('high_school_certif', asset('storage/' . $form->high_school_certif)) }}" />
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="" class="form-control-label">Financial Verification Documentation (<a href="{{ route('download', 'Financial Verification Doc ITENAS.pdf') }}"><i>download here</a></i>)</label>
+                <label for="" class="form-control-label">Financial Verification Documentation (<a href="{{ route('download', 'Financial Verification Doc ITENAS.pdf') }}"><i>download here</a></i>)<sup class="text-danger"> *</sup></label>
                 <input type="file" class="dropify form-control" data-height="90" name="financial_verify" data-default-file="{{ $form == null ? old('financial_verify') : old('financial_verify', asset('storage/' . $form->financial_verify)) }}" />
               </div>
             </div>
@@ -149,7 +149,7 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label for="faculty">Faculty</label>
+                <label for="faculty">Faculty<sup class="text-danger"> *</sup></label>
                 <select class="form-control faculty" id="faculty" name="faculty">
                   <option value="{{ $form->faculty ?? '' }}">{{ $form->faculty ?? 'Select Faculty' }}</option>
                 </select>
@@ -157,7 +157,7 @@
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="program">Programs</label>
+                <label for="program">Programs<sup class="text-danger"> *</sup></label>
                 <select class="form-control program" id="program" name="program">
                   <option value="{{ $form->program ?? '' }}" selected>
                     {{ $form->program ?? 'Please Select Faculty First' }}</option>
