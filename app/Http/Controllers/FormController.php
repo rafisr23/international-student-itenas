@@ -95,7 +95,6 @@ class FormController extends Controller
         Form::updateOrCreate([
             'student_id' => $student->id,
         ], [
-            'reg_number' => Str::random(10),
             'high_school' => $request->high_school,
             'grad_date' => $request->grad_date,
             'school_address' => $request->school_address,
@@ -107,6 +106,16 @@ class FormController extends Controller
         ]);
 
         $form = Form::where('student_id', $student->id)->first();
+
+        if ($form->reg_number == null) {
+            Form::where('student_id', $student->id)->update([
+                'reg_number' => Str::random(10),
+            ]);
+        } else {
+            Form::where('student_id', $student->id)->update([
+                'reg_number' => $form->reg_number,
+            ]);
+        }
 
         if ($request->has('high_school_certif')) {
             $fileName = $form->reg_number . '-' . $request->file('high_school_certif')->getClientOriginalName();

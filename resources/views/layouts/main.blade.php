@@ -10,7 +10,7 @@
     {{ $title ?? 'Dashboard' }}
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  {{-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" /> --}}
   <!-- Nucleo Icons -->
   <link href="{{ url('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
   <link href="{{ url('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
@@ -22,6 +22,7 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ url('assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
   <link rel="stylesheet" href="{{ url('assets/css/dropify.css') }}">
+  <link rel="stylesheet" href="/assets/css/app.css">
   {{-- CSS lib --}}
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css" rel="stylesheet" />
 </head>
