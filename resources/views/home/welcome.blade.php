@@ -16,7 +16,7 @@
           <div class="col-lg-4 ms-auto mt-lg-0 mt-4">
             <div class="row justify-content-center mb-5">
               <div class="col-md-12 col-sm-6">
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalGuides">
+                <a href="/registration-guides">
                   <div class="card px-3 py-2">
                     <div class="row align-items-center">
                       <div class="col-md-8 col-sm-6">
@@ -30,7 +30,7 @@
             </div>
             <div class="row justify-content-center mb-5">
               <div class="col-md-12 col-sm-6">
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalCost">
+                <a href="/tuition-fee">
                   <div class="card px-3 py-2">
                     <div class="row align-items-center">
                       <div class="col-md-8 col-sm-6">
@@ -44,7 +44,7 @@
             </div>
             <div class="row justify-content-center mb-5">
               <div class="col-md-12 col-sm-6">
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalTrack">
+                <a href="javascript:void(0)">
                   <div class="card px-3 py-2">
                     <div class="row align-items-center">
                       <div class="col-md-8 col-sm-6">
@@ -211,159 +211,5 @@
       </div>
     </section>
     <!-- -------- END PRE-FOOTER 1 ------- -->
-  </div>
-  <footer class="footer pt-3 mt-5">
-    <div class="container">
-      <div class=" row">
-        <div class="col-md-6 col-sm-6 col-6 mb-4">
-          <div>
-            <h6 class="text-sm">KAMPUS INSTITUT TEKNOLOGI NASIONAL</h6>
-            <ul class="flex-column ms-n3 nav">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)" target="_blank">
-                  Jl. PH.H. Mustofa No.23 Bandung 40124
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)" target="_blank">
-                  Phone: +62 22 7272215, Fax +62 22 7202892
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)" target="_blank">
-                  humas[at]itenas.ac.id, http://www.itenas.ac.id
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="text-center">
-            <p class="text-dark my-4 text-sm font-weight-normal">
-              Copyright ©
-              <script>
-                document.write(new Date().getFullYear())
-              </script>
-              <a href="https://www.itenas.ac.id" class="font-weight-bold text-warning" target="_blank">
-                ITENAS</a> | All
-              rights
-              reserved.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  {{-- Modals --}}
-  <!-- Modal Guides -->
-  <div class="modal fade" id="modalGuides" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Registration Guides</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {{-- Modal Cost --}}
-  <div class="modal fade" id="modalCost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Tuition Fee</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row mb-5">
-            <div class="col-md-12 table-responsive p-3">
-              <h5>Tuition Fee Odd Semester</h5>
-              <table id="example" class="table table-striped">
-                <thead>
-                  <tr>
-                      <th>Study Program</th>
-                      <th>Fixed Course Fee</th>
-                      <th>Variable Course Fee</th>
-                      <th>Practical / Studio Fee</th>
-                      <th>Tuition Fee</th>
-                      <th>Educational Development Fee</th>
-                      <th>Total Fee</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($tuitionFeeOdd as $odd)
-                  <tr>
-                      <td>{{ $odd->studyProgram->name }}</td>
-                      <td>Rp{{number_format($odd->fixed_course_fee, 0, ".", ".") }}</td>
-                      <td>Rp{{number_format($odd->variable_course_fee, 0, ".", ".") }}</td>
-                      <td>Rp{{number_format($odd->practical_studio_fee, 0, ".", ".") }}</td>
-                      <td>Rp{{number_format($odd->tuition_fee, 0, ".", ".") }}</td>
-                      <td>Rp{{number_format($odd->educational_development_fee, 0, ".", ".") }}</td>
-                      <td>Rp{{number_format($odd->total_fee, 0, ".", ".") }}</td>
-                  </tr>
-                  @endforeach
-                </tbody>                
-              </table>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 table-responsive p-3">
-              <h5>Tuition Fee Even Semester</h5>
-              <table id="example" class="table table-striped">
-                <thead>
-                  <tr>
-                      <th>Study Program</th>
-                      <th>Fixed Course Fee</th>
-                      <th>Variable Course Fee</th>
-                      <th>Practical / Studio Fee</th>
-                      <th>Tuition Fee</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($tuitionFeeEven as $even)
-                  <tr>
-                      <td>{{ $even->studyProgram->name }}</td>
-                      <td>Rp{{number_format($even->fixed_course_fee, 0, ".", ".") }}</td>
-                      <td>Rp{{number_format($even->variable_course_fee, 0, ".", ".") }}</td>
-                      <td>Rp{{number_format($even->practical_studio_fee, 0, ".", ".") }}</td>
-                      <td>Rp{{number_format($even->tuition_fee, 0, ".", ".") }}</td>
-                  </tr>
-                  @endforeach
-                </tbody>                
-              </table>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {{-- Modal Track --}}
-  <div class="modal fade" id="modalTrack" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Track</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
   </div>
 @endsection

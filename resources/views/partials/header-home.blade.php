@@ -5,9 +5,18 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center mx-auto mt-4">
-          <h1 class="text-white">Institut Teknologi Nasional Bandung International Student</h1>
-          <p class="lead mb-4 text-white opacity-8">For A Brighter Future</p>
-          <a type="submit" class="btn bg-white text-dark" href="/register">Register Here!</a>
+          {{-- <h1 class="text-white">Institut Teknologi Nasional Bandung International Student</h1>
+          <p class="lead mb-4 text-white opacity-8">For A Brighter Future</p> --}}
+          <figure class="text-center">
+            <blockquote>
+              <p class="fs-1 text-white fw-bold">Institut Teknologi Nasional Bandung International Student</p>
+            </blockquote>
+            <figcaption class="blockquote-footer text-white">
+              <cite>For A Brighter Future</cite>
+            </figcaption>
+          </figure>
+          <a class="btn btn-warning me-1 mt-3" href="/register">Register Here!</a>
+          <a class="btn btn-light mt-3" href="{{ route('download', 'brosur 13_04_2023.pdf') }}">Download Brosur</a>
           <h6 class="text-white mb-2 mt-3">Find us on</h6>
           <div class="d-flex justify-content-center">
             <a href="https://www.instagram.com/itenas.official/" target="_blank"><i

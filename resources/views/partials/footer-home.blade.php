@@ -1,6 +1,6 @@
-<footer class="footer pt-3 mt-5">
+<footer class="footer pt-3 mt-5 blur shadow">
   <div class="container">
-    <div class=" row">
+    <div class="row mt-5">
       <div class="col-md-6 col-sm-6 col-6 mb-4">
         <div>
           <h6 class="text-sm">KAMPUS INSTITUT TEKNOLOGI NASIONAL</h6>

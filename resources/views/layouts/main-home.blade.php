@@ -9,10 +9,6 @@
   <title>
     International Student Itenas
   </title>
-  <!--     Fonts and icons     -->
-  {{-- <link rel="stylesheet" type="text/css"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" /> --}}
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="{{ url('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
   <link href="{{ url('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
@@ -23,6 +19,7 @@
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
+  <link rel="stylesheet" href="/assets/css/app.css">
   <link id="pagestyle" href="{{ url('assets/css/material-kit.css?v=3.0.4') }}" rel="stylesheet" />
   {{-- <link id="pagestyle" href="{{ url('assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" /> --}}
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
@@ -32,6 +29,7 @@
 <body class="about-us bg-gray-200">
   @include('partials.navbar-home')
   @yield('content')
+  @include('partials.footer-home')
 
 <!--   Core JS Files   -->
 <script src="{{ url('assets/js/core/popper.min.js') }}"></script>
