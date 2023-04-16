@@ -36,4 +36,9 @@ class HomeController extends Controller
 
         return view('home.tuition', compact('tuitionFeeOdd', 'tuitionFeeEven'));
     }
+
+    public function timeline()
+    {
+        return view('home.timeline');
+    }
 }

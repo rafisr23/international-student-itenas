@@ -24,6 +24,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/download/{file}', [HomeController::class, 'download'])->name('download');
 Route::get('/tuition-fee', [HomeController::class, 'tuitionFee'])->name('tuition-fee');
 Route::get('/registration-guides', [HomeController::class, 'registrationGuides'])->name('registration-guides');
+Route::get('/timeline', [HomeController::class, 'timeline'])->name('timeline');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/home', [HomeController::class, 'index'])->name('home');

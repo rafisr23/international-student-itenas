@@ -10,7 +10,7 @@
           {{-- <h4 class="text-center mb-0 text-warning">Registration Information</h4> --}}
           <div class="col-lg-6">
             <div class="row justify-content-center">
-              <img src="/assets/img/schedule-removebg.png" alt="" class="border-radius-lg">
+              <img src="/assets/img/important-dates.png" alt="" class="border-radius-lg">
             </div>
           </div>
           <div class="col-lg-4 ms-auto mt-lg-0 mt-4">
@@ -44,12 +44,12 @@
             </div>
             <div class="row justify-content-center mb-5">
               <div class="col-md-12 col-sm-6">
-                <a href="javascript:void(0)">
+                <a href="/timeline">
                   <div class="card px-3 py-2">
                     <div class="row align-items-center">
                       <div class="col-md-8 col-sm-6">
                         <i class="material-icons text-3xl text-gradient text-warning mb-3">route</i>
-                        <h5>Qualification Track</h5>
+                        <h5>Registration Timeline</h5>
                       </div>
                     </div>
                   </div>
