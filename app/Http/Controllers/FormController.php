@@ -191,6 +191,20 @@ class FormController extends Controller
         ]);
     }
 
+    public function submit() {
+        $biodata = Student::where('user_id', Auth::user()->id)->first();
+        $form = Form::where('student_id', $biodata->id)->first();
+
+        if ($form->is_submitted) {
+            return redirect()->route('preview-data')->with('error', 'Form already submitted');
+        } else {
+            $form->update([
+                'is_submitted' => true,
+            ]);
+            return redirect()->route('preview-data')->with('success', 'Form submitted successfully');
+        }
+    }
+
     public function printCard() {
         // retreive all records from db
         $biodata = Student::where('user_id', Auth::user()->id)->first();

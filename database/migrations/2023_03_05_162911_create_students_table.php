@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('phone_number')->unique();
+            $table->string('phone_number')->unique()->nullable();
             $table->text('address');
             $table->string('city');
             $table->string('country');
             $table->string('postal_code');
-            $table->text('about_me');
+            $table->text('about_me')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

@@ -14,7 +14,7 @@
         </div>
       </div>
     @else
-      <form action="/applicant-form/store" method="POST" enctype="multipart/form-data">
+      <form action="/applicant-form/store" method="POST" enctype="multipart/form-data" class="needs-validation">
         @csrf
         <div class="card-body">
           <p class="text-uppercase text-md text-bold">Education</p>
@@ -25,8 +25,8 @@
                 <input class="form-control @error('high_school')
                   is-invalid
                 @enderror"
-                  placeholder="High School" type="text" name="high_school" id="high_school"
-                  value="{{ $form == null ? old('high_school') : old('high_school', $form->high_school) }}" required>
+                  placeholder="High School" type="text"
+                  value="{{ $form == null ? old('high_school') : old('high_school', $form->high_school) }}" name="high_school" id="high_school" required />
                 @error('high_school')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -81,10 +81,6 @@
                   type="text" name="school_country" id="school_country" placeholder="School Country"
                   value="{{ $form == null ? old('school_country') : old('school_country', $form->school_country) }}"
                   required>
-                {{-- <select class="form-control school_country" name="school_country" style="width: 100%; height: 100%">
-                  <option></option>
-                  <option value="">ANJAY</option>
-                </select> --}}
                 @error('school_country')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -112,35 +108,34 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label for="" class="form-control-label">4 x 6 Color Photo<sup class="text-danger"> *</sup></label>
-                <input type="file" class="dropify form-control" data-height="90" name="color_photo"
-                  data-default-file="{{ $form == null ? old('color_photo') : old('color_photo', asset('storage/' . $form->color_photo)) }}" />
+                <input type="file" class="dropify form-control" data-height="90" name="color_photo" data-default-file="{{ $form == null ? old('color_photo') : old('color_photo', asset('storage/' . $form->color_photo)) }}" data-show-errors="true" data-allowed-file-extensions="jpg jpeg png"/>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="" class="form-control-label">Birth Certificate or Passport<sup class="text-danger"> *</sup></label>
                 <input type="file" class="dropify form-control" data-height="90" name="passport"
-                  data-default-file="{{ $form == null ? old('passport') : old('passport', asset('storage/' . $form->passport)) }}" />
+                  data-default-file="{{ $form == null ? old('passport') : old('passport', asset('storage/' . $form->passport)) }}" data-show-errors="true" data-allowed-file-extensions="pdf"/>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="" class="form-control-label">High School Transcript or Report Cards<sup class="text-danger"> *</sup></label>
                 <input type="file" class="dropify form-control" data-height="90" name="high_school_transcript"
-                  data-default-file="{{ $form == null ? old('high_school_transcript') : old('high_school_transcript', asset('storage/' . $form->high_school_transcript)) }}" />
+                  data-default-file="{{ $form == null ? old('high_school_transcript') : old('high_school_transcript', asset('storage/' . $form->high_school_transcript)) }}" data-show-errors="true" data-allowed-file-extensions="pdf"/>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="" class="form-control-label">High School Certificate<sup class="text-danger"> *</sup></label>
                 <input type="file" class="dropify form-control" data-height="90" name="high_school_certif"
-                  data-default-file="{{ $form == null ? old('high_school_certif') : old('high_school_certif', asset('storage/' . $form->high_school_certif)) }}" />
+                  data-default-file="{{ $form == null ? old('high_school_certif') : old('high_school_certif', asset('storage/' . $form->high_school_certif)) }}" data-show-errors="true" data-allowed-file-extensions="pdf"/>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="" class="form-control-label">Financial Verification Documentation (<a href="{{ route('download', 'Financial Verification Doc ITENAS.pdf') }}"><i>download here</a></i>)<sup class="text-danger"> *</sup></label>
-                <input type="file" class="dropify form-control" data-height="90" name="financial_verify" data-default-file="{{ $form == null ? old('financial_verify') : old('financial_verify', asset('storage/' . $form->financial_verify)) }}" />
+                <input type="file" class="dropify form-control" data-height="90" name="financial_verify" data-default-file="{{ $form == null ? old('financial_verify') : old('financial_verify', asset('storage/' . $form->financial_verify)) }}" data-show-errors="true" data-allowed-file-extensions="pdf"/>
               </div>
             </div>
           </div>
@@ -177,10 +172,13 @@
             <div class="col-md-4">
               @foreach ($scholarships as $scholarship)
                 <div class="form-check mb-3">
-                  <input class="form-check-input" type="radio" name="scholarship" id="{{ $scholarship->name }}" value="{{ $scholarship->id }}" {{ ($form == null ? '' : $form->scholarship_id == $scholarship->id) ? 'checked' : '' }}>
+                  <input class="form-check-input @error('scholarship') is-invalid @enderror" type="radio" name="scholarship" id="{{ $scholarship->name }}" value="{{ $scholarship->id }}" {{ ($form == null ? '' : $form->scholarship_id == $scholarship->id) ? 'checked' : '' }}>
                   <label class="custom-control-label" for="{{ $scholarship->name }}">{{ $scholarship->name }}</label>
                 </div>
               @endforeach
+              @error('scholarship')
+                <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
             </div>
           </div>
           <hr class="horizontal dark">
@@ -188,9 +186,6 @@
         <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Save Data</button>
       </form>
     @endif
-    {{-- <form action="">
-      <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Submit</button>
-    </form> --}}
   </div>
 @endsection
 
@@ -209,7 +204,6 @@
     <script>
       Swal.fire({
         icon: 'warning',
-        // title: 'Peringatan',
         title: "{{ session('error') }}",
         showConfirmButton: false,
         timer: 2000
@@ -221,10 +215,6 @@
     window.onload = function() {
       $('.faculty').trigger('change');
     }
-    
-    // if ({{ $form == null ? 0 : $form->faculty_id}}) {
-    //   $('.program').append('<option value="">Please Select Faculty First</option>');
-    // } 
     
     $('.faculty').on('change', function() {
       let faculty = $(this).val();

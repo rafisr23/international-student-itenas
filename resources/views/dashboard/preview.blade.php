@@ -146,11 +146,59 @@
       </div>
       <div class="row mt-5">
         <div class="colmd-4">
-          <a href="/print-card" class="btn btn-warning" target="_blank"><i class="fa-solid fa-print me-1"></i>Print Applicant
-            Cards</a>
+          @if ($form->is_submitted == 1)
+            <a href="/print-card" class="btn btn-warning" target="_blank"><i class="fa-solid fa-print me-1"></i>Print Applicant Cards</a>
+          @else
+            <form action="/applicant-submit" method="POST">
+              @csrf
+            </form>
+            <button class="btn btn-danger" onclick="submitRegistration()">SUBMIT REGISTRATION</button>
+          @endif
         </div>
       </div>    
       @endif
     </div>
   </div>
+@endsection
+
+@section('script')
+  <script>
+    const swalSubmit = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success ms-2',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+
+    function submitRegistration() {
+      swalSubmit.fire({
+        title: 'Are you sure submit your registration?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, submit it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: '/applicant-submit',
+            type: 'POST',
+            data: {
+              _token: '{{ csrf_token() }}'
+            },
+            success: function (data) {
+              Swal.fire(
+                'Submitted!',
+                'Your registration has been submitted.',
+                'success'
+              )
+              window.location.href = "/preview-data";
+            }
+          })
+        }
+      })
+    }
+  </script>
 @endsection

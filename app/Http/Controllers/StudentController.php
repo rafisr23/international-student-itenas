@@ -27,23 +27,24 @@ class StudentController extends Controller
     }
 
     public function store(Request $request) {
-        $request->validate([
+        $validatedData = [
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone_number' => 'required|unique:students',
+            // 'phone_number' => 'required',
             'address' => 'required',
             'city' => 'required',
             'country' => 'required',
             'postal_code' => 'required',
-            'about_me' => 'required'
-        ]);
+        ];
+
+        $request->validate($validatedData);
 
         Student::updateOrCreate(
             ['user_id' => Auth::user()->id],
             [
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
-                'phone_number' => $request->phone_number,
+                // 'phone_number' => $request->phone_number,
                 'address' => $request->address,
                 'city' => $request->city,
                 'country' => $request->country,
@@ -51,6 +52,28 @@ class StudentController extends Controller
                 'about_me' => $request->about_me
             ]
         );
+
+        $student = Student::where('user_id', Auth::user()->id)->first();
+
+        if ($student->phone_number == $request->phone_number) {
+            $validatedData = [
+                'phone_number' => 'required'
+            ];
+            $request->validate($validatedData);
+
+            Student::where('user_id', Auth::user()->id)->update([
+                'phone_number' => $request->phone_number
+            ]);
+        } else {
+            $validatedData = [
+                'phone_number' => 'required|unique:students'
+            ];
+            $request->validate($validatedData);
+
+            Student::where('user_id', Auth::user()->id)->update([
+                'phone_number' => $request->phone_number
+            ]);
+        }
 
         $full_name = $request->first_name . ' ' . $request->last_name;
         

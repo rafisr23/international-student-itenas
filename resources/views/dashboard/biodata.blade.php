@@ -42,7 +42,7 @@
                         @enderror"
                           placeholder="First Name" type="text"
                           value="{{ $biodata == null ? old('first_name', explode(' ', Auth::user()->name, 2)[0]) : old('first_name', $biodata->first_name) }}"
-                          name="first_name" id="first_name">
+                          name="first_name" id="first_name" required>
                         @error('first_name')
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -167,12 +167,12 @@
                             class="form-control @error('about_me')
                           is-invalid
                         @enderror"
-                            type="text" name="about_me" id="about_me" placeholder="About Me" required>{{ old('about_me', $biodata->about_me) }}</textarea>
+                            type="text" name="about_me" id="about_me" placeholder="About Me">{{ old('about_me', $biodata->about_me) }}</textarea>
                         @else
                           <textarea class="form-control @error('about_me')
                         is-invalid
                       @enderror"
-                            type="text" name="about_me" id="about_me" placeholder="About Me" required>{{ old('about_me') }}</textarea>
+                            type="text" name="about_me" id="about_me" placeholder="About Me">{{ old('about_me') }}</textarea>
                         @endif
                         @error('about_me')
                           <div class="invalid-feedback">{{ $message }}</div>
@@ -181,7 +181,7 @@
                     </div>
                   </div>
                 </div>
-                <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Save</button>
+                <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Save Data</button>
               </form>
             </div>
           </div>

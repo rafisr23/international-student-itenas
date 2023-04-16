@@ -33,6 +33,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/get/program', [FormController::class, 'getProgram'])->name('get-program');
     Route::get('/applicant-form', [FormController::class, 'index'])->name('applicant-form');
     Route::post('/applicant-form/store', [FormController::class, 'store'])->name('applicant-form.store');
+    Route::post('/applicant-submit', [FormController::class, 'submit'])->name('applicant-submit');
     Route::get('/preview-data', [FormController::class, 'preview'])->name('preview-data');
     Route::get('/print-card', [FormController::class, 'printCard'])->name('print-card');
     Route::get('/announcement', [StudentController::class, 'announcement'])->name('announcement');
