@@ -177,9 +177,29 @@
         </div>
       </div>
     </section>
+    <section class="py-5" id="count-stats">
+      <div class="row justify-content-center text-center align-item-center">
+        <p class="fs-2 fw-bold text-dark">Statistic About Itenas</p>
+        <div class="col-md-3">
+          <h1 class="text-gradient text-info"><span id="state1" countTo="14">0</span></h1>
+          <h5>Study Program</h5>
+          {{-- <p>Of “high-performing” level are led by a certified project manager</p> --}}
+        </div>
+        <div class="col-md-3">
+          <h1 class="text-gradient text-info"><span id="state2" countTo="5000">0</span>+</h1>
+          <h5>Students</h5>
+          {{-- <p>That meets quality standards required by our users</p> --}}
+        </div>
+        <div class="col-md-3">
+          <h1 class="text-gradient text-info"><span id="state3" countTo="100">0</span>+</h1>
+          <h5>Lecturer</h5>
+          {{-- <p>Actively engage team members that finishes on time</p> --}}
+        </div>
+      </div>
+    </section>
     <!-- -------- END Features w/ pattern background & stats & rocket -------- -->
     <!-- -------- START PRE-FOOTER 1 w/ SUBSCRIBE BUTTON AND IMAGE ------- -->
-    <section class="my-5 pt-5">
+    <section class="my-5">
       <div class="container">
         <div class="row">
           <div class="col-md-6 m-auto">
