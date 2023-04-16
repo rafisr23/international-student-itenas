@@ -199,7 +199,7 @@
     </section>
     <!-- -------- END Features w/ pattern background & stats & rocket -------- -->
     <!-- -------- START PRE-FOOTER 1 w/ SUBSCRIBE BUTTON AND IMAGE ------- -->
-    <section class="my-5">
+    {{-- <section class="my-5">
       <div class="container">
         <div class="row">
           <div class="col-md-6 m-auto">
@@ -229,7 +229,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     <!-- -------- END PRE-FOOTER 1 ------- -->
   </div>
 @endsection
