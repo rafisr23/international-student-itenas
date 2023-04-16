@@ -28,8 +28,10 @@ class FormController extends Controller
             ->select('forms.*', 'users.name', 'study_programs.name as program', 'faculties.name as faculty', 'faculties.id as faculty_id', 'scholarships.name as scholarship')
             ->where('forms.student_id', $student->id)
             ->first();
-            if ($form->is_submitted) {
-                return redirect('/preview-data')->with('error', 'You have already submitted your application!');
+            if ($form) {
+                if ($form->is_submitted) {
+                    return redirect('/preview-data')->with('error', 'You have already submitted your application!');
+                }
             }
         } else {
             $form = null;
