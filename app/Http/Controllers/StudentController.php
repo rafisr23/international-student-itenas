@@ -12,6 +12,7 @@ class StudentController extends Controller
 {
     public function biodata() {
         $student = Student::where('user_id', Auth::user()->id)->first();
+        $form = Form::where('student_id', $student->id)->first();
 
         if($student == null) {
             $biodata = null;
@@ -19,10 +20,15 @@ class StudentController extends Controller
             $biodata = $student;
         }
 
+        if ($form->is_submitted) {
+            return redirect('/preview-data')->with('error', 'You have already submitted your application!');
+        }
+
         return view('dashboard.biodata', [
             'title' => 'Biodata',
             'user' => Auth::user()->name,
-            'biodata' => $biodata
+            'biodata' => $biodata,
+            'form' => $form
         ]);
     }
 

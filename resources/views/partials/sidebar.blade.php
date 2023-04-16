@@ -17,6 +17,7 @@
           <span class="nav-link-text ms-1">Home</span>
         </a>
       </li> --}}
+      @if ($form == null ? true : !$form->is_submitted)
       <li class="nav-item">
         <a class="nav-link {{ request()->segment(1) == 'biodata' ? 'active' : '' }}" href="/biodata">
           <div
@@ -35,6 +36,7 @@
           <span class="nav-link-text ms-1">Applicant Form</span>
         </a>
       </li>
+      @endif
       <li class="nav-item">
         <a class="nav-link {{ request()->segment(1) == 'preview-data' ? 'active' : '' }}" href="/preview-data">
           <div

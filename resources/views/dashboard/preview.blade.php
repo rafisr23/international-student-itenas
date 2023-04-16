@@ -189,12 +189,14 @@
               _token: '{{ csrf_token() }}'
             },
             success: function (data) {
-              Swal.fire(
+              // show notification first then reload page
+              swalSubmit.fire(
                 'Submitted!',
                 'Your registration has been submitted.',
                 'success'
-              )
-              window.location.href = "/preview-data";
+              ).then(() => {
+                location.reload()
+              })
             }
           })
         }

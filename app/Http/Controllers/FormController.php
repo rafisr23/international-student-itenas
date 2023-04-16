@@ -39,6 +39,10 @@ class FormController extends Controller
         $faculties = Faculty::all();
         $studyPrograms = StudyProgram::all();
 
+        if ($form->is_submitted) {
+            return redirect('/preview-data')->with('error', 'You have already submitted your application!');
+        }
+
         return view('dashboard.form', [
             'title' => 'Applicant Form',
             'user' => Auth::user(),

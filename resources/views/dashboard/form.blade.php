@@ -13,6 +13,17 @@
           </div>
         </div>
       </div>
+    @elseif($form == null ? false : $form->is_submitted)
+      <div class="card-body">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <img src="/assets/img/block.png" alt="form-review" height="400" class="m-auto d-block mb-3">
+            <div class="alert alert-danger text-center text-light" role="alert">
+              Sorry, you can't edit your form anymore. Your form has been submitted.
+            </div>
+          </div>
+        </div>
+      </div>
     @else
       <form action="/applicant-form/store" method="POST" enctype="multipart/form-data" class="needs-validation">
         @csrf
