@@ -11,23 +11,21 @@ use Illuminate\Support\Facades\Auth;
 class StudentController extends Controller
 {
     public function biodata() {
-        $student = Student::where('user_id', Auth::user()->id)->first();
-        $form = Form::where('student_id', $student->id)->first();
-
-        if($student == null) {
-            $biodata = null;
+        if($student = Student::where('user_id', Auth::user()->id)->first()) {
+            $form = Form::where('student_id', $student->id)->first();
+            if ($form->is_submitted) {
+                return redirect('/preview-data')->with('error', 'You have already submitted your application!');
+            }
         } else {
+            $student = null;
+            $form = null;
             $biodata = $student;
-        }
-
-        if ($form->is_submitted) {
-            return redirect('/preview-data')->with('error', 'You have already submitted your application!');
         }
 
         return view('dashboard.biodata', [
             'title' => 'Biodata',
             'user' => Auth::user()->name,
-            'biodata' => $biodata,
+            'biodata' => $student,
             'form' => $form
         ]);
     }
