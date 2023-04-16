@@ -1,7 +1,7 @@
 <!-- Navbar Transparent -->
 <nav class="navbar navbar-expand-lg blur shadow fixed-top start-0 end-0">
   <div class="container">
-    <a class="navbar-brand text-white  " href="https://demos.creative-tim.com/material-kit/presentation"
+    <a class="navbar-brand text-white  " href="/"
       rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
       <img src="/assets/img/itenas-logo-full.png" alt="" width="120">
     </a>
@@ -37,7 +37,7 @@
             aria-labelledby="dropdownMenuBlocks">
             <div class="d-lg-block">
               <li class="nav-item dropdown dropdown-hover dropdown-subitem">
-                <a class="dropdown-item py-2 ps-3 border-radius-md" href="../presentation.html">
+                <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:void(0)">
                   <div class="w-100 d-flex align-items-center justify-content-between">
                     <div>
                       <h6
@@ -69,7 +69,7 @@
                 </div>
               </li>
               <li class="nav-item dropdown dropdown-hover dropdown-subitem">
-                <a class="dropdown-item py-2 ps-3 border-radius-md" href="../presentation.html">
+                <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:void(0)">
                   <div class="w-100 d-flex align-items-center justify-content-between">
                     <div>
                       <h6
@@ -95,7 +95,7 @@
                 </div>
               </li>
               <li class="nav-item dropdown dropdown-hover dropdown-subitem">
-                <a class="dropdown-item py-2 ps-3 border-radius-md" href="../presentation.html">
+                <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:void(0)">
                   <div class="w-100 d-flex align-items-center justify-content-between">
                     <div>
                       <h6
@@ -139,10 +139,10 @@
           <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3"
             aria-labelledby="dropdownMenuPages8">
             <div class="d-none d-lg-block">
-              <a href="../pages/about-us.html" class="dropdown-item border-radius-md">
+              <a href="javascript:void(0)" class="dropdown-item border-radius-md">
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0 me-2">Cahaya Scholarship</h6>
               </a>
-              <a href="../pages/contact-us.html" class="dropdown-item border-radius-md">
+              <a href="javascript:void(0)" class="dropdown-item border-radius-md">
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0 me-2">Darmasiswa Scholarship</h6>
               </a>
             </div>
@@ -165,36 +165,3 @@
     </div>
   </div>
 </nav>
-<!-- End Navbar -->
-{{-- <nav class="navbar navbar-expand-lg blur position-fixed z-index-3 start-0 end-0">
-  <div class="container py-2">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav> --}}
