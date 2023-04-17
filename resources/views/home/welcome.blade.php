@@ -42,7 +42,7 @@
                 </a>
               </div>
             </div>
-            <div class="row justify-content-center mb-5">
+            <div class="row justify-content-center">
               <div class="col-md-12 col-sm-6">
                 <a href="/timeline">
                   <div class="card px-3 py-2">
@@ -54,6 +54,52 @@
                     </div>
                   </div>
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="horizontal dark">
+    <section class="py-5 my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center mb-3">
+            <p class="text-dark fs-3 fw-bold">Qualification Track</p>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-12 align-self-center">
+            <div class="row justify-content-center">
+              <div class="col-md-3 me-md-5 align-self-center">
+                <div class="card mb-sm-3">
+                  <img src="/assets/img/interview.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Reguler</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/register" class="btn btn-warning btn-sm mb-0">Apply now!</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 me-md-5 align-self-center">
+                <div class="card mb-sm-3">
+                  <img src="/assets/img/interview.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Cahaya Scholarship</h5>
+                    <p class="card-text">Scholarship that offered to support outstanding international students study at the Itenas.</p>
+                    <a href="/cahayascholarship/" class="btn btn-warning btn-sm mb-0">Apply now!</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 align-self-center">
+                <div class="card mb-sm-3">
+                  <img src="/assets/img/interview.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Darmasiswa Scholarship</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/darmasiswascholarship/register" class="btn btn-warning btn-sm mb-0">Apply now!</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

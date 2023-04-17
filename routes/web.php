@@ -37,4 +37,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/preview-data', [FormController::class, 'preview'])->name('preview-data');
     Route::get('/print-card', [FormController::class, 'printCard'])->name('print-card');
     Route::get('/announcement', [StudentController::class, 'announcement'])->name('announcement');
+
+    Route::prefix('cahayascholarship')->name('cahayascholarship.')->group(function () {
+        Route::get('/', [HomeController::class, 'cahayaScholarship'])->name('index');
+        Route::get('/print-card', [StudentController::class, 'printCard'])->name('print-card');
+    });
 });

@@ -41,4 +41,9 @@ class HomeController extends Controller
     {
         return view('home.timeline');
     }
+
+    public function cahayaScholarship()
+    {
+        return view('cahaya_scholarship.index');
+    }
 }
