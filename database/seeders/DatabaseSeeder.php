@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\RoleSeeder;
 use Database\Seeders\ScholarshipSeeder;
 use Database\Seeders\TuitionFeeOddSeeder;
 use Database\Seeders\TuitionFeeEvenSeeder;
@@ -21,7 +22,8 @@ class DatabaseSeeder extends Seeder
             // StudyProgramSeeder::class,
             // TuitionFeeOddSeeder::class,
             // TuitionFeeEvenSeeder::class,
-            ScholarshipSeeder::class,
+            // ScholarshipSeeder::class,
+            RoleSeeder::class,
         ]);
     }
 }
