@@ -139,7 +139,7 @@
           <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3"
             aria-labelledby="dropdownMenuPages8">
             <div class="d-none d-lg-block">
-              <a href="javascript:void(0)" class="dropdown-item border-radius-md">
+              <a href="/cahayascholarship" class="dropdown-item border-radius-md">
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0 me-2">Cahaya Scholarship</h6>
               </a>
               <a href="javascript:void(0)" class="dropdown-item border-radius-md">
