@@ -33,8 +33,7 @@
             <img src="/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
           </a>
           <ul
-            class="dropdown-menu dropdown-menu-animation dropdown-menu-end dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3"
-            aria-labelledby="dropdownMenuBlocks">
+            class="dropdown-menu dropdown-menu-animation dropdown-menu-end dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3">
             <div class="d-lg-block">
               <li class="nav-item dropdown dropdown-hover dropdown-subitem">
                 <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:void(0)">
@@ -48,26 +47,28 @@
                   </div>
                 </a>
                 <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/electrical-engineering/">
                     Electrical Engineering
                   </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/mechanical-engineering-undergraduate/">
                     Mechanical Engineering
                   </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/industrial-engineering/">
                     Industrial Engineering
                   </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/chemical-engineering-undergraduate/">
                     Chemical Engineering
                   </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/informatics/">
                     Informatics
                   </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/information-systems-undergraduate/">
                     Information System
                   </a>
                 </div>
               </li>
+            </div>
+            <div class="d-lg-block">
               <li class="nav-item dropdown dropdown-hover dropdown-subitem">
                 <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:void(0)">
                   <div class="w-100 d-flex align-items-center justify-content-between">
@@ -80,20 +81,22 @@
                   </div>
                 </a>
                 <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/academic/faculty-of-civil-engineering-and-planning/civil-engineering-undergraduate-major/">
                     Civil Engineering
                   </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/academic/faculty-of-civil-engineering-and-planning/geodetic-engineering-major/">
                     Geodetic Engineering
                   </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/academic/faculty-of-civil-engineering-and-planning/urban-and-regional-planning/">
                     Urban and Regional Planning
                   </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/academic/faculty-of-civil-engineering-and-planning/environmental-engineering-major/">
                     Environmental Engineering
                   </a>
                 </div>
               </li>
+            </div>
+            <div class="d-lg-block">
               <li class="nav-item dropdown dropdown-hover dropdown-subitem">
                 <a class="dropdown-item py-2 ps-3 border-radius-md" href="javascript:void(0)">
                   <div class="w-100 d-flex align-items-center justify-content-between">
@@ -106,24 +109,24 @@
                   </div>
                 </a>
                 <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/academic/faculty-of-art-and-design/the-study-program-of-architecture/">
                     Architecture
                   </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/academic/faculty-of-art-and-design/the-study-program-of-interior-design/">
                     Interior Design
                   </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/academic/faculty-of-art-and-design/product-design/">
                     Product Design
                   </a>
-                  <a class="dropdown-item ps-3 border-radius-md mb-1" href="javascript:void(0)">
+                  <a class="dropdown-item ps-3 border-radius-md mb-1" target="_blank" href="https://www.itenas.ac.id/EN/academic/faculty-of-art-and-design/visual-communication-design-major/">
                     Visual Communication Design
                   </a>
                 </div>
               </li>
             </div>
-            <div class="row d-lg-none">
+            {{-- <div class="row d-lg-none">
             
-            </div>
+            </div> --}}
           </ul>
 
         </li>
