@@ -26,6 +26,10 @@ Route::get('/tuition-fee', [HomeController::class, 'tuitionFee'])->name('tuition
 Route::get('/registration-guides', [HomeController::class, 'registrationGuides'])->name('registration-guides');
 Route::get('/timeline', [HomeController::class, 'timeline'])->name('timeline');
 
+Route::prefix('cahayascholarship')->name('cahayascholarship.')->group(function () {
+    Route::get('/', [HomeController::class, 'cahayaScholarship'])->name('index');
+});
+
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/biodata', [StudentController::class, 'biodata'])->name('biodata');
@@ -39,7 +43,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/announcement', [StudentController::class, 'announcement'])->name('announcement');
 
     Route::prefix('cahayascholarship')->name('cahayascholarship.')->group(function () {
-        Route::get('/', [HomeController::class, 'cahayaScholarship'])->name('index');
         Route::get('/print-card', [StudentController::class, 'printCard'])->name('print-card');
     });
 });

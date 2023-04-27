@@ -75,6 +75,11 @@
                         </span>
                       @enderror
                     </div>
+                    <div class="mt-3">
+                      <p class="text-sm">
+                        <a href="/password/reset" class="text-warning text-gradient font-weight-bold">Forgot your password?</a>
+                      </p>
+                    </div>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" name="remember" id="remember"
                         {{ old('remember') ? 'checked' : '' }}>
