@@ -182,6 +182,9 @@
           <div class="row">
             <div class="col-md-4">
               @foreach ($scholarships as $scholarship)
+                @if ($scholarship->id == 3)
+                  @continue
+                @endif
                 <div class="form-check mb-3">
                   <input class="form-check-input @error('scholarship') is-invalid @enderror" type="radio" name="scholarship" id="{{ $scholarship->name }}" value="{{ $scholarship->id }}" {{ ($form == null ? '' : $form->scholarship_id == $scholarship->id) ? 'checked' : '' }}>
                   <label class="custom-control-label" for="{{ $scholarship->name }}">{{ $scholarship->name }}</label>
