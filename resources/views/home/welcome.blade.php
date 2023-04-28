@@ -91,7 +91,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 align-self-center">
+              {{-- <div class="col-md-3 align-self-center">
                 <div class="card mb-sm-3">
                   <img src="/assets/img/interview.jpg" class="card-img-top" alt="...">
                   <div class="card-body">
@@ -100,7 +100,7 @@
                     <a href="/darmasiswascholarship/register" class="btn btn-warning btn-sm mb-0">Apply now!</a>
                   </div>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>

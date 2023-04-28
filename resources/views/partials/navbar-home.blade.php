@@ -145,9 +145,9 @@
               <a href="/cahayascholarship" class="dropdown-item border-radius-md">
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0 me-2">Cahaya Scholarship</h6>
               </a>
-              <a href="javascript:void(0)" class="dropdown-item border-radius-md">
+              {{-- <a href="javascript:void(0)" class="dropdown-item border-radius-md">
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0 me-2">Darmasiswa Scholarship</h6>
-              </a>
+              </a> --}}
             </div>
           </div>
         </li>
