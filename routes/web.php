@@ -44,5 +44,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('cahayascholarship')->name('cahayascholarship.')->group(function () {
         Route::get('/print-card', [StudentController::class, 'printCard'])->name('print-card');
+        Route::get('/achievement', [StudentController::class, 'achievement'])->name('achievement');
     });
 });

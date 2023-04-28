@@ -90,6 +90,15 @@
             </div>
           </div>
         </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <a href="/cahayascholarship/register" target="_blank" rel="noopener noreferrer">
+              <div class="alert alert-warning text-center fw-bold text-light" role="alert">
+                APPLY NOW
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
