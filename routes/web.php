@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ScholarshipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('cahayascholarship')->name('cahayascholarship.')->group(function () {
         Route::get('/print-card', [StudentController::class, 'printCard'])->name('print-card');
-        Route::get('/achievement', [StudentController::class, 'achievement'])->name('achievement');
+        Route::get('/achievement', [ScholarshipController::class, 'cahayaAchievement'])->name('cahaya-achievement');
+        Route::post('/achievement/store', [ScholarshipController::class, 'cahayaAchievementAnsStore'])->name('cahaya-achievement.store');
     });
 });

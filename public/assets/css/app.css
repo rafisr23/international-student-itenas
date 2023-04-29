@@ -9,3 +9,13 @@ h5,
 h6 {
   font-family: "Open Sans", "Nunito", sans-serif;
 }
+
+.select-with-icon {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%2212%22 height%3D%227%22 viewBox%3D%220 0 12 7%22%3E%3Cpath fill%3D%22%23000%22 fill-rule%3D%22evenodd%22 d%3D%22M6 7L0 0h12L6 7z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 8px 10px;
+}
+.select-with-icon::-ms-expand {
+  display: none;
+}

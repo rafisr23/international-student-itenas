@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             // TuitionFeeOddSeeder::class,
             // TuitionFeeEvenSeeder::class,
             // ScholarshipSeeder::class,
-            RoleSeeder::class,
+            // RoleSeeder::class,
+            ScholarshipAchievementQuestionSeeder::class,
         ]);
     }
 }

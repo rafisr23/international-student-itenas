@@ -15,4 +15,9 @@ class Scholarship extends Model
     {
         return $this->belongsTo(Form::class);
     }
+
+    public function scholarshipAchievementQuestions()
+    {
+        return $this->hasMany(ScholarshipAchievementQuestion::class);
+    }
 }
