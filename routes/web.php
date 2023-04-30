@@ -48,5 +48,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/achievement', [ScholarshipController::class, 'cahayaAchievement'])->name('cahaya-achievement');
         Route::post('/achievement/store', [ScholarshipController::class, 'cahayaAchievementAnsStore'])->name('cahaya-achievement.store');
         Route::post('/achievementlist/store', [ScholarshipController::class, 'cahayaAchievementListStore'])->name('cahaya-achievementlist.store');
+        Route::get('/download/certificate-achievement/{file}', [ScholarshipController::class, 'downloadCertificateAchievement'])->name('download.certificate');
     });
 });

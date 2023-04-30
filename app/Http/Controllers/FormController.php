@@ -62,7 +62,7 @@ class FormController extends Controller
     }
 
     public function store(Request $request) {
-        // return $request->all();
+        return $request->all();
         $validatedData = [
             'high_school' => 'required',
             'grad_date' => 'required',

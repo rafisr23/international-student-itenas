@@ -163,7 +163,7 @@
                         <label for="certificate_achievement">Certificate of Achievement<sup class="text-danger"> *</sup></label>
                         {{-- <input type="file" class="form-control" id="certificate_achievement" name="certificate_achievement[]" > --}}
                         @if ($value->certificate_achievement)
-                          <p class="text-sm ms-1"><a href="{{ asset('storage/' . $value->certificate_achievement) }}" target="_blank">{{ $value->certificate_achievement }}</a></p>
+                          <p class="text-sm ms-1"><a href="{{ route('cahayascholarship.download.certificate', $value->certificate_achievement) }}" target="_blank">{{ $value->certificate_achievement }}</a></p>
                         @else
                           <p class="text-sm ms-1"><i>There is no certificate for this achievement</i></p>
                         @endif

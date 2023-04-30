@@ -154,4 +154,9 @@ class ScholarshipController extends Controller
 
         return redirect()->route('cahayascholarship.cahaya-achievement')->with('success', 'Your achievement list has been submitted!');
     }
+
+    public function downloadCertificateAchievement($file) {
+        $path = storage_path('app/public/certificate_achievement/' . $file);
+        return response()->download($path);
+    }
 }
