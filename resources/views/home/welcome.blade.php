@@ -70,24 +70,52 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-12 align-self-center">
-            <div class="row justify-content-center">
-              <div class="col-md-3 me-md-5 align-self-center">
-                <div class="card mb-sm-3">
+            <div class="row justify-content-center row-cols-1 row-cols-md-4">
+              {{-- <div class="col-md-3 me-md-5 align-self-center">
+                <div class="card h-100 mb-sm-3">
                   <img src="/assets/img/interview.jpg" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">Reguler</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Non - scholarship track.</p>
+                  </div>
+                  <div class="card-footer">
                     <a href="/register" class="btn btn-warning btn-sm mb-0">Apply now!</a>
                   </div>
                 </div>
               </div>
               <div class="col-md-3 me-md-5 align-self-center">
-                <div class="card mb-sm-3">
+                <div class="card h-100 mb-sm-3">
                   <img src="/assets/img/interview.jpg" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">Cahaya Scholarship</h5>
                     <p class="card-text">Scholarship that offered to support outstanding international students study at the Itenas.</p>
+                  </div>
+                  <div class="card-footer">
                     <a href="/cahayascholarship/" class="btn btn-warning btn-sm mb-0">Apply now!</a>
+                  </div>
+                </div>
+              </div> --}}
+              <div class="col me-3">
+                <div class="card h-100">
+                  <img src="/assets/img/logo-itenas.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Reguler</h5>
+                    <p class="card-text">Non - scholarship track.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="/register" class="btn btn-warning btn-sm mb-0">Apply now!</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100">
+                  <img src="/assets/img/logo-itenas.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Cahaya Scholarship</h5>
+                    <p class="card-text">Scholarship that offered to support outstanding international students study at the Itenas.</p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="/register" class="btn btn-warning btn-sm mb-0">Apply now!</a>
                   </div>
                 </div>
               </div>
