@@ -43,8 +43,8 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label for="{{ 'no_' . $question->id }}" class="form-control-label">{{ $loop->iteration . '. ' . $question->question }}<sup class="text-danger"> *</sup></label>
-                @if ($biodata)
-                  <textarea maxlength="{{ $question->max_answer }}" class="form-control @if ($errors->has('no_' . $question->id)) is-invalid @endif" type="text" name="{{ 'no_' . $question->id }}" id="{{ 'no_' . $question->id }}" placeholder="Enter some text" onkeyup="countChar(this, '#{{ 'no_' . $question->id . '_count'}}')" required>{{$answers[$key]->answer}}</textarea>
+                @if ($answers->count() != 0)
+                  <textarea maxlength="{{ $question->max_answer }}" class="form-control @if ($errors->has('no_' . $question->id)) is-invalid @endif" type="text" name="{{ 'no_' . $question->id }}" id="{{ 'no_' . $question->id }}" placeholder="Enter some text" onkeyup="countChar(this, '#{{ 'no_' . $question->id . '_count'}}')" required>{{ $answers[$key]->answer}}</textarea>
                 @else
                   <textarea maxlength="{{ $question->max_answer }}" class="form-control @if ($errors->has('no_' . $question->id)) is-invalid @endif" type="text" name="{{ 'no_' . $question->id }}" id="{{ 'no_' . $question->id }}" placeholder="Enter some text" onkeyup="countChar(this, '#{{ 'no_' . $question->id . '_count'}}')" required>{{ old('no_' . $question->id)}}</textarea>
                 @endif
@@ -76,6 +76,8 @@
           </ul>
         </div>
         <button type="button" class="btn btn-info px-5 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default">Add Achievement</button>
+        {{-- <button type="button" class="btn btn-info px-5 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default2">Add Achievement</button>
+        <button type="button" class="btn btn-info px-5 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default3">Add Achievement</button> --}}
         <hr class="horizontal dark">
       </div>
       <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Save Data</button>
@@ -85,12 +87,130 @@
       <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h6 class="modal-title text-uppercase" id="modal-title-default">List of Achievement</h6>
+            <h6 class="modal-title text-uppercase" id="modal-title-default">List of Achievement - 1</h6>
             {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
               <span aria-hidden="true" class="text-dark">x</span>
             </button> --}}
           </div>
-          <form action="">
+          <form action="/cahayascholarship/achievementlist/store" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div id="modal-wrapper">
+              <div class="modal-body">
+                <div class="row">
+                  <p class="text-md text-bold">Adding Achievement</p>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="activity">Activity<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="activity" name="activity[]">
+                      {{-- <select class="form-control" id="activity" name="activity[]">
+                        <option>1</option>
+                      </select> --}}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="level">Level<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="level" name="level[]">
+                      {{-- <select class="form-control" id="level" name="lavel[]">
+                        <option>1</option>
+                      </select> --}}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="position_held">Position Held<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="position_held" name="position_held[]">
+                      {{-- <select class="form-control" id="position_held" name="position_held[]">
+                        <option>1</option>
+                      </select> --}}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="level_achievement">Level of Achievement<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="level_achievement" name="level_achievement[]">
+                      {{-- <select class="form-control" id="level_achievement" name="level_achievement[]">
+                        <option>1</option>
+                      </select> --}}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="from">From<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="from" name="from[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="name_activity">Name of Activity/Organization/Employer<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="name_activity" name="name_activity[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="to">To<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="to" name="to[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="certificate_achievement">Certificate of Achievement<sup class="text-danger"> *</sup></label>
+                      <input type="file" class="form-control" id="certificate_achievement" name="certificate_achievement[]">
+                    </div>
+                  </div>
+                </div>
+                <hr class="horizontal dark">
+                <div class="row">
+                  <p class="text-md text-bold">Reference Contact</p>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="first_name_contact">First Name<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="first_name_contact" name="first_name_contact[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="email_contact">Email<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="email_contact" name="email_contact[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="last_name_contact">Last Name<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="last_name_contact" name="last_name_contact[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="telephone_contact">Telephone<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="telephone_contact" name="telephone_contact[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="position_contact">Position of Contact Person<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="position_contact" name="position_contact[]">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-sm btn-info ms-3" id="add-button">Add More Achievement</button>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-sm btn-success">Save Data</button>
+              <button type="button" class="btn btn-link ml-auto text-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    {{-- <div class="modal fade modal-lg" id="modal-default2" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title text-uppercase" id="modal-title-default">List of Achievement - 2</h6>
+          </div>
+          <form action="/cahayascholarship/achievementlist/store" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="modal-body">
               <div class="row">
@@ -145,6 +265,12 @@
                     <input type="text" class="form-control" id="to" name="to">
                   </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="certificate_achievement">Certificate of Achievement<sup class="text-danger"> *</sup></label>
+                    <input type="file" class="form-control" id="certificate_achievement" name="certificate_achievement">
+                  </div>
+                </div>
               </div>
               <hr class="horizontal dark">
               <div class="row">
@@ -189,6 +315,117 @@
         </div>
       </div>
     </div>
+    <div class="modal fade modal-lg" id="modal-default3" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title text-uppercase" id="modal-title-default">List of Achievement - 3</h6>
+          </div>
+          <form action="/cahayascholarship/achievementlist/store" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-body">
+              <div class="row">
+                <p class="text-md text-bold">Adding Achievement</p>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="activity">Activity<sup class="text-danger"> *</sup></label>
+                    <select class="form-control" id="activity" name="activity">
+                      <option>1</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="level">Level<sup class="text-danger"> *</sup></label>
+                    <select class="form-control" id="level" name="lavel">
+                      <option>1</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="position_held">Position Held<sup class="text-danger"> *</sup></label>
+                    <select class="form-control" id="position_held" name="position_held">
+                      <option>1</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="level_achievement">Level of Achievement<sup class="text-danger"> *</sup></label>
+                    <select class="form-control" id="level_achievement" name="level_achievement">
+                      <option>1</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="from">From<sup class="text-danger"> *</sup></label>
+                    <input type="text" class="form-control" id="from" name="from">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name_activity">Name of Activity/Organization/Employer<sup class="text-danger"> *</sup></label>
+                    <input type="text" class="form-control" id="name_activity" name="name_activity">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="to">To<sup class="text-danger"> *</sup></label>
+                    <input type="text" class="form-control" id="to" name="to">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="certificate_achievement">Certificate of Achievement<sup class="text-danger"> *</sup></label>
+                    <input type="file" class="form-control" id="certificate_achievement" name="certificate_achievement">
+                  </div>
+                </div>
+              </div>
+              <hr class="horizontal dark">
+              <div class="row">
+                <p class="text-md text-bold">Reference Contact</p>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="first_name_contact">First Name<sup class="text-danger"> *</sup></label>
+                    <input type="text" class="form-control" id="first_name_contact" name="first_name_contact">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email_contact">Email<sup class="text-danger"> *</sup></label>
+                    <input type="text" class="form-control" id="email_contact" name="email_contact">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="last_name_contact">Last Name<sup class="text-danger"> *</sup></label>
+                    <input type="text" class="form-control" id="last_name_contact" name="last_name_contact">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="telephone_contact">Telephone<sup class="text-danger"> *</sup></label>
+                    <input type="text" class="form-control" id="telephone_contact" name="telephone_contact">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="position_contact">Position of Contact Person<sup class="text-danger"> *</sup></label>
+                    <input type="text" class="form-control" id="position_contact" name="position_contact">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-sm btn-success">Save Data</button>
+              <button type="button" class="btn btn-link ml-auto text-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> --}}
   @endif
 </div>
 @endsection
@@ -201,18 +438,133 @@
         title: 'Success',
         text: '{{ session('success') }}',
         showConfirmButton: false,
-        timer: 2000
+        timer: 3000
       })
     </script>
   @elseif (session('error'))
     <script>
       Swal.fire({
         icon: 'warning',
-        // title: 'Peringatan',
+        title: 'Warning',
         title: "{{ session('error') }}",
         showConfirmButton: false,
-        timer: 2000
+        timer: 3000
       })
     </script>
   @endif
+
+  <script>
+    $(document).ready(function() {
+      // get wrapper modal
+      let wrapper = $('#modal-wrapper');
+      let button = $('#add-button');
+
+      console.log(wrapper);
+
+      $(button).on('click', function(e) {
+        e.preventDefault();
+        var formTemplate = 
+        `<div class="modal-body">
+                <div class="row">
+                  <p class="text-md text-bold">Adding Achievement</p>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="activity">Activity<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="activity" name="activity[]">
+                      {{-- <select class="form-control" id="activity" name="activity[]">
+                        <option>1</option>
+                      </select> --}}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="level">Level<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="level" name="level[]">
+                      {{-- <select class="form-control" id="level" name="lavel[]">
+                        <option>1</option>
+                      </select> --}}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="position_held">Position Held<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="position_held" name="position_held[]">
+                      {{-- <select class="form-control" id="position_held" name="position_held[]">
+                        <option>1</option>
+                      </select> --}}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="level_achievement">Level of Achievement<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="level_achievement" name="level_achievement[]">
+                      {{-- <select class="form-control" id="level_achievement" name="level_achievement[]">
+                        <option>1</option>
+                      </select> --}}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="from">From<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="from" name="from[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="name_activity">Name of Activity/Organization/Employer<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="name_activity" name="name_activity[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="to">To<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="to" name="to[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="certificate_achievement">Certificate of Achievement<sup class="text-danger"> *</sup></label>
+                      <input type="file" class="form-control" id="certificate_achievement" name="certificate_achievement[]">
+                    </div>
+                  </div>
+                </div>
+                <hr class="horizontal dark">
+                <div class="row">
+                  <p class="text-md text-bold">Reference Contact</p>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="first_name_contact">First Name<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="first_name_contact" name="first_name_contact[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="email_contact">Email<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="email_contact" name="email_contact[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="last_name_contact">Last Name<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="last_name_contact" name="last_name_contact[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="telephone_contact">Telephone<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="telephone_contact" name="telephone_contact[]">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="position_contact">Position of Contact Person<sup class="text-danger"> *</sup></label>
+                      <input required type="text" class="form-control" id="position_contact" name="position_contact[]">
+                    </div>
+                  </div>
+                </div>
+              </div>`;
+        $('#modal-wrapper').append(formTemplate);
+      });
+    });
+  </script>
 @endsection

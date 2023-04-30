@@ -22,7 +22,7 @@
         <a class="nav-link {{ request()->segment(1) == 'biodata' ? 'active' : '' }}" href="/biodata">
           <div
             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="fa-solid fa-address-card text-dark text-sm opacity-10"></i>
+            <i class="fa-solid fa-address-card {{ request()->segment(1) == 'biodata' ? 'text-light' : 'text-dark' }} text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Biodata</span>
         </a>
@@ -74,7 +74,7 @@
         <a class="nav-link {{ request()->segment(1) == 'announcement' ? 'active' : '' }}" href="/announcement">
           <div
             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="fa-solid fa-bullhorn text-dark text-sm opacity-10"></i>
+            <i class="fa-solid fa-bullhorn {{ request()->segment(1) == 'announcement' ? 'text-light' : 'text-dark' }} text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Announcement</span>
         </a>

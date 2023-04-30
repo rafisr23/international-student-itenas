@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('scholarship_achievement_answers', function (Blueprint $table) {
             $table->id();
             $table->text('answer');
-            $table->foreignId('scholarship_achievement_question_id')->constrained('scholarship_achievement_questions')->onDelete('cascade');
+            $table->foreignId('question_id')->constrained('scholarship_achievement_questions')->onDelete('cascade');
             $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
             $table->timestamps();
         });

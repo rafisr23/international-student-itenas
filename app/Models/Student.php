@@ -22,4 +22,8 @@ class Student extends Model
     public function scholarshipAchievementAnswers() {
         return $this->hasMany(ScholarshipAchievementAnswer::class);
     }
+
+    public function scholarshipAchievementLists() {
+        return $this->hasMany(ScholarshipAchievementList::class);
+    }
 }
