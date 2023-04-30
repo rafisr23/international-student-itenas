@@ -43,14 +43,15 @@ class ScholarshipController extends Controller
         }
 
         $this->questions = ScholarshipAchievementQuestion::where('scholarship_id', $this->form->scholarship_id)->get();
-        
+        $achievementLists = ScholarshipAchievementList::where('student_id', $this->biodata->id)->get();
+
         return view('cahaya_scholarship.achievement', [
             'title' => 'Cahaya Achievement',
             'form' => $this->form,
             'biodata' => $this->biodata,
             'questions' => $this->questions,
             'answers' => $answers,
-            'countAchievement' => $countAchievement,
+            'achievementLists' => $achievementLists,
         ]);
     }
 
