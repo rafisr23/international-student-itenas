@@ -56,6 +56,7 @@
             </div>
           @endforeach
         </div>
+        <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto">Save Data</button>
         <hr class="horizontal dark">
         <p class="text-uppercase text-md text-bold">List of Achievement</p>
         <div class="">
@@ -87,7 +88,6 @@
         <button type="button" class="btn btn-info px-5 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default3">Add Achievement</button> --}}
         <hr class="horizontal dark">
       </div>
-      <button type="submit" value="submit" class="btn btn-success px-5 btn-sm me-auto ms-3">Save Data</button>
     </form>
     <!-- Scrollable modal -->
     <div class="modal fade modal-lg" id="modal-default2" tabindex="-1" role="dialog" aria-labelledby="modal-default2" aria-hidden="true">
