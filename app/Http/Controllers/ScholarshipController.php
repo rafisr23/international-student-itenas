@@ -124,15 +124,7 @@ class ScholarshipController extends Controller
 
         $achievementLists = $request->input();
 
-        for($i = 0; $i < count($achievementLists['activity']); $i++) {
-            if($request->has('certificate_achievement')) {
-                $certificate = $request->file('certificate_achievement')[$i];
-                $certificateName = $form->reg_number . '-' . $certificate->getClientOriginalName();
-                $certificate->storeAs('certificate_achievement', $certificateName);
-            } else {
-                $certificateName = null;
-            }   
-
+        for($i = 0; $i < count($achievementLists['activity']); $i++) { 
             $achievementListArray = ScholarshipAchievementList::create([
                 // '_token' => $achievementLists['_token'],
                 'student_id' => Auth::user()->student->id,
@@ -143,13 +135,21 @@ class ScholarshipController extends Controller
                 'from' => $achievementLists['from'][$i],
                 'name_activity' => $achievementLists['name_activity'][$i],
                 'to' => $achievementLists['to'][$i],
-                'certificate_achievement' => $certificateName,
+                // 'certificate_achievement' => $certificateName,
                 'first_name_contact' => $achievementLists['first_name_contact'][$i],
                 'email_contact' => $achievementLists['email_contact'][$i],
                 'last_name_contact' => $achievementLists['last_name_contact'][$i],
                 'telephone_contact' => $achievementLists['telephone_contact'][$i],
                 'position_contact' => $achievementLists['position_contact'][$i],
             ]);    
+
+            if ($request->has('certificate_achievement.' . $i)) {
+                $certificate = $request->file('certificate_achievement.' . $i);
+                $certificateName = $form->reg_number . '-' . $certificate->getClientOriginalName();
+                $certificate->storeAs('certificate_achievement', $certificateName);
+                $achievementListArray->certificate_achievement = $certificateName;
+                $achievementListArray->save();
+            }
         }
 
         return redirect()->route('cahayascholarship.cahaya-achievement')->with('success', 'Your achievement list has been submitted!');
