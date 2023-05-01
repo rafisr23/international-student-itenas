@@ -226,7 +226,7 @@
           </div>
           <form action="/cahayascholarship/achievementlist/store" method="POST" enctype="multipart/form-data">
             @csrf
-            <div id="modal-wrapper">
+            <div id="modal-wrapper-default">
               <div class="modal-body">
                 <div class="row">
                   <p class="text-md text-bold">Adding Achievement</p>
@@ -588,7 +588,7 @@
   <script>
     $(document).ready(function() {
       // get wrapper modal
-      let wrapper = $('#modal-wrapper');
+      let wrapper = $('#modal-wrapper-default');
       let button = $('#add-button');
 
       console.log(wrapper);
@@ -695,7 +695,8 @@
                   </div>
                 </div>
               </div>`;
-        $('#modal-wrapper').append(formTemplate);
+        $('#modal-wrapper-default').append(formTemplate);
+        // console.log('clicked');
       });
     });
   </script>
