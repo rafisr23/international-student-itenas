@@ -18,26 +18,24 @@
         </a>
       </li> --}}
       @if ($form == null ? true : !$form->is_submitted)
-      <li class="nav-item">
-        <a class="nav-link {{ request()->segment(1) == 'biodata' ? 'active' : '' }}" href="/biodata">
-          <div
-            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="fa-solid fa-address-card {{ request()->segment(1) == 'biodata' ? 'text-light' : 'text-dark' }} text-sm opacity-10"></i>
-          </div>
-          <span class="nav-link-text ms-1">Biodata</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link {{ request()->segment(1) == 'applicant-form' ? 'active' : '' }}" href="/applicant-form">
-          <div
-            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-paper-diploma text-dark text-sm opacity-10"></i>
-          </div>
-          <span class="nav-link-text ms-1">Applicant Form</span>
-        </a>
-      </li>
-      @endif
-      @if ($form != null)
+        <li class="nav-item">
+          <a class="nav-link {{ request()->segment(1) == 'biodata' ? 'active' : '' }}" href="/biodata">
+            <div
+              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-address-card {{ request()->segment(1) == 'biodata' ? 'text-light' : 'text-dark' }} text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Biodata</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->segment(1) == 'applicant-form' ? 'active' : '' }}" href="/applicant-form">
+            <div
+              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-paper-diploma text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Applicant Form</span>
+          </a>
+        </li>
         @if ($form->scholarship_id == 2)
           <li class="nav-item">
             <a class="nav-link {{ request()->segment(1) == 'cahayascholarship' ? 'active' : '' }}" href="/cahayascholarship/achievement">
