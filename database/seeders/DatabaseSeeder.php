@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             // UserSeeder::class,
-            // FacultySeeder::class,
-            // StudyProgramSeeder::class,
-            // TuitionFeeOddSeeder::class,
-            // TuitionFeeEvenSeeder::class,
-            // ScholarshipSeeder::class,
-            // RoleSeeder::class,
+            FacultySeeder::class,
+            StudyProgramSeeder::class,
+            TuitionFeeOddSeeder::class,
+            TuitionFeeEvenSeeder::class,
+            ScholarshipSeeder::class,
+            RoleSeeder::class,
             ScholarshipAchievementQuestionSeeder::class,
         ]);
     }
