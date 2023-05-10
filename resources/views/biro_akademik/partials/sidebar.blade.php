@@ -18,7 +18,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ request()->segment(2) == 'pendaftar' ? 'active' : '' }}" href="">
+        <a class="nav-link {{ request()->segment(2) == 'pendaftar' ? 'active' : '' }}" href="{{ route('ba.pendaftar') }}">
           <div
             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-paper-diploma text-dark text-sm opacity-10"></i>

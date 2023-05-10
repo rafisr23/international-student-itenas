@@ -56,5 +56,6 @@ Route::middleware(['auth', 'user', 'verified'])->group(function () {
 Route::middleware(['auth', 'ba'])->group(function () {
     Route::prefix('biroakademik')->name('ba.')->group(function () {
         Route::get('/home', [BiroAkademik::class, 'index'])->name('index');
+        Route::get('/pendaftar', [BiroAkademik::class, 'pendaftar'])->name('pendaftar');
     });
 });

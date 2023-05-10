@@ -14,4 +14,10 @@ class BiroAkademik extends Controller
 
         return view('biro_akademik.home', compact(['jmlPendaftar', 'jmlSubmit', 'jmlPenerima']));
     }
+
+    public function pendaftar() {
+        $forms = Form::where('is_submitted', true)->get();
+
+        return view('biro_akademik.pendaftar.index', compact('forms'));
+    }
 }
