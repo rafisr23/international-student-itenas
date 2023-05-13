@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="apple-touch-icon" sizes="76x76" href="{{ url('assets/img/apple-icon.png') }}">
   <link rel="icon" type="image/png" href="{{ url('assets/img/logo-itenas.jpg') }}">
   <title>
@@ -86,12 +87,13 @@
         cancelButtonText: 'No, cancel!',
         reverseButtons: true
       }).then((result) => {
+        let CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         if (result.isConfirmed) {
           $.ajax({
             url: "/logout",
             type: "POST",
             data: {
-              _token: "{{ csrf_token() }}"
+              _token: CSRF_TOKEN
             },
             success: function(data) {
               window.location.href = "/login";

@@ -7,19 +7,17 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <table id="tabel-pendaftar" class="table" style="width:100%">
+              <table id="tabel-pendaftar" class="table table-striped table-bordered mb-3" style="width:100%">
                 <thead>
                   <tr>
-                    {{-- <th>Nomor</th> --}}
-                    <th>Nomor Registrasi</th>
+                    {{-- <th></th> --}}
+                    <th>NO</th>
+                    <th class="text-center">Nomor Registrasi</th>
                     <th>Nama</th>
                     <th>Asal Sekolah</th>
-                    <th>Asal Negara</th>
-                    <th>Nomor HP</th>
                     <th>Program Studi</th>
-                    <th>Fakultas</th>
                     <th>Status</th>
-                    <th>Aksi</th>
+                    <th class="text-center">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -35,6 +33,19 @@
 
 @section('script')
   <script>
+    // function format(d) {
+    //   // `d` is the original data object for the row
+    //   return (
+    //     '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+    //     '<tr>' +
+    //     '<td><a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a></td>' +
+    //     '<td>' +
+    //     '</td>' +
+    //     '</tr>' +
+    //     '</table>'
+    //   );
+    // }
+
     $(function() {
       console.log('hello');
       let table = $('#tabel-pendaftar').DataTable({
@@ -43,20 +54,76 @@
         serverSide: true,
         ajax: "{{ route('ba.pendaftar') }}",
         columns: [
-          // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-          {data: 'reg_number', name: 'reg_number'},
-          {data: 'full_name', name: 'full_name'},
-          {data: 'high_school', name: 'high_school'},
-          {data: 'country', name: 'country'},
-          {data: 'phone_number', name: 'phone_number'},
-          {data: 'name', name: 'name'},
-          {data: 'faculty', name: 'faculty'},
-          {data: 'status', name: 'status'},
-          {data: 'action', name: 'action', orderable: false, searchable: false},
+          // {
+          //   className: 'dt-control',
+          //   orderable: false,
+          //   data: null,
+          //   defaultContent: '',
+          // },
+          {
+            data: 'DT_RowIndex', 
+            name: 'DT_RowIndex',
+            searchable: false,
+            className: 'text-center'
+          },
+          {
+            data: 'reg_number', 
+            name: 'reg_number', 
+            className: 'text-center'
+          },
+          {
+            data: 'full_name', 
+            name: 'full_name'
+          },
+          {
+            data: 'high_school', 
+            name: 'high_school'
+          },
+          {
+            data: 'name', 
+            name: 'name'
+          },
+          {
+            data: 'status', 
+            name: 'status'
+          },
+          {
+            data: 'action', 
+            name: 'action', 
+            orderable: false, 
+            searchable: false, 
+            className: 'text-center'
+          },
         ],
+        order: [[1, 'asc']],
         scrollX: true,
+        language: {
+          oPaginate: {
+            sNext: '<i class="fa fa-forward"></i>',
+            sPrevious: '<i class="fa fa-backward"></i>',
+            sFirst: '<i class="fa fa-step-backward"></i>',
+            sLast: '<i class="fa fa-step-forward"></i>'
+          }
+        }
       });
       console.log(table);
+      
+      // $('#tabel-pendaftar tbody').on('click', 'td.dt-control', function () {
+      //   let tr = $(this).closest('tr');
+      //   let row = table.row(tr);
+
+      //   if (row.child.isShown()) {
+      //     // This row is already open - close it
+      //     row.child.hide();
+      //     tr.removeClass('shown');
+      //   } else {
+      //     // Open this row
+      //     row.child(format(row.data())).show();
+      //     tr.addClass('shown');
+      //   }
+      // });
     });
+
+
   </script>
 @endsection
