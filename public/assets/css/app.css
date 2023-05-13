@@ -19,3 +19,37 @@ h6 {
 .select-with-icon::-ms-expand {
   display: none;
 }
+
+.page-item.active .page-link {
+  background-color: #fb6340;
+  border-color: #fb6340;
+  z-index: 3;
+  color: #fff;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #fb6340;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.page-link:hover {
+  z-index: 2;
+  color: #fb6340;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.page-link:focus {
+  z-index: 3;
+  color: #fb6340;
+  background-color: e9ecef;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}

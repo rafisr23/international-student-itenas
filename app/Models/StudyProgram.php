@@ -19,7 +19,7 @@ class StudyProgram extends Model
     
     public function form()
     {
-        return $this->belongsTo(Form::class);
+        return $this->hasMany(Form::class);
     }
     
     public function tuitionFeeOdds()
