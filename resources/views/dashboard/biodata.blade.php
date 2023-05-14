@@ -106,6 +106,17 @@
                         @enderror
                       </div>
                     </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-control-label">Gender<sup class="text-danger"> *</sup></label>
+                      <div class="form-check mb-3">
+                        <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="customRadio1" value="L" {{ ($biodata == null ? '' : $biodata->gender == 'L') ? 'checked' : '' }}>
+                        <label class="custom-control-label" for="customRadio1">Man</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="customRadio2" value="P" {{ ($biodata == null ? '' : $biodata->gender == 'P') ? 'checked' : '' }}>
+                        <label class="custom-control-label" for="customRadio2">Woman</label>
+                      </div>
+                    </div>
                   </div>
                   <hr class="horizontal dark">
                   <p class="text-uppercase text-md text-bold">Address Information</p>
