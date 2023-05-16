@@ -180,6 +180,7 @@
           <hr class="horizontal dark">
           <p class="text-uppercase text-md text-bold">SCHOLARSHIP</p>
           <div class="row">
+            <label for="" class="mb-2">Apply For:<sup class="text-danger"> *</sup></label>
             <div class="col-md-4">
               @foreach ($scholarships as $scholarship)
                 @if ($scholarship->id == 3)
