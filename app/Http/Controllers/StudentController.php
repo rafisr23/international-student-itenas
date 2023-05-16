@@ -23,11 +23,25 @@ class StudentController extends Controller
             $biodata = $student;
         }
 
+        $fullNameTemp = explode(' ', Auth::user()->name, 2);
+
+        if (count($fullNameTemp) < 2) {
+            $firstNameTemp = $fullNameTemp[0];
+            $lastNameTemp = '';
+        } else {
+            $firstNameTemp = $fullNameTemp[0];
+            $lastNameTemp = $fullNameTemp[1];
+        }
+
+        // return Auth::user();
+
         return view('dashboard.biodata', [
             'title' => 'Biodata',
             'user' => Auth::user()->name,
             'biodata' => $student,
-            'form' => $form
+            'form' => $form,
+            'firstNameTemp' => $firstNameTemp,
+            'lastNameTemp' => $lastNameTemp
         ]);
     }
 

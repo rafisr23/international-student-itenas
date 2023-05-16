@@ -30,4 +30,9 @@ class Form extends Model
     public function studyProgram() {
         return $this->belongsTo(StudyProgram::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'reg_number';
+    }
 }

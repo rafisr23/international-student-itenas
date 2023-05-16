@@ -36,16 +36,18 @@
             <span class="nav-link-text ms-1">Applicant Form</span>
           </a>
         </li>
-        @if ($form->scholarship_id == 2)
-          <li class="nav-item">
-            <a class="nav-link {{ request()->segment(1) == 'cahayascholarship' ? 'active' : '' }}" href="/cahayascholarship/achievement">
-              <div
+        @if ($form != null)
+          @if ($form->scholarship_id == 2)
+            <li class="nav-item">
+              <a class="nav-link {{ request()->segment(1) == 'cahayascholarship' ? 'active' : '' }}" href="/cahayascholarship/achievement">
+                <div
                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-money-coins text-dark text-sm opacity-10"></i>
-              </div>
-              <span class="nav-link-text ms-1">Cahaya Scholarship</span>
-            </a>
-          </li>
+                </div>
+                <span class="nav-link-text ms-1">Cahaya Scholarship</span>
+              </a>
+            </li>
+          @endif
         @endif
       @endif
       {{-- <li class="nav-item">

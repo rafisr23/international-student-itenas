@@ -22,7 +22,7 @@ class FormController extends Controller
             $form = DB::table('forms')
             ->join('students', 'forms.student_id', '=', 'students.id')
             ->join('users', 'students.user_id', '=', 'users.id')
-            ->join('study_programs', 'forms.program_id', '=', 'study_programs.id')
+            ->join('study_programs', 'forms.study_program_id', '=', 'study_programs.id')
             ->join('faculties', 'study_programs.faculty_id', '=', 'faculties.id')
             ->join('scholarships', 'forms.scholarship_id', '=', 'scholarships.id')
             ->select('forms.*', 'users.name', 'study_programs.name as program', 'faculties.name as faculty', 'faculties.id as faculty_id', 'scholarships.name as scholarship')
@@ -38,7 +38,7 @@ class FormController extends Controller
             $student = null;
         }
 
-        // return $form->program_id;
+        // return $form->study_program_id;
 
         $scholarships = Scholarship::all();
         $faculties = Faculty::all();
@@ -106,7 +106,7 @@ class FormController extends Controller
             'school_city' => $request->school_city,
             'school_country' => $request->school_country,
             'school_postal_code' => $request->school_postal_code,
-            'program_id' => $request->program,
+            'study_program_id' => $request->program,
             'scholarship_id' => $request->scholarship,
         ]);
 
@@ -178,7 +178,7 @@ class FormController extends Controller
 
             $form = DB::table('forms')
             ->join('students', 'forms.student_id', '=', 'students.id')
-            ->join('study_programs', 'forms.program_id', '=', 'study_programs.id')
+            ->join('study_programs', 'forms.study_program_id', '=', 'study_programs.id')
             ->join('faculties', 'study_programs.faculty_id', '=', 'faculties.id')
             ->join('scholarships', 'forms.scholarship_id', '=', 'scholarships.id')
             ->select('forms.*', 'study_programs.name as program_name', 'faculties.name as faculty_name', 'scholarships.name as scholarship_name')
@@ -215,7 +215,7 @@ class FormController extends Controller
         $biodata = Student::where('user_id', Auth::user()->id)->first();
         $form = DB::table('forms')
         ->join('students', 'forms.student_id', '=', 'students.id')
-        ->join('study_programs', 'forms.program_id', '=', 'study_programs.id')
+        ->join('study_programs', 'forms.study_program_id', '=', 'study_programs.id')
         ->join('faculties', 'study_programs.faculty_id', '=', 'faculties.id')
         ->join('scholarships', 'forms.scholarship_id', '=', 'scholarships.id')
         ->select('forms.*', 'study_programs.name as program_name', 'faculties.name as faculty_name', 'scholarships.name as scholarship_name')

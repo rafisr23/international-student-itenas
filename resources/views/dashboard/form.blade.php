@@ -244,7 +244,7 @@
             $('.program').empty();
             $('.program').append('<option value="">Select Program</option>');
             $.each(data, function(key, value) {
-              if (value.id == {{ $form->program_id ?? 0 }}) {
+              if (value.id == {{ $form->study_program_id ?? 0 }}) {
                 $('.program').append('<option value="' + value.id + '" selected>' + value.name + '</option>');
               } else {
                 $('.program').append('<option value="' + value.id + '">' + value.name + '</option>');

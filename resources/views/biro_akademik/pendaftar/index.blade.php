@@ -16,6 +16,7 @@
                     <th>Nama</th>
                     <th>Asal Sekolah</th>
                     <th>Program Studi</th>
+                    <th>Scholarship</th>
                     <th>Status</th>
                     <th class="text-center">Aksi</th>
                   </tr>
@@ -80,12 +81,28 @@
             name: 'high_school'
           },
           {
-            data: 'name', 
-            name: 'name'
+            data: 'study_program.name', 
+            name: 'study_program.name'
+          },
+          {
+            data: 'scholarship.name', 
+            name: 'scholarship.name'
           },
           {
             data: 'status', 
-            name: 'status'
+            name: 'status',
+            render: function(data, type, row, meta) {
+              // return '<span class="badge badge-warning">'+data+'</span>';
+              if (data == 'Form Review') {
+                return '<span class="badge bg-gradient-warning">'+data+'</span>';
+              } else if (data == 'Interview') {
+                return '<span class="badge bg-gradient-info">'+data+'</span>';
+              } else if (data == 'Accepted') {
+                return '<span class="badge bg-gradient-success">'+data+'</span>';
+              } else if (data == 'Rejected') {
+                return '<span class="badge bg-gradient-danger">'+data+'</span>';
+              }
+            }
           },
           {
             data: 'action', 
