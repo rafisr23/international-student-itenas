@@ -452,7 +452,7 @@
         @csrf
         <div class="modal-body">
           <div class="row">
-            <input class="form-control" type="text" name="student_id" id="student_id" value="{{ $form->student->id }}" hidden>
+            <input class="form-control" type="text" name="form_id" id="form_id" value="{{ $form->id }}" hidden>
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
@@ -487,4 +487,27 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('script')
+  @if (session('success'))
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: '{{ session('success') }}',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  </script>
+  @elseif (session('error'))
+  <script>
+    Swal.fire({
+      icon: 'warning',
+      title: "{{ session('error') }}",
+      showConfirmButton: false,
+      timer: 2000
+    })
+  </script>
+  @endif
 @endsection

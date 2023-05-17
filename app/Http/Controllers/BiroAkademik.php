@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Form;
 use Illuminate\Http\Request;
+use App\Models\InterviewSchedule;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\ScholarshipAchievementList;
@@ -70,6 +71,28 @@ class BiroAkademik extends Controller
     }
 
     public function wawancara(Request $request) {
-        return $request;
+        $validatedData = [
+            'form_id' => 'required',
+            'interview_date' => 'required',
+            'interview_time' => 'required',
+            'interview_room' => 'required',
+        ];
+
+        $request->validate($validatedData);
+
+        // update status
+        $form = Form::find($request->form_id);
+        $form->status = 'Interview';
+        $form->save();
+
+        // create interview schedule
+        InterviewSchedule::create([
+            'form_id' => $form->id,
+            'interview_date' => $request->interview_date,
+            'interview_time' => $request->interview_time,
+            'interview_room' => $request->interview_room,
+        ]);
+
+        return redirect()->route('ba.pendaftar.detail', $form->reg_number)->with('success', 'Berhasil membuat jadwal wawancara');
     }
 }
