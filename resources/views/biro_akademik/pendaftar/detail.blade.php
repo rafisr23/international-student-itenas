@@ -255,18 +255,138 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
+          <div class="row align-items-center">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="scholarship" class="form-control-label">Pilihan Beasiswa</label>
                 <input class="form-control" type="text" value="{{ $form->scholarship->name }}" id="scholarship" disabled>
               </div>
             </div>
+            @if ($form->scholarship_id != 1)
+            <div class="col-md-4">
+              <div class="form-group">
+                  <label class="form-control-label"></label>
+                  <button type="button" class="btn bg-gradient-primary px-5 btn-sm d-block" data-bs-toggle="modal" data-bs-target="#achievement">Show Achievement</button>
+                </div>
+              </div>
+            @endif
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  {{-- Modals --}}
+  <div class="modal fade modal-lg" id="achievement" tabindex="-1" role="dialog" aria-labelledby="achievement" aria-hidden="true">
+    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title text-uppercase" id="modal-title-default">List of Achievement</h6>
+        </div>
+          <div id="modal-wrapper">
+            @foreach ($achievementLists as $value)
+              <div class="modal-body">
+                <div class="row">
+                  <p class="text-md text-bold">List Achievement {{ $loop->iteration }}</p>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="activity">Activity</label>
+                      <input required type="text" class="form-control" id="activity" name="activity[]" value="{{ $value->activity }}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="level">Level</label>
+                      <input required type="text" class="form-control" id="level" name="level[]" value="{{ $value->level}}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="position_held">Position Held</label>
+                      <input required type="text" class="form-control" id="position_held" name="position_held[]" value="{{ $value->position_held }}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="level_achievement">Level of Achievement</label>
+                      <input required type="text" class="form-control" id="level_achievement" name="level_achievement[]" value="{{ $value->level_achievement }}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="from">From</label>
+                      <input required type="text" class="form-control" id="from" name="from[]" value="{{ $value->from }}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="name_activity">Name of Activity/Organization/Employer</label>
+                      <input required type="text" class="form-control" id="name_activity" name="name_activity[]" value="{{ $value->name_activity }}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="to">To</label>
+                      <input required type="text" class="form-control" id="to" name="to[]" value="{{ $value->to }}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="certificate_achievement">Certificate of Achievement</label>
+                      @if ($value->certificate_achievement)
+                        <p class="text-sm ms-1"><a href="{{ route('cahayascholarship.download.certificate', $value->certificate_achievement) }}" target="_blank">{{ $value->certificate_achievement }}</a></p>
+                      @else
+                        <p class="text-sm ms-1"><i>There is no certificate for this achievement</i></p>
+                      @endif
+
+                    </div>
+                  </div>
+                </div>
+                <hr class="horizontal dark">
+                <div class="row">
+                  <p class="text-md text-bold">Reference Contact</p>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="first_name_contact">First Name</label>
+                      <input required type="text" class="form-control" id="first_name_contact" name="first_name_contact[]" value="{{ $value->first_name_contact }}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="email_contact">Email</label>
+                      <input required type="text" class="form-control" id="email_contact" name="email_contact[]" value="{{ $value->email_contact }}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="last_name_contact">Last Name</label>
+                      <input required type="text" class="form-control" id="last_name_contact" name="last_name_contact[]" value="{{ $value->last_name_contact }}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="telephone_contact">Telephone</label>
+                      <input required type="text" class="form-control" id="telephone_contact" name="telephone_contact[]" value="{{ $value->telephone_contact }}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="position_contact">Position of Contact Person</label>
+                      <input required type="text" class="form-control" id="position_contact" name="position_contact[]" value="{{ $value->position_contact }}" disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            @endforeach
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-link ml-auto text-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <div class="row mt-3">
     <div class="col">
       <div class="card">

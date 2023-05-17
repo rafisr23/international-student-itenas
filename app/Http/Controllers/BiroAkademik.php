@@ -6,6 +6,7 @@ use App\Models\Form;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
+use App\Models\ScholarshipAchievementList;
 
 class BiroAkademik extends Controller
 {
@@ -56,8 +57,9 @@ class BiroAkademik extends Controller
         $form->load(['student', 'user', 'scholarship', 'studyProgram']);
         $form->full_name = $form->student->first_name . ' ' . $form->student->last_name;
         // return $form->student;
+        $achievementLists = ScholarshipAchievementList::where('student_id', $form->student->id)->get();
 
-        return view('biro_akademik.pendaftar.detail', compact('form'));
+        return view('biro_akademik.pendaftar.detail', compact(['form', 'achievementLists']));
     }
 
     public function download($request) {
