@@ -421,23 +421,25 @@
       </div>
     </div>
   </div>
-  <div class="row mt-3">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <p class="text-uppercase text-md text-bold">Seleksi</p>
-          </div>
-          <div class="row">
-            <div class="d-inline">
-              <button type="button" class="btn bg-gradient-info px-5 me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default">Wawancara</button>
-              <button type="button" class="btn bg-gradient-danger px-5 btn-sm">Tolak</button>
+  @if ($form->status == 'Form Review')
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <p class="text-uppercase text-md text-bold">Seleksi</p>
+            </div>
+            <div class="row">
+              <div class="d-inline">
+                <button type="button" class="btn bg-gradient-info px-5 me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default">Wawancara</button>
+                <button type="button" class="btn bg-gradient-danger px-5 btn-sm">Tolak</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  @endif
 
   <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

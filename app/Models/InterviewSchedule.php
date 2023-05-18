@@ -10,4 +10,8 @@ class InterviewSchedule extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function form() {
+        return $this->belongsTo(Form::class);
+    }
 }

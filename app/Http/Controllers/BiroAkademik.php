@@ -71,6 +71,7 @@ class BiroAkademik extends Controller
     }
 
     public function wawancara(Request $request) {
+        // return $request;
         $validatedData = [
             'form_id' => 'required',
             'interview_date' => 'required',
@@ -80,7 +81,8 @@ class BiroAkademik extends Controller
 
         $request->validate($validatedData);
 
-        // update status
+        $interview_time = date('H:i:s', strtotime($request->interview_time));
+
         $form = Form::find($request->form_id);
         $form->status = 'Interview';
         $form->save();
@@ -89,10 +91,37 @@ class BiroAkademik extends Controller
         InterviewSchedule::create([
             'form_id' => $form->id,
             'interview_date' => $request->interview_date,
-            'interview_time' => $request->interview_time,
+            'interview_time' => $interview_time,
             'interview_room' => $request->interview_room,
         ]);
 
         return redirect()->route('ba.pendaftar.detail', $form->reg_number)->with('success', 'Berhasil membuat jadwal wawancara');
+    }
+
+    public function listWawancara(Request $request) {
+        $forms = Form::with(['student', 'user', 'scholarship', 'studyProgram', 'interviewSchedule'])->where('status', 'Interview')->where('is_submitted', true)->get();
+        foreach ($forms as $form) {
+            $form->full_name = $form->student->first_name . ' ' . $form->student->last_name;
+            $form->interviewSchedule->interview_date = date('d-m-Y', strtotime($form->interviewSchedule->interview_date));
+            $form->interviewSchedule->interview_time = date('H:i', strtotime($form->interviewSchedule->interview_time));
+        }
+
+        // return $forms;
+
+        if ($request->ajax()) {
+            $data = $forms;
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){ 
+                    // route btn to detail form
+                    $btn = '<a href="' . route('ba.pendaftar.detail', $row->reg_number) . '" class="edit btn btn-info"><i class="fa-regular fa-eye"></i></a>';
+                    // $btn = '<a href="{{ route }}" class="edit btn btn-info"><i class="fa-regular fa-eye"></i></a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('biro_akademik.pendaftar.wawancara', compact('forms'));
     }
 }

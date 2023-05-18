@@ -59,6 +59,7 @@ Route::middleware(['auth', 'ba'])->group(function () {
         Route::get('/pendaftar', [BiroAkademik::class, 'pendaftar'])->name('pendaftar');
         Route::get('/pendaftar/{form:reg_number}', [BiroAkademik::class, 'detailPendaftar'])->name('pendaftar.detail');
         Route::post('/pendaftar/wawancara/store', [BiroAkademik::class, 'wawancara'])->name('pendaftar.wawancara');
+        Route::get('/wawancara', [BiroAkademik::class, 'listWawancara'])->name('wawancara');
         Route::post('/pendaftar/reject', [BiroAkademik::class, 'reject'])->name('pendaftar.reject');
         Route::get('/doc/download/{folder}/{file}', [BiroAkademik::class, 'download'])->name('download');
     });

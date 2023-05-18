@@ -31,6 +31,10 @@ class Form extends Model
         return $this->belongsTo(StudyProgram::class);
     }
 
+    public function interviewSchedule() {
+        return $this->hasOne(InterviewSchedule::class);
+    }
+
     public function getRouteKeyName()
     {
         return 'reg_number';
