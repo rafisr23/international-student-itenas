@@ -15,9 +15,7 @@ class IsUserLevel
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role_id === '1') {
-            return redirect('/biodata');
-        } else if (auth()->user()->role_id === '3') {
+        if (auth()->user()->role_id === 3) {
             return redirect('/biroakademik/home');
         }
         return $next($request);
