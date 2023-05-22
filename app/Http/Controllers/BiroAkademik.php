@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Form;
 use Illuminate\Http\Request;
 use App\Models\InterviewSchedule;
+use App\Mail\InterviewInformation;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\ScholarshipAchievementList;
 
@@ -88,12 +90,19 @@ class BiroAkademik extends Controller
         $form->save();
 
         // create interview schedule
-        InterviewSchedule::create([
+        $interviewSchedule = InterviewSchedule::create([
             'form_id' => $form->id,
             'interview_date' => $request->interview_date,
             'interview_time' => $interview_time,
             'interview_room' => $request->interview_room,
         ]);
+
+        // send email to student
+        if ($form->student->user->email) {
+            Mail::to($form->student->user->email)->send(new InterviewInformation($interviewSchedule));
+        } else {
+            return redirect()->route('ba.pendaftar.detail', $form->reg_number)->with('error', 'Gagal mengirim email');
+        }
 
         return redirect()->route('ba.pendaftar.detail', $form->reg_number)->with('success', 'Berhasil membuat jadwal wawancara');
     }
