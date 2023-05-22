@@ -114,7 +114,7 @@ class BiroAkademik extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function($row){ 
                     // route btn to detail form
-                    $btn = '<a href="' . route('ba.pendaftar.detail', $row->reg_number) . '" class="edit btn btn-info"><i class="fa-regular fa-eye"></i></a>';
+                    $btn = '<a href="' . route('ba.pendaftar.detail', $row->reg_number) . '" class="edit btn btn-success"><i class="fa-solid fa-circle-check"></i></a>';
                     // $btn = '<a href="{{ route }}" class="edit btn btn-info"><i class="fa-regular fa-eye"></i></a>';
                     return $btn;
                 })

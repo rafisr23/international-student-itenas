@@ -21,7 +21,7 @@
         <a class="nav-link {{ request()->segment(2) == 'pendaftar' ? 'active' : '' }}" href="{{ route('ba.pendaftar') }}">
           <div
             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-paper-diploma text-dark text-sm opacity-10"></i>
+            <i class="fa-solid fa-users {{ request()->segment(2) == 'pendaftar' ? 'text-light' : 'text-dark' }} text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Pendaftar</span>
         </a>
@@ -30,7 +30,7 @@
         <a class="nav-link {{ request()->segment(2) == 'wawancara' ? 'active' : '' }}" href="{{ route('ba.wawancara') }}">
           <div
             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-paper-diploma text-dark text-sm opacity-10"></i>
+            <i class="fa-solid fa-clipboard-question {{ request()->segment(2) == 'wawancara' ? 'text-light' : 'text-dark' }} text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Wawancara</span>
         </a>
