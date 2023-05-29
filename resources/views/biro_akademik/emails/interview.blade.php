@@ -20,7 +20,7 @@ Button Text
 </x-mail::button> --}}
 
 Yours Sincerely,<br>
-ITENAS Academic Bureau<br><hr>
+Itenas International Office<br><hr>
 
 Note: Don't forget to bring your document to the interview session.
 </x-mail::message>
