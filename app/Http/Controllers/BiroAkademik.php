@@ -22,6 +22,7 @@ class BiroAkademik extends Controller
     }
 
     public function pendaftar(Request $request) {
+        $title = 'Pendaftar';
         $forms = Form::with(['student', 'user', 'scholarship', 'studyProgram'])->where('is_submitted', true)->get();
         // $forms = DB::table('forms')
         // ->join('students', 'forms.student_id', '=', 'students.id')
@@ -33,7 +34,6 @@ class BiroAkademik extends Controller
         // ->where('is_submitted', true)
         // ->get();
 
-        // get full name in forms
         foreach ($forms as $form) {
             $form->full_name = $form->student->first_name . ' ' . $form->student->last_name;
         }
@@ -53,7 +53,7 @@ class BiroAkademik extends Controller
                 ->make(true);
         }
 
-        return view('biro_akademik.pendaftar.index', compact('forms'));
+        return view('biro_akademik.pendaftar.index', compact(['forms', 'title']));
     }
 
     public function detailPendaftar(Form $form) {
@@ -108,6 +108,7 @@ class BiroAkademik extends Controller
     }
 
     public function listWawancara(Request $request) {
+        $title = 'Wawancara';
         $forms = Form::with(['student', 'user', 'scholarship', 'studyProgram', 'interviewSchedule'])->where('status', 'Interview')->where('is_submitted', true)->get();
         foreach ($forms as $form) {
             $form->full_name = $form->student->first_name . ' ' . $form->student->last_name;
@@ -132,7 +133,7 @@ class BiroAkademik extends Controller
                 ->make(true);
         }
 
-        return view('biro_akademik.pendaftar.wawancara', compact('forms'));
+        return view('biro_akademik.pendaftar.wawancara', compact(['forms', 'title']));
     }
 
     public function accept(Request $request) {
