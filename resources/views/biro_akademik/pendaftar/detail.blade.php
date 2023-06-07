@@ -432,7 +432,11 @@
             <div class="row">
               <div class="d-inline">
                 <button type="button" class="btn bg-gradient-info px-5 me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default">Wawancara</button>
-                <button type="button" class="btn bg-gradient-danger px-5 btn-sm">Tolak</button>
+                <form action="{{ route('ba.pendaftar.reject') }}" method="POST" class="d-inline">
+                  @csrf
+                  <input type="hidden" name="reg_number" value="{{ $form->reg_number }}">
+                  <button type="submit" class="btn bg-gradient-danger px-5 btn-sm">Tolak</button>
+                </form>
               </div>
             </div>
           </div>

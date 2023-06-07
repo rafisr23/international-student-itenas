@@ -123,7 +123,8 @@ class BiroAkademik extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function($row){ 
                     // route btn to detail form
-                    $btn = '<a href="' . route('ba.pendaftar.detail', $row->reg_number) . '" class="edit btn btn-success"><i class="fa-solid fa-circle-check"></i></a>';
+                    // $btn = '<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modal-default" class="edit btn btn-success"><i class="fa-solid fa-circle-check"></i></a>';
+                    $btn = '<button type="button" class="btn btn-success btn-accept" id="btn-accept" data-bs-toggle="modal" data-bs-target="#modal-default" data-id="' . $row->reg_number .'"><i class="fa-solid fa-circle-check"></i></button>';
                     // $btn = '<a href="{{ route }}" class="edit btn btn-info"><i class="fa-regular fa-eye"></i></a>';
                     return $btn;
                 })
@@ -132,5 +133,35 @@ class BiroAkademik extends Controller
         }
 
         return view('biro_akademik.pendaftar.wawancara', compact('forms'));
+    }
+
+    public function accept(Request $request) {
+        $form = Form::where('reg_number', $request->reg_number)->first();
+        $form->status = 'Accepted';
+        $form->save();
+
+        // send email to student
+        // if ($form->student->user->email) {
+        //     Mail::to($form->student->user->email)->send(new AcceptanceInformation($form));
+        // } else {
+        //     return redirect()->route('ba.pendaftar.detail', $form->reg_number)->with('error', 'Gagal mengirim email');
+        // }
+
+        return redirect()->route('ba.pendaftar.detail', $form->reg_number)->with('success', 'Berhasil menerima pendaftar');
+    }
+
+    public function reject(Request $request) {
+        $form = Form::where('reg_number', $request->reg_number)->first();
+        $form->status = 'Rejected';
+        $form->save();
+
+        // send email to student
+        // if ($form->student->user->email) {
+        //     Mail::to($form->student->user->email)->send(new RejectionInformation($form));
+        // } else {
+        //     return redirect()->route('ba.pendaftar.detail', $form->reg_number)->with('error', 'Gagal mengirim email');
+        // }
+
+        return redirect()->route('ba.pendaftar.detail', $form->reg_number)->with('success', 'Berhasil menolak pendaftar');
     }
 }
