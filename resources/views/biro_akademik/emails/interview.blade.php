@@ -10,7 +10,7 @@ After reviewing your form, we would like to invite you to attend an interview se
 <x-mail::table>
 | Interview Date       | Interview Time         | Interview Room  |
 | :------------------: |:----------------------:| :--------------:|
-| {{ $interviewSchedule->interview_date}}      | {{ $interviewSchedule->interview_time}}      | {{ $interviewSchedule->interview_room}}      |
+| {{ date('j F Y', strtotime($form->interviewSchedule->interview_date)) }}      | {{ date('g:i A', strtotime($form->interviewSchedule->interview_time)) }}      | {{ $interviewSchedule->interview_room}}      |
 </x-mail::table>
 <br><br>
 

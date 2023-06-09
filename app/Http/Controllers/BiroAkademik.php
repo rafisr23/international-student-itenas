@@ -112,8 +112,8 @@ class BiroAkademik extends Controller
         $forms = Form::with(['student', 'user', 'scholarship', 'studyProgram', 'interviewSchedule'])->where('status', 'Interview')->where('is_submitted', true)->get();
         foreach ($forms as $form) {
             $form->full_name = $form->student->first_name . ' ' . $form->student->last_name;
-            $form->interviewSchedule->interview_date = date('d-m-Y', strtotime($form->interviewSchedule->interview_date));
-            $form->interviewSchedule->interview_time = date('H:i', strtotime($form->interviewSchedule->interview_time));
+            $form->interviewSchedule->interview_date = date('j F Y', strtotime($form->interviewSchedule->interview_date));
+            $form->interviewSchedule->interview_time = date('g:i A', strtotime($form->interviewSchedule->interview_time));
         }
 
         // return $forms;
