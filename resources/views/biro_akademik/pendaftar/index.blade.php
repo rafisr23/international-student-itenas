@@ -17,6 +17,7 @@
                     <th>Asal Sekolah</th>
                     <th>Program Studi</th>
                     <th>Scholarship</th>
+                    <th>Submit</th>
                     <th>Status</th>
                     <th class="text-center">Aksi</th>
                   </tr>
@@ -87,6 +88,17 @@
           {
             data: 'scholarship.name', 
             name: 'scholarship.name'
+          },
+          {
+            data: 'is_submitted',
+            name: 'is_submitted',
+            render: function(data, type, row, meta) {
+              if (data == 0) {
+                return '<span class="badge bg-gradient-danger">Unsubmitted</span>';
+              } else if (data == 1) {
+                return '<span class="badge bg-gradient-success">Submitted</span>';
+              }
+            }
           },
           {
             data: 'status', 
