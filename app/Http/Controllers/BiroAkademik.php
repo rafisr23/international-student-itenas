@@ -23,7 +23,7 @@ class BiroAkademik extends Controller
 
     public function pendaftar(Request $request) {
         $title = 'Pendaftar';
-        $forms = Form::with(['student', 'user', 'scholarship', 'studyProgram'])->where('is_submitted', true)->get();
+        $forms = Form::with(['student', 'user', 'scholarship', 'studyProgram'])->where('status', 'Form Review')->get();
         // $forms = DB::table('forms')
         // ->join('students', 'forms.student_id', '=', 'students.id')
         // ->join('study_programs', 'forms.program_id', '=', 'study_programs.id')
