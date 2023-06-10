@@ -27,6 +27,22 @@
               </table>
             </div>
           </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="d-inline">
+                  {{-- <button type="button" class="btn bg-gradient-info px-5 me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default">Wawancara</button>
+                  <form action="{{ route('ba.pendaftar.reject') }}" method="POST" class="d-inline">
+                    @csrf
+                    <input type="hidden" name="reg_number" value="{{ $form->reg_number }}">
+                    <button type="submit" class="btn bg-gradient-danger px-5 btn-sm">Tolak</button>
+                  </form> --}}
+                  <a href="{{ route('ba.pendaftar.export') }}" class="btn bg-gradient-success px-5 btn-sm">Export to Excel</a>
+                  {{-- <button type="submit" class="btn bg-gradient-success px-5 btn-sm">Export to Excel</button> --}}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

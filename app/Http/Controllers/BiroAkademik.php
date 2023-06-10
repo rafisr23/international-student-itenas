@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Form;
+use App\Exports\FormExport;
 use Illuminate\Http\Request;
 use App\Models\InterviewSchedule;
 use App\Mail\InterviewInformation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\ScholarshipAchievementList;
 
@@ -26,7 +28,7 @@ class BiroAkademik extends Controller
         $forms = Form::with(['student', 'user', 'scholarship', 'studyProgram'])->where('status', 'Form Review')->get();
         // $forms = DB::table('forms')
         // ->join('students', 'forms.student_id', '=', 'students.id')
-        // ->join('study_programs', 'forms.program_id', '=', 'study_programs.id')
+        // ->join('study_programs', 'forms.study_program_id', '=', 'study_programs.id')
         // ->join('users', 'students.user_id', '=', 'users.id')
         // ->join('scholarships', 'forms.scholarship_id', '=', 'scholarships.id')
         // ->join('faculties', 'study_programs.faculty_id', '=', 'faculties.id')
@@ -165,5 +167,9 @@ class BiroAkademik extends Controller
         // }
 
         return redirect()->route('ba.pendaftar.detail', $form->reg_number)->with('success', 'Berhasil menolak pendaftar');
+    }
+
+    public function exportForm(){
+        return Excel::download(new FormExport(), 'Pendaftar International Student ITENAS.xlsx');
     }
 }
