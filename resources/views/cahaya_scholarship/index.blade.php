@@ -23,7 +23,7 @@
                   <div class="accordion-body text-dark">
                     <ul>
                       <li>Be citizens of a country other than Indonesia and not a permanent resident of Indonesia</li>
-                      <li>Graduates of 2023</li>
+                      <li>Graduates of 2024</li>
                       <li>Have strong leadership qualities and potential</li> 
                       <li>Present excellent co-curricular activities records</li> 
                       <li>Possess outstanding high school results</li> 
@@ -35,10 +35,14 @@
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <p class="fs-3"><b class="fw-bold text-warning">Term & </b> Conditions</p>
+                    <p class="fs-3"><b class="fw-bold text-warning">Scholarship Benefits</p>
                   </button>
+                  {{-- <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <p class="fs-3"><b class="fw-bold text-warning">Term & </b> Conditions</p>
+                  </button> --}}
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <p>Tuition fees for 8 semesters (4 years programme), with <b> Term & Conditions: </b></p>
                   <div class="accordion-body text-dark">
                     <ul>
                       <li>The scholarship is offered to read a full-time undergraduate course at Itenas. The scholarship does not cover students in Double Degree, Joint Degree Programmes, and Master Degree Programme. </li>

@@ -10,7 +10,7 @@
           {{-- <h4 class="text-center mb-0 text-warning">Registration Information</h4> --}}
           <div class="col-lg-6">
             <div class="row justify-content-center">
-              <img src="/assets/img/important-dates.png" alt="" class="border-radius-lg">
+              <img src="/assets/img/important-dates-v2.png" alt="" class="border-radius-lg">
             </div>
           </div>
           <div class="col-lg-4 ms-auto mt-lg-0 mt-4">

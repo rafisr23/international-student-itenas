@@ -140,7 +140,7 @@ class BiroAkademik extends Controller
     }
 
     public function accept(Request $request) {
-        $form = Form::where('reg_number', $request->reg_number)->first();
+        $form = Form::find($request->form_id);
         $form->status = 'Accepted';
         $form->save();
 

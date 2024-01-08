@@ -421,17 +421,21 @@
       </div>
     </div>
   </div>
-  @if ($form->status == 'Form Review')
-    <div class="row mt-3">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="row">
-              <p class="text-uppercase text-md text-bold">Seleksi</p>
-            </div>
-            <div class="row">
-              <div class="d-inline">
-                <button type="button" class="btn bg-gradient-info px-5 me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default">Wawancara</button>
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <p class="text-uppercase text-md text-bold">Seleksi</p>
+          </div>
+          <div class="row">
+            <div class="d-inline">
+                @if ($form->status == 'Form Review')
+                  <button type="button" class="btn bg-gradient-info px-5 me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default">Wawancara</button>
+                @endif
+                @if ($form->status == 'Interview')
+                  <button type="button" class="btn bg-gradient-success px-5 me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default2">Terima</button>
+                @endif
                 <form action="{{ route('ba.pendaftar.reject') }}" method="POST" class="d-inline">
                   @csrf
                   <input type="hidden" name="reg_number" value="{{ $form->reg_number }}">
@@ -443,7 +447,6 @@
         </div>
       </div>
     </div>
-  @endif
 
   <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -489,6 +492,35 @@
           <button type="button" class="btn bg-gradient-secondary btn-sm" data-bs-dismiss="modal">Close</button>
           <button type="submit" value="submit" class="btn bg-gradient-success btn-sm">Save changes</button>
         </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  {{-- Modals Accepted --}}
+  <div class="modal fade" id="modal-default2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="modal-title-notification">Alert!</h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form action="{{ route('ba.pendaftar.accept') }}" method="POST">
+          @csrf
+          <div class="modal-body">
+            <div class="py-3 text-center">
+              <i class="ni ni-bell-55 ni-3x"></i>
+              <h4 class="text-gradient text-danger mt-4">Are you sure?</h4>
+              <p>Are you sure want to accepted to ITENAS?</p>
+              <input class="form-control" type="text" name="form_id" id="form_id" value="{{ $form->id }}" hidden>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Ok, Got it</button>
+            <button type="button" class="btn btn-link ml-auto" data-bs-dismiss="modal">Close</button>
+          </div>
         </form>
       </div>
     </div>
