@@ -16,7 +16,7 @@
             </figcaption>
           </figure>
           <a class="btn btn-warning me-1 mt-3" href="/register">Register Here!</a>
-          <a class="btn btn-light mt-3" href="{{ route('download', 'brosur 19_04_2023.pdf') }}">Download Brosur</a>
+          <a class="btn btn-light mt-3" href="{{ route('download', 'brosur internasional 2024.pdf') }}">Download Brosur</a>
           <h6 class="text-white mb-2 mt-3">Find us on</h6>
           <div class="d-flex justify-content-center">
             <a href="https://www.instagram.com/itenas.official/" target="_blank"><i
