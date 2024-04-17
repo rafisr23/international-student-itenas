@@ -5,6 +5,22 @@
     <div class="col">
       <div class="card">
         <div class="card-body">
+          <div class="row mb-3">
+            <div class="col-md-3">
+              <label class="form-label fs-6">Tahun daftar</label>
+              <select class="form-select" name="year_filter" id="year_filter">
+                <option selected disabled>Open this select menu</option>
+                @php
+                  $year = date('Y');
+                  $min = $year - 60;
+                  $max = $year;
+                @endphp
+                @for ($i = $max; $i >= $min; $i--)
+                    <option value="{{ $i }}" {{ $i == $year ? 'selected' : '' }}>{{ $i }}</option>
+                @endfor
+              </select>
+            </div>
+          </div>
           <div class="row">
             <div class="col-md-12">
               <table id="tabel-pendaftar" class="table table-striped table-bordered mb-3" style="width:100%">
@@ -65,12 +81,17 @@
     // }
 
     $(function() {
-      console.log('hello');
+      // console.log('hello');
       let table = $('#tabel-pendaftar').DataTable({
         processing: true,
         responsive: true,
         serverSide: true,
-        ajax: "{{ route('ba.pendaftar') }}",
+        ajax: {
+          url: "{{ route('ba.pendaftar') }}",
+          data: function(d) {
+            d.filter1 = $('#year_filter').val() ? $('#year_filter').val() : '<>';
+          }
+        },
         columns: [
           // {
           //   className: 'dt-control',
@@ -151,7 +172,11 @@
           }
         }
       });
-      console.log(table);
+
+      $("#year_filter").on('change', function() {
+        table.draw();
+      });
+      // console.log(table);
       
       // $('#tabel-pendaftar tbody').on('click', 'td.dt-control', function () {
       //   let tr = $(this).closest('tr');

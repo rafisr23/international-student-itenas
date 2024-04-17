@@ -38,7 +38,10 @@ class BiroAkademik extends Controller
 
         foreach ($forms as $form) {
             $form->full_name = $form->student->first_name . ' ' . $form->student->last_name;
+            $form->tahun_daftar = date('Y', strtotime($form->created_at));
         }
+
+        $forms = $forms->where('tahun_daftar', $request->get('filter1'));
         
         // return $forms;
         if ($request->ajax()) {
