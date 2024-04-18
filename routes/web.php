@@ -57,7 +57,7 @@ Route::middleware(['auth', 'ba'])->group(function () {
     Route::prefix('biroakademik')->name('ba.')->group(function () {
         Route::get('/home', [BiroAkademik::class, 'index'])->name('index');
         Route::get('/pendaftar', [BiroAkademik::class, 'pendaftar'])->name('pendaftar');
-        Route::get('/pendaftar/export', [BiroAkademik::class, 'exportForm'])->name('pendaftar.export');
+        Route::get('/pendaftar/export/{year}', [BiroAkademik::class, 'exportForm'])->name('pendaftar.export');
         // Route::get('/pendaftar/export', [BiroAkademik::class, 'exportForm'])->name('pendaftar.export');
         Route::get('/pendaftar/{form:reg_number}', [BiroAkademik::class, 'detailPendaftar'])->name('pendaftar.detail');
         Route::post('/pendaftar/wawancara/store', [BiroAkademik::class, 'wawancara'])->name('pendaftar.wawancara');

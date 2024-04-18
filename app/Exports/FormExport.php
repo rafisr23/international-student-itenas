@@ -22,8 +22,17 @@ class FormExport implements ShouldAutoSize, WithHeadings, FromQuery
     //     return $forms;
     // }
 
+    public function __construct(int $year)
+    {
+        $this->year = $year;
+    }
+
     public function query()
     {
+        if ( $this->year != '0') {
+            return Form::query()->join('students', 'forms.student_id', '=', 'students.id')->join('scholarships', 'forms.scholarship_id', '=', 'scholarships.id')->join('users', 'students.user_id', '=', 'users.id')->join('study_programs', 'forms.study_program_id', '=', 'study_programs.id')->join('faculties', 'study_programs.faculty_id', '=', 'faculties.id')->select('forms.reg_number', 'users.name', 'students.gender', 'users.email', 'students.phone_number', 'students.address', 'students.city', 'students.country', 'students.postal_code', 'forms.high_school', 'forms.grad_date', 'forms.school_address', 'forms.school_city', 'forms.school_country', 'forms.school_postal_code', 'study_programs.name as study_program', 'faculties.name as faculty', 'scholarships.name as scholarship', 'forms.status')->whereYear('forms.created_at', $this->year)->orderBy('users.name', 'asc');
+        }
+
         return Form::query()->join('students', 'forms.student_id', '=', 'students.id')->join('scholarships', 'forms.scholarship_id', '=', 'scholarships.id')->join('users', 'students.user_id', '=', 'users.id')->join('study_programs', 'forms.study_program_id', '=', 'study_programs.id')->join('faculties', 'study_programs.faculty_id', '=', 'faculties.id')->select('forms.reg_number', 'users.name', 'students.gender', 'users.email', 'students.phone_number', 'students.address', 'students.city', 'students.country', 'students.postal_code', 'forms.high_school', 'forms.grad_date', 'forms.school_address', 'forms.school_city', 'forms.school_country', 'forms.school_postal_code', 'study_programs.name as study_program', 'faculties.name as faculty', 'scholarships.name as scholarship', 'forms.status')->orderBy('users.name', 'asc');
     }
 

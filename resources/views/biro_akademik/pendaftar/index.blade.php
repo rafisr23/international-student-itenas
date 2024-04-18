@@ -9,7 +9,8 @@
             <div class="col-md-3">
               <label class="form-label fs-6">Tahun daftar</label>
               <select class="form-select" name="year_filter" id="year_filter">
-                <option selected disabled>Open this select menu</option>
+                <option selected disabled>Pilih Tahun Daftar</option>
+                <option value="0">Tampilkan Semua</option>
                 @php
                   $year = date('Y');
                   $min = $year - 60;
@@ -53,7 +54,7 @@
                     <input type="hidden" name="reg_number" value="{{ $form->reg_number }}">
                     <button type="submit" class="btn bg-gradient-danger px-5 btn-sm">Tolak</button>
                   </form> --}}
-                  <a href="{{ route('ba.pendaftar.export') }}" class="btn bg-gradient-success px-5 btn-sm">Export to Excel</a>
+                  <button onclick="exportTable()" class="btn bg-gradient-success px-5 btn-sm">Export to Excel</button>
                   {{-- <button type="submit" class="btn bg-gradient-success px-5 btn-sm">Export to Excel</button> --}}
                 </div>
               </div>
@@ -176,6 +177,7 @@
       $("#year_filter").on('change', function() {
         table.draw();
       });
+
       // console.log(table);
       
       // $('#tabel-pendaftar tbody').on('click', 'td.dt-control', function () {
@@ -193,6 +195,12 @@
       //   }
       // });
     });
+
+    function exportTable() {
+      let filter1 = $('#year_filter').val();
+
+      window.location.href = "{{ route('ba.pendaftar.export', ':year') }}".replace(':year', filter1);
+    }
 
 
   </script>

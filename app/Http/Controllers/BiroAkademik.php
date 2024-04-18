@@ -41,7 +41,11 @@ class BiroAkademik extends Controller
             $form->tahun_daftar = date('Y', strtotime($form->created_at));
         }
 
-        $forms = $forms->where('tahun_daftar', $request->get('filter1'));
+        if ($request->get('filter1') != '0') {
+            $forms = $forms->where('tahun_daftar', $request->get('filter1'));
+        }
+
+        // $forms = $forms->where('tahun_daftar', $request->get('filter1'));
         
         // return $forms;
         if ($request->ajax()) {
@@ -172,7 +176,11 @@ class BiroAkademik extends Controller
         return redirect()->route('ba.pendaftar.detail', $form->reg_number)->with('success', 'Berhasil menolak pendaftar');
     }
 
-    public function exportForm(){
-        return Excel::download(new FormExport(), 'Pendaftar International Student ITENAS.xlsx');
+    public function exportForm(Request $request, $year) {
+        // if ($year == '0') {
+        //     $year = ''
+        // }
+
+        return Excel::download(new FormExport($year), 'Pendaftar International Student ITENAS.xlsx');
     }
 }
