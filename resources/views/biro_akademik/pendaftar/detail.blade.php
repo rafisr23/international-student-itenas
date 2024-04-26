@@ -334,7 +334,7 @@
                     <div class="form-group">
                       <label for="certificate_achievement">Certificate of Achievement</label>
                       @if ($value->certificate_achievement)
-                        <p class="text-sm ms-1"><a href="{{ route('cahayascholarship.download.certificate', $value->certificate_achievement) }}" target="_blank">{{ $value->certificate_achievement }}</a></p>
+                        <p class="text-sm ms-1"><a href="{{ asset('storage/certificate_achievement/' . $value->certificate_achievement) }}" target="_blank">{{ $value->certificate_achievement }}</a></p>
                       @else
                         <p class="text-sm ms-1"><i>There is no certificate for this achievement</i></p>
                       @endif
