@@ -6,7 +6,7 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <p class="text-uppercase text-md text-bold">Biodata Pendaftar</p>
+            <p class="text-uppercase text-md text-bold">Applicant's Personal Information</p>
           </div>
           <div class="row">
             <div class="col-md-12">
@@ -130,7 +130,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="phone_number" class="form-control-label">Nomor Telepon</label>
+                    <label for="phone_number" class="form-control-label">Phone Number</label>
                     <input class="form-control" type="text" value="{{ $form->student->phone_number }}" id="phone_number" disabled>
                   </div>
                 </div>
@@ -144,7 +144,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="address" class="form-control-label">Alamat</label>
+                    <label for="address" class="form-control-label">Address</label>
                     <input class="form-control" type="text" value="{{ $form->student->address }}" id="address" disabled>
                   </div>
                 </div>
@@ -152,19 +152,19 @@
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="city" class="form-control-label">Kota</label>
+                    <label for="city" class="form-control-label">City</label>
                     <input class="form-control" type="text" value="{{ $form->student->city }}" id="city" disabled>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="country" class="form-control-label">Negara</label>
+                    <label for="country" class="form-control-label">Country</label>
                     <input class="form-control" type="text" value="{{ $form->student->country }}" id="country" disabled>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="postal_code" class="form-control-label">Kode Pos</label>
+                    <label for="postal_code" class="form-control-label">Postal Code</label>
                     <input class="form-control" type="text" value="{{ $form->student->postal_code }}" id="postal_code" disabled>
                   </div>
                 </div>
@@ -180,18 +180,18 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <p class="text-uppercase text-md text-bold">Informasi Sekolah Pendaftar</p>
+            <p class="text-uppercase text-md text-bold">Applicant's School Information</p>
           </div>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="high_school" class="form-control-label">Asal Sekolah</label>
+                <label for="high_school" class="form-control-label">School of Origin</label>
                 <input class="form-control" type="text" value="{{ $form->high_school }}" id="high_school" disabled>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="grad_date" class="form-control-label">Tanggal Lulus</label>
+                <label for="grad_date" class="form-control-label">Graduation Date</label>
                 <input class="form-control" type="text" value="{{ $form->grad_date }}" id="grad_date" disabled>
               </div>
             </div>
@@ -199,7 +199,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label for="school_address" class="form-control-label">Alamat Sekolah</label>
+                <label for="school_address" class="form-control-label">School Address</label>
                 <input class="form-control" type="text" value="{{ $form->school_address }}" id="school_address" disabled>
               </div>
             </div>
@@ -207,19 +207,19 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label for="school_city" class="form-control-label">Kota</label>
+                <label for="school_city" class="form-control-label">City</label>
                 <input class="form-control" type="text" value="{{ $form->school_city }}" id="school_city" disabled>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="school_country" class="form-control-label">Negara</label>
+                <label for="school_country" class="form-control-label">Country</label>
                 <input class="form-control" type="text" value="{{ $form->school_country }}" id="school_country" disabled>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="school_postal_code" class="form-control-label">Kode Pos</label>
+                <label for="school_postal_code" class="form-control-label">Postal Code</label>
                 <input class="form-control" type="text" value="{{ $form->school_postal_code }}" id="school_postal_code" disabled>
               </div>
             </div>
@@ -233,24 +233,24 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <p class="text-uppercase text-md text-bold">Program Studi dan Beasiswa</p>
+            <p class="text-uppercase text-md text-bold">Study Program and Scholarship</p>
           </div>
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label for="study_program_code" class="form-control-label">Kode Program Studi</label>
+                <label for="study_program_code" class="form-control-label">Study Program Code</label>
                 <input class="form-control" type="text" value="{{ $form->studyProgram->code }}" id="study_program_code" disabled>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="study_program" class="form-control-label">Program Studi</label>
+                <label for="study_program" class="form-control-label">Study Program</label>
                 <input class="form-control" type="text" value="{{ $form->studyProgram->name }}" id="study_program" disabled>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="faculty" class="form-control-label">Fakultas</label>
+                <label for="faculty" class="form-control-label">Faculty</label>
                 <input class="form-control" type="text" value="{{ $form->studyProgram->faculty->name }}" id="faculty" disabled>
               </div>
             </div>
@@ -258,7 +258,7 @@
           <div class="row align-items-center">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="scholarship" class="form-control-label">Pilihan Beasiswa</label>
+                <label for="scholarship" class="form-control-label">Scholarship Choices</label>
                 <input class="form-control" type="text" value="{{ $form->scholarship->name }}" id="scholarship" disabled>
               </div>
             </div>
@@ -392,7 +392,7 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <p class="text-uppercase text-md text-bold">Dokumen</p>
+            <p class="text-uppercase text-md text-bold">Document</p>
           </div>
           <div class="row">
             <div class="col-md-6">
@@ -426,20 +426,20 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <p class="text-uppercase text-md text-bold">Seleksi</p>
+            <p class="text-uppercase text-md text-bold">Selection</p>
           </div>
           <div class="row">
             <div class="d-inline">
                 @if ($form->status == 'Form Review')
-                  <button type="button" class="btn bg-gradient-info px-5 me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default">Wawancara</button>
+                  <button type="button" class="btn bg-gradient-info px-5 me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default">Interview</button>
                 @endif
                 @if ($form->status == 'Interview')
-                  <button type="button" class="btn bg-gradient-success px-5 me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default2">Terima</button>
+                  <button type="button" class="btn bg-gradient-success px-5 me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#modal-default2">Accept</button>
                 @endif
                 <form action="{{ route('ba.pendaftar.reject') }}" method="POST" class="d-inline">
                   @csrf
                   <input type="hidden" name="reg_number" value="{{ $form->reg_number }}">
-                  <button type="submit" class="btn bg-gradient-danger px-5 btn-sm">Tolak</button>
+                  <button type="submit" class="btn bg-gradient-danger px-5 btn-sm">Decline</button>
                 </form>
               </div>
             </div>

@@ -7,10 +7,10 @@
         <div class="card-body">
           <div class="row mb-3">
             <div class="col-md-3">
-              <label class="form-label fs-6">Tahun daftar</label>
+              <label class="form-label fs-6">Registration Year</label>
               <select class="form-select" name="year_filter" id="year_filter">
-                <option selected disabled>Pilih Tahun Daftar</option>
-                <option value="0">Tampilkan Semua</option>
+                <option selected disabled>Choose Registration Year</option>
+                <option value="0">Show All</option>
                 @php
                   $year = date('Y');
                   $min = $year - 60;
@@ -28,15 +28,15 @@
                 <thead>
                   <tr>
                     {{-- <th></th> --}}
-                    <th>NO</th>
-                    <th class="text-center">Nomor Registrasi</th>
-                    <th>Nama</th>
-                    <th>Asal Sekolah</th>
-                    <th>Program Studi</th>
+                    <th>No</th>
+                    <th class="text-center">Registration Number</th>
+                    <th>Name</th>
+                    <th>School of Origin</th>
+                    <th>Study Program</th>
                     <th>Scholarship</th>
                     <th>Submit</th>
                     <th>Status</th>
-                    <th class="text-center">Aksi</th>
+                    <th class="text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody>

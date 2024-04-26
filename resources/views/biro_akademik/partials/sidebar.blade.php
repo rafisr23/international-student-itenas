@@ -23,7 +23,7 @@
             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="fa-solid fa-users {{ request()->segment(2) == 'pendaftar' ? 'text-light' : 'text-dark' }} text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Pendaftar</span>
+          <span class="nav-link-text ms-1">Applicant</span>
         </a>
       </li>
       <li class="nav-item">
@@ -32,7 +32,7 @@
             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="fa-solid fa-clipboard-question {{ request()->segment(2) == 'wawancara' ? 'text-light' : 'text-dark' }} text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Wawancara</span>
+          <span class="nav-link-text ms-1">Interview</span>
         </a>
       </li>
       <li class="nav-item">

@@ -11,14 +11,14 @@
                 <thead>
                   <tr>
                     {{-- <th></th> --}}
-                    <th>NO</th>
-                    <th class="text-center">Nomor Registrasi</th>
-                    <th>Nama</th>
-                    <th>Tanggal</th>
-                    <th>Waktu</th>
-                    <th>Ruang</th>
+                    <th>No</th>
+                    <th class="text-center">Registration Number</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Room</th>
                     <th>Status</th>
-                    <th class="text-center">Aksi</th>
+                    <th class="text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
