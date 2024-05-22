@@ -118,11 +118,16 @@ class BiroAkademik extends Controller
 
     public function listWawancara(Request $request) {
         $title = 'Wawancara';
-        $forms = Form::with(['student', 'user', 'scholarship', 'studyProgram', 'interviewSchedule'])->where('status', 'Interview')->where('is_submitted', true)->get();
+        $forms = Form::with(['student', 'user', 'scholarship', 'studyProgram', 'interviewSchedule'])->where('status', 'Interview')->get();
         foreach ($forms as $form) {
             $form->full_name = $form->student->first_name . ' ' . $form->student->last_name;
             $form->interviewSchedule->interview_date = date('j F Y', strtotime($form->interviewSchedule->interview_date));
             $form->interviewSchedule->interview_time = date('g:i A', strtotime($form->interviewSchedule->interview_time));
+            $form->tahun_daftar = date('Y', strtotime($form->created_at));
+        }
+
+        if ($request->get('filter1') != '0') {
+            $forms = $forms->where('tahun_daftar', $request->get('filter1'));
         }
 
         // return $forms;
