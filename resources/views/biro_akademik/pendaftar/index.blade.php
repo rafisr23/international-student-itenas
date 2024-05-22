@@ -13,7 +13,7 @@
                 <option value="0">Show All</option>
                 @php
                   $year = date('Y');
-                  $min = $year - 60;
+                  $min = 2020;
                   $max = $year;
                 @endphp
                 @for ($i = $max; $i >= $min; $i--)
